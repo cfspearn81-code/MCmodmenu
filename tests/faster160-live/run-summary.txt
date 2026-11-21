@@ -1,0 +1,10 @@
+[14:10:06] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS all 16 bed colors outlined through a solid wall; logical beds=17
+[14:10:07] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS range 1 hides beds; range 5000 retains loaded beds
+[14:10:08] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS live server bed removal updates cached outlines
+[14:10:11] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS normal drop: airTicks=26, minYVelocity=-1.6480957061501194, landingY=81.0, peak=105.0, corrections=0
+[14:10:13] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS quick drop: airTicks=3, minYVelocity=-8.0, landingY=81.0, peak=105.0, corrections=0
+[14:10:16] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS jump drop: airTicks=33, minYVelocity=-1.6918206593767546, landingY=81.0, peak=106.25220334025373, corrections=0
+[14:10:17] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS slab drop: airTicks=3, minYVelocity=-8.0, landingY=81.5, peak=105.0, corrections=0
+[14:10:20] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS QuickFall permits Wall Climb; rise=5.174400100708283
+[14:10:23] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE PASS QuickFall leaves Free Cam body in place
+[14:10:23] [Render thread/INFO] (Minecraft) [STDOUT]: FEATURE ALL CHECKS COMPLETE

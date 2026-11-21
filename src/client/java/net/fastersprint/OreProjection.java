@@ -17,9 +17,12 @@ final class OreProjection {
         int p=i*4; planes[p]=x; planes[p+1]=y; planes[p+2]=z; planes[p+3]=w;
     }
     boolean visible(double x, double y, double z, int size) {
+        return visible(x,y,z,size,size,size);
+    }
+    boolean visible(double x,double y,double z,double width,double height,double depth) {
         for (int p=0;p<20;p+=4) {
             float a=planes[p], b=planes[p+1], c=planes[p+2];
-            if (a*(x+(a>0?size:0))+b*(y+(b>0?size:0))+c*(z+(c>0?size:0))+planes[p+3] < 0) return false;
+            if (a*(x+(a>0?width:0))+b*(y+(b>0?height:0))+c*(z+(c>0?depth:0))+planes[p+3] < 0) return false;
         }
         return true;
     }

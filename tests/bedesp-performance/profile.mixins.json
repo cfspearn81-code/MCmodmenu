@@ -1,0 +1,1 @@
+{"required":true,"package":"bench.mixin","compatibilityLevel":"JAVA_25","client":["ProfileMixin","GameMixin","StatesMixin","VerticesMixin"],"injectors":{"defaultRequire":1}}

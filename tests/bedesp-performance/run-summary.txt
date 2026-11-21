@@ -1,0 +1,4 @@
+[14:13:29] [Render thread/INFO] (Minecraft) [STDOUT]: BEDESP UI PASS numeric min/max/invalid input, BedEsp switch, scrolled QuickFall switch
+[14:13:30] [Render thread/INFO] (Minecraft) [STDOUT]: BED STRESS placed logical beds=2688
+[14:13:46] [Render thread/INFO] (Minecraft) [STDOUT]: BED STRESS selected=1024
+[14:13:46] [Render thread/INFO] (Minecraft) [STDOUT]: BEDESP BENCHMARK {"frames":120,"render_ms":0.2095,"render_p95_ms":1.4189,"render_allocated_bytes":43254,"gui_states":1.0,"tick_ms":0.0024,"tick_p95_ms":0.0040,"frame_interval_ms":85.4626,"vertex_build_ms":0.9062}

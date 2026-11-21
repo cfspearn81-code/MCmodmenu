@@ -16,13 +16,16 @@ abstract class XrayChunkMixin {
     @Inject(method = "onChunkLoaded", at = @At("TAIL"))
     private void fastersprint$trackOres(ChunkPos pos, CallbackInfo callback) {
         Xray.chunkLoaded((ClientLevel) (Object) this, pos);
+        net.fastersprint.BedEsp.chunkLoaded((ClientLevel) (Object) this, pos);
     }
     @Inject(method = "setBlocksDirty", at = @At("TAIL"))
     private void fastersprint$updateOre(BlockPos pos, BlockState previous, BlockState next, CallbackInfo callback) {
         Xray.blockChanged((ClientLevel) (Object) this, pos, next);
+        net.fastersprint.BedEsp.blockChanged((ClientLevel) (Object) this, pos, next);
     }
     @Inject(method = "unload", at = @At("HEAD"))
     private void fastersprint$forgetOres(LevelChunk chunk, CallbackInfo callback) {
         Xray.chunkUnloaded((ClientLevel) (Object) this, chunk.getPos());
+        net.fastersprint.BedEsp.chunkUnloaded((ClientLevel) (Object) this, chunk.getPos());
     }
 }

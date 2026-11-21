@@ -16,6 +16,7 @@ abstract class PlayerDisplayHudMixin {
     private void fastersprint$drawPlayerDirections(
             GuiGraphicsExtractor graphics, DeltaTracker delta, CallbackInfo callback) {
         net.fastersprint.Xray.render(graphics);
+        net.fastersprint.BedEsp.render(graphics);
         PlayerDisplayRenderer.render(graphics, delta);
         net.fastersprint.FreeCam.renderStatus(graphics);
         ClientMenu.render(graphics);

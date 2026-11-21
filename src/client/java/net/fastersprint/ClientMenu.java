@@ -24,6 +24,7 @@ public final class ClientMenu {
     private static boolean searchSelected;
     private static String query = "";
     private static int searchOffset;
+    private static int movementOffset;
     private static final int SEARCH_ROWS = 5;
     private static boolean open;
     private static boolean speedEnabled;
@@ -178,10 +179,11 @@ public final class ClientMenu {
             bindingBridgeKey = false; bindingFreeCamKey = false; focusSearch(); return;
         }
         searchFocused = false;
-        for (int index = 0; index < 5; index++) {
+        for (int index = 0; index < 6; index++) {
             if (inside(x, y, 10, 48 + index * 30, 92, 26)) {
                 bindingBridgeKey = false; bindingFreeCamKey = false;
                 category = index;
+                if (category == 1) movementOffset = 0;
                 if (category == 0) focusSearch();
                 editing = Setting.NONE;
                 error = "";
@@ -282,7 +284,9 @@ public final class ClientMenu {
     }
 
     public static void scroll(double amount) {
-        if (category == 0 && amount != 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
+        if (amount == 0) return;
+        if (category == 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
+        if (category == 1) movementOffset = Math.clamp(movementOffset + (amount < 0 ? 1 : -1), 0, 1);
     }
 
     private static void drawSearch(GuiGraphicsExtractor graphics) {
@@ -313,36 +317,45 @@ public final class ClientMenu {
             int index = searchResults().indexOf(tool);
             return index >= searchOffset && index < searchOffset + SEARCH_ROWS;
         }
-        return (category == 1 && (tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE || tool == Tool.FREECAM || tool == Tool.WALLCLIMB))
-            || (category == 2 && tool == Tool.PLAYERS) || (category == 3 && tool == Tool.HIT)
-            || (category == 4 && tool == Tool.XRAY);
+        if (category == 1) {
+            boolean movement = tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE
+                || tool == Tool.FREECAM || tool == Tool.WALLCLIMB || tool == Tool.QUICKFALL;
+            return movement && toolTop(tool) >= 47 && toolTop(tool) + 48 <= 385;
+        }
+        return (category == 2 && tool == Tool.PLAYERS) || (category == 3 && tool == Tool.HIT)
+            || (category == 4 && tool == Tool.XRAY) || (category == 5 && tool == Tool.BEDESP);
     }
 
     private static int toolTop(Tool tool) {
         if (category == 0) {
             return 99 + (searchResults().indexOf(tool) - searchOffset) * 56;
         }
-        return switch (tool) {
+        int top = switch (tool) {
             case GUIMOVE -> 173;
             case BRIDGE -> 227;
             case FREECAM -> 281;
             case WALLCLIMB -> 335;
+            case QUICKFALL -> 389;
             default -> 51;
         };
+        return category == 1 ? top - movementOffset * 54 : top;
     }
 
     private static int settingTop(Setting setting) {
         return switch (setting) {
-            case SPEED -> category == 1 ? 115 : -1;
+            case SPEED -> category == 1 ? 115 - movementOffset * 54 : -1;
             case RANGE -> category == 2 ? 115 : -1;
             case NAMES -> category == 2 ? 177 : -1;
             case XRAY_RANGE -> category == 4 ? 115 : -1;
+            case BED_RANGE -> category == 5 ? 115 : -1;
             case NONE -> -1;
         };
     }
 
     private static boolean toolEnabled(Tool tool) {
         return switch (tool) {
+            case BEDESP -> BedEspSettings.enabled();
+            case QUICKFALL -> QuickFallSettings.enabled();
             case WALLCLIMB -> WallClimbSettings.enabled();
             case FREECAM -> FreeCam.active();
             case XRAY -> XraySettings.enabled();
@@ -357,6 +370,8 @@ public final class ClientMenu {
     private static void toggleTool(Tool tool) {
         try {
             switch (tool) {
+                case BEDESP -> BedEspSettings.setEnabled(!BedEspSettings.enabled());
+                case QUICKFALL -> QuickFallSettings.setEnabled(!QuickFallSettings.enabled());
                 case WALLCLIMB -> WallClimbSettings.setEnabled(!WallClimbSettings.enabled());
                 case FREECAM -> FreeCam.toggle();
                 case XRAY -> XraySettings.setEnabled(!XraySettings.enabled());
@@ -381,10 +396,11 @@ public final class ClientMenu {
             input = next.stripTrailingZeros().toPlainString();
         } else {
             int current = setting == Setting.RANGE ? PlayerDisplaySettings.range()
-                : setting == Setting.XRAY_RANGE ? XraySettings.range() : PlayerDisplaySettings.nameLimit();
+                : setting == Setting.XRAY_RANGE ? XraySettings.range()
+                : setting == Setting.BED_RANGE ? BedEspSettings.range() : PlayerDisplaySettings.nameLimit();
             long next = (long) current + direction * (setting == Setting.NAMES ? 1 : 25);
             long minimum = setting == Setting.NAMES ? 0 : 1;
-            long maximum = setting == Setting.XRAY_RANGE ? XraySettings.MAX_RANGE : Integer.MAX_VALUE;
+            long maximum = (setting == Setting.XRAY_RANGE || setting == Setting.BED_RANGE) ? XraySettings.MAX_RANGE : Integer.MAX_VALUE;
             input = Long.toString(Math.clamp(next, minimum, maximum));
         }
         saveInput();
@@ -394,6 +410,7 @@ public final class ClientMenu {
         try {
             switch (editing) {
                 case SPEED -> PlayerDisplaySettings.setSpeedMultiplier(Double.parseDouble(input));
+                case BED_RANGE -> BedEspSettings.setRange(Integer.parseInt(input));
                 case XRAY_RANGE -> XraySettings.setRange(Integer.parseInt(input));
                 case RANGE -> PlayerDisplaySettings.setRange(Integer.parseInt(input));
                 case NAMES -> PlayerDisplaySettings.setNameLimit(Integer.parseInt(input));
@@ -404,7 +421,7 @@ public final class ClientMenu {
             editing = Setting.NONE;
             error = "";
         } catch (IllegalArgumentException invalid) {
-            error = editing == Setting.XRAY_RANGE ? "Enter a whole number from 1 to 5000."
+            error = (editing == Setting.XRAY_RANGE || editing == Setting.BED_RANGE) ? "Enter a whole number from 1 to 5000."
                 : editing == Setting.SPEED ? "Enter a multiplier of 1 or more."
                 : editing == Setting.RANGE ? "Enter a positive whole number."
                 : "Enter a whole number of zero or more.";
@@ -442,9 +459,9 @@ public final class ClientMenu {
         graphics.fill(119, 39, WIDTH - 15, 40, 0x484A456B);
         graphics.text(game.font, "F A S T E R", 15, 12, TEXT);
         graphics.text(game.font, "CONTROL PANEL", 15, 25, 0xFF6F6B91);
-        String[] headings = {"Search", "Movement", "Players", "Combat", "Xray"};
+        String[] headings = {"Search", "Movement", "Players", "Combat", "Xray", "BedEsp"};
         String[] subtitles = {"Find a module and make it yours.", "Fine-tune your movement.",
-            "Keep everyone in sight.", "Ready when you are.", "Find the ores you need."};
+            "Keep everyone in sight.", "Ready when you are.", "Find the ores you need.", "Keep beds in sight."};
         graphics.text(game.font, headings[category], 127, 11, TEXT);
         graphics.text(game.font, subtitles[category], 127, 25, MUTED);
         int enabledCount = 0;
@@ -459,7 +476,7 @@ public final class ClientMenu {
             graphics.fill(WIDTH - 25 + step, 16 + step, WIDTH - 24 + step, 17 + step, MUTED);
             graphics.fill(WIDTH - 19 - step, 16 + step, WIDTH - 18 - step, 17 + step, MUTED);
         }
-        String[] categories = {"Search", "Movement", "Players", "Combat", "Xray"};
+        String[] categories = {"Search", "Movement", "Players", "Combat", "Xray", "BedEsp"};
         for (int index = 0; index < categories.length; index++) {
             int top = 48 + index * 30;
             boolean selected = category == index;
@@ -491,6 +508,16 @@ public final class ClientMenu {
         }
 
         if (category == 0) drawSearch(graphics);
+        if (category == 1) {
+            graphics.text(game.font, "Scroll for more movement tools", 127, HEIGHT - 19, MUTED);
+            MenuPaint.rounded(graphics, 452, 51, 2, 332, 1, 0xFF353047);
+            MenuPaint.rounded(graphics, 452, 51 + movementOffset * 48, 2, 284, 1, ACCENT);
+        }
+        if (category == 5) {
+            graphics.text(game.font, "Outlines match each bed's wool color.", 127, 181, MUTED);
+            graphics.text(game.font, "Both halves share one bed-height outline.", 127, 199, MUTED);
+            graphics.text(game.font, "Loaded chunks only; cached and batched.", 127, 217, MUTED);
+        }
         if (category == 4) drawOreFilters(graphics, mouseX, mouseY);
         if (!error.isEmpty()) {
             graphics.text(game.font, error, 127, HEIGHT - 19, 0xFFFFB6A3);
@@ -546,6 +573,7 @@ public final class ClientMenu {
         MenuPaint.rounded(graphics, 117, top - 3, WIDTH - 130, 54, 7, 0xFF211E36);
         String label = switch (setting) {
             case SPEED -> "Speed multiplier";
+            case BED_RANGE -> "BedEsp range (blocks)";
             case XRAY_RANGE -> "Xray radius (blocks)";
             case RANGE -> "ESP range (M)";
             case NAMES -> "Name limit";
@@ -553,12 +581,13 @@ public final class ClientMenu {
         };
         String value = switch (setting) {
             case SPEED -> multiplierText() + "x";
+            case BED_RANGE -> Integer.toString(BedEspSettings.range());
             case XRAY_RANGE -> Integer.toString(XraySettings.range());
             case RANGE -> Integer.toString(PlayerDisplaySettings.range());
             case NAMES -> Integer.toString(PlayerDisplaySettings.nameLimit());
             case NONE -> "";
         };
-        String hint = setting == Setting.XRAY_RANGE ? "Type any number from 1 to 5000."
+        String hint = (setting == Setting.XRAY_RANGE || setting == Setting.BED_RANGE) ? "Type any number from 1 to 5000."
             : setting == Setting.NAMES ? "Hide names above this player count."
             : "Click the number to type a value.";
         graphics.text(game.font, label, 127, top + 8, TEXT);
@@ -626,6 +655,13 @@ public final class ClientMenu {
             graphics.fill(x + 11, y + 2, x + 12, y + 8, color);
             graphics.fill(x - 2, y + 2, x, y + 3, color);
             graphics.fill(x + 10, y + 2, x + 12, y + 3, color);
+        } else if (icon == 5) {
+            graphics.fill(x, y, x + 2, y + 10, color);
+            graphics.fill(x + 2, y + 3, x + 10, y + 7, color);
+            graphics.fill(x + 9, y + 7, x + 11, y + 10, color);
+        } else if (icon == 6) {
+            graphics.fill(x + 4, y, x + 6, y + 8, color);
+            for (int row=0;row<4;row++) graphics.fill(x+row,y+6+row,x+10-row,y+7+row,color);
         } else if (icon == 4) {
             graphics.fill(x, y, x + 10, y + 1, color);
             graphics.fill(x, y + 9, x + 10, y + 10, color);
@@ -662,7 +698,9 @@ public final class ClientMenu {
         HIT("Auto Hit", "Crosshair + weapon cooldown", 2),
         XRAY("Xray", "Color-coded ore outlines", 4),
         FREECAM("Free Cam", "Fly the camera freely", 2),
-        WALLCLIMB("Wall Climb", "Ladder movement on walls", 1);
+        WALLCLIMB("Wall Climb", "Ladder movement on walls", 1),
+        BEDESP("BedEsp", "Bed-colored outlines", 5),
+        QUICKFALL("QuickFall", "Fast drops from edges", 6);
 
         final String title;
         final String description;
@@ -676,7 +714,7 @@ public final class ClientMenu {
     }
 
     private enum Setting {
-        NONE, SPEED, RANGE, NAMES, XRAY_RANGE
+        NONE, SPEED, RANGE, NAMES, XRAY_RANGE, BED_RANGE
     }
 
     private record Layout(float x, float y, float scale) {

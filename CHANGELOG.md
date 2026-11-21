@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.6.0
+
+- Add BedEsp with all 16 bed colors, one combined bed-height outline per bed, and a saved 1–5000 block range (default 200).
+- Reuse optimized incremental section scans, block/chunk events, compact metadata, shared-edge deduplication and a single batched overlay; cap drawing at 1024 visible beds.
+- Add QuickFall with a saved default-off switch: walking off an edge accelerates downward using normal block collisions. Preserve jumps, climbing, Free Cam and normal fall damage. Reset on server corrections and world/player changes.
+- Add a BedEsp settings page and scrollable Movement tools so QuickFall remains accessible.
+
 ## 1.5.0
 
 - Add Wall Climb in Search and Movement, with a saved default-off switch.

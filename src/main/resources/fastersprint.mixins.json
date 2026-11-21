@@ -22,7 +22,9 @@
     "FreeCamMouseMixin",
     "FreeCamInteractionMixin",
     "FreeCamHandMixin",
-    "WallClimbMixin"
+    "WallClimbMixin",
+    "QuickFallMixin",
+    "QuickFallCorrectionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

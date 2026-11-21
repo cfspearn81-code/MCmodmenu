@@ -14,12 +14,21 @@ final class OreSection {
         entries[size++] = local | (type << 12);
         if (byLocal != null) byLocal[local] = (short) size;
     }
-    boolean update(int local, int type) {
+    private void indexDense() {
         // Large veins receive constant-time updates; sparse sections keep the smaller representation.
         if (byLocal == null && size >= 128) {
             byLocal = new short[4096];
             for (int i=0;i<size;i++) byLocal[entries[i]&4095]=(short)(i+1);
         }
+    }
+    int typeAt(int local) {
+        indexDense();
+        if (byLocal != null) { int i=byLocal[local]-1; return i<0?-1:entries[i]>>>12; }
+        for (int i=0;i<size;i++) if ((entries[i]&4095)==local) return entries[i]>>>12;
+        return -1;
+    }
+    boolean update(int local, int type) {
+        indexDense();
         int found = byLocal == null ? -1 : byLocal[local]-1;
         if (byLocal == null) for (int i=0;i<size;i++) if ((entries[i]&4095)==local) { found=i;break; }
         if (found >= 0) {

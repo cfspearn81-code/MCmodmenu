@@ -1,0 +1,9 @@
+PASS all 16 bed colors outlined through a solid wall; logical beds=17
+PASS range 1 hides beds; range 5000 retains loaded beds
+PASS live server bed removal updates cached outlines
+PASS normal drop: airTicks=26, minYVelocity=-1.6480957061501194, landingY=81.0, peak=105.0, corrections=0
+PASS quick drop: airTicks=3, minYVelocity=-8.0, landingY=81.0, peak=105.0, corrections=0
+PASS jump drop: airTicks=33, minYVelocity=-1.6918206593767546, landingY=81.0, peak=106.25220334025373, corrections=0
+PASS slab drop: airTicks=3, minYVelocity=-8.0, landingY=81.5, peak=105.0, corrections=0
+PASS QuickFall permits Wall Climb; rise=5.174400100708283
+PASS QuickFall leaves Free Cam body in place
