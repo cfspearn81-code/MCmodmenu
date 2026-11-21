@@ -2,7 +2,7 @@
 
 A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open its menu. Movement keys work while the menu is open, and the cursor is available for clicking its controls.
 
-[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/releases/download/v1.3.5-xray.2/faster-movement-1.3.5-xray.2-mc26.3.jar)
+[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.3.5-xray.2/downloads/faster-movement-1.3.5-xray.2-mc26.3.jar)
 
 ## Features and controls
 
