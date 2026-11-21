@@ -14,7 +14,7 @@ import org.joml.Matrix4f;
 
 /** One GUI element for the entire overlay; no matrix stacks/objects per line. */
 final class BedOutlineState implements GuiElementRenderState {
-    
+
     private final BedMesh mesh;
     private final Matrix4f matrix;
     private final Matrix3x2fc pose;
