@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.8.1
+
+- Fix the blue lower-sky/horizon band by matching the clear background and distant fog color to Sky Tint. Keep native fog distances and fluid/dimension-specific fog, and restore native colors immediately when disabled.
+- Remove Player Tint completely: menu/search entry, hand/body render hooks, custom line pipeline, model accessors, wheel and player-color settings access. Old player-tint config files are left unused.
+- Fit all five remaining Visuals switches on one page, retaining Sky hue/saturation/brightness controls and existing saved sky settings.
+
 ## 1.8.0
 
 - Add Player Tint in Visuals/Search: Xray-style wireframe edges on visible first-person hands and the local third-person body, following animated model parts. Add a full-spectrum hue/saturation color wheel, brightness bar, swatch and hex readout.

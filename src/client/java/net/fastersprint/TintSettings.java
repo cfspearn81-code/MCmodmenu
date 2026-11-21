@@ -8,9 +8,8 @@ import org.joml.Vector3f;
 import org.joml.Vector3fc;
 import org.slf4j.LoggerFactory;
 
-/** Independent saved switches/colors. Dragging previews in memory; release/close commits once. */
+/** Saved sky switch/color. Dragging previews in memory; release/close commits once. */
 public final class TintSettings {
-    public static final TintSettings PLAYER = new TintSettings("faster-player-tint.properties", .52F, .7F, 1);
     public static final TintSettings SKY = new TintSettings("faster-sky-tint.properties", .6F, .65F, 1);
     private final String fileName;
     private boolean loaded, enabled, dirty;

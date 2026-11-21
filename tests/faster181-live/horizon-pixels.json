@@ -1,0 +1,240 @@
+{
+  "off": {
+    "above": {
+      "pixels": 44100,
+      "blue": 44094,
+      "pink": 0,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            175,
+            203,
+            255
+          ],
+          18699
+        ]
+      ]
+    },
+    "below": {
+      "pixels": 44100,
+      "blue": 44096,
+      "pink": 0,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            175,
+            203,
+            255
+          ],
+          18839
+        ]
+      ]
+    }
+  },
+  "pink-south": {
+    "above": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44094,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          19672
+        ]
+      ]
+    },
+    "below": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44096,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          19791
+        ]
+      ]
+    }
+  },
+  "pink-west": {
+    "above": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44094,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          19672
+        ]
+      ]
+    },
+    "below": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44096,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          19791
+        ]
+      ]
+    }
+  },
+  "pink-north": {
+    "above": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44094,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          20909
+        ]
+      ]
+    },
+    "below": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44096,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          21008
+        ]
+      ]
+    }
+  },
+  "pink-east": {
+    "above": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44094,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          21512
+        ]
+      ]
+    },
+    "below": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 44096,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            255,
+            0,
+            255
+          ],
+          21632
+        ]
+      ]
+    }
+  },
+  "cyan": {
+    "above": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 0,
+      "cyan": 44094,
+      "dominant": [
+        [
+          [
+            0,
+            255,
+            255
+          ],
+          22722
+        ]
+      ]
+    },
+    "below": {
+      "pixels": 44100,
+      "blue": 0,
+      "pink": 0,
+      "cyan": 44096,
+      "dominant": [
+        [
+          [
+            0,
+            255,
+            255
+          ],
+          22815
+        ]
+      ]
+    }
+  },
+  "restored": {
+    "above": {
+      "pixels": 44100,
+      "blue": 44094,
+      "pink": 0,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            175,
+            203,
+            255
+          ],
+          23654
+        ]
+      ]
+    },
+    "below": {
+      "pixels": 44100,
+      "blue": 44096,
+      "pink": 0,
+      "cyan": 0,
+      "dominant": [
+        [
+          [
+            175,
+            203,
+            255
+          ],
+          23722
+        ]
+      ]
+    }
+  }
+}

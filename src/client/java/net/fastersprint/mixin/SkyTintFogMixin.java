@@ -16,8 +16,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 abstract class SkyTintFogMixin {
     @Inject(method="setupFog",at=@At("RETURN"))
     private void fastersprint$keepSkyPalette(Camera camera,int chunks,DeltaTracker delta,float darkening,ClientLevel level,CallbackInfoReturnable<FogData> ci){
-        if(TintSettings.SKY.enabled()&&level.dimensionType().skybox()==DimensionType.Skybox.OVERWORLD&&camera.getFluidInCamera()==FogType.NONE)
-            ci.getReturnValue().skyEnd=1_000_000_000F;
-        // Only the sky's blend distance changes. Terrain, cloud and environmental fog stay native.
+        if(TintSettings.SKY.enabled()&&level.dimensionType().skybox()==DimensionType.Skybox.OVERWORLD&&camera.getFluidInCamera()==FogType.NONE){
+            var data=ci.getReturnValue();var color=TintSettings.SKY.vector();
+            data.color.set(color.x(),color.y(),color.z(),data.color.w());
+        }
+        // The clear background and distant haze must match the sky disc, including below its horizon.
+        // Keep every native fog distance and preserve underwater/lava/dimension-specific colors.
     }
 }

@@ -25,7 +25,6 @@ public final class ClientMenu {
     private static String query = "";
     private static int searchOffset;
     private static int visualPage;
-    private static int visualOffset;
     private static int movementOffset;
     private static final int SEARCH_ROWS = 5;
     private static boolean open;
@@ -202,7 +201,7 @@ public final class ClientMenu {
             if (inside(x, y, 10, 48 + index * 30, 92, 26)) {
                 bindingBridgeKey = false; bindingFreeCamKey = false;
                 category = index;
-                if (category == 2) { visualPage = 0; visualOffset = 0; }
+                if (category == 2) visualPage = 0;
                 if (category == 1) movementOffset = 0;
                 if (category == 0) focusSearch();
                 editing = Setting.NONE;
@@ -211,8 +210,8 @@ public final class ClientMenu {
             }
         }
         if (category == 2) {
-            for (int page = 0; page < 6; page++) {
-                if (inside(x, y, 116 + page * 56, 51, 52, 28)) {
+            for (int page = 0; page < 5; page++) {
+                if (inside(x, y, 116 + page * 67, 51, 64, 28)) {
                     visualPage = page;
                     bindingBridgeKey = false; bindingFreeCamKey = false;
                     editing = Setting.NONE; error = "";
@@ -220,7 +219,7 @@ public final class ClientMenu {
                 }
             }
         }
-        if (category == 2 && visualPage >= 4 && TintControls.begin(visualPage, x, y)) {
+        if (category == 2 && visualPage == 4 && TintControls.begin(visualPage, x, y)) {
             editing = Setting.NONE; bindingBridgeKey = false; bindingFreeCamKey = false; return;
         }
         if (visible(Tool.BRIDGE) && inside(x, y, 308, toolTop(Tool.BRIDGE) + 24, 130, 20)) {
@@ -331,7 +330,6 @@ public final class ClientMenu {
         if (amount == 0) return;
         if (category == 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
         if (category == 1) movementOffset = Math.clamp(movementOffset + (amount < 0 ? 1 : -1), 0, 1);
-        if (category == 2 && visualPage == 0) visualOffset = Math.clamp(visualOffset + (amount < 0 ? 1 : -1), 0, 1);
     }
 
     private static void drawSearch(GuiGraphicsExtractor graphics) {
@@ -368,12 +366,11 @@ public final class ClientMenu {
             return movement && toolTop(tool) >= 47 && toolTop(tool) + 48 <= 385;
         }
         if (category == 2) return switch (visualPage) {
-            case 0 -> (tool == Tool.XRAY || tool == Tool.PLAYERS || tool == Tool.BEDESP || tool == Tool.FREECAM || tool == Tool.PLAYERTINT || tool == Tool.SKYTINT) && toolTop(tool) >= 91 && toolTop(tool) + 48 <= 385;
+            case 0 -> tool == Tool.XRAY || tool == Tool.PLAYERS || tool == Tool.BEDESP || tool == Tool.FREECAM || tool == Tool.SKYTINT;
             case 1 -> tool == Tool.PLAYERS;
             case 2 -> tool == Tool.XRAY;
             case 3 -> tool == Tool.BEDESP;
-            case 4 -> tool == Tool.PLAYERTINT;
-            case 5 -> tool == Tool.SKYTINT;
+            case 4 -> tool == Tool.SKYTINT;
             default -> false;
         };
         return category == 3 && tool == Tool.HIT;
@@ -383,7 +380,7 @@ public final class ClientMenu {
         if (category == 0) return 99 + (searchResults().indexOf(tool) - searchOffset) * 56;
         if (category == 2) {
             if (visualPage != 0) return 91;
-            return switch (tool) { case XRAY -> 91; case PLAYERS -> 147; case BEDESP -> 203; case FREECAM -> 259; case PLAYERTINT -> 315; case SKYTINT -> 371; default -> -1; } - visualOffset * 56;
+            return switch (tool) { case XRAY -> 91; case PLAYERS -> 147; case BEDESP -> 203; case FREECAM -> 259; case SKYTINT -> 315; default -> -1; };
         }
         int top = switch (tool) {
             case GUIMOVE -> 173;
@@ -410,7 +407,6 @@ public final class ClientMenu {
     private static boolean toolEnabled(Tool tool) {
         return switch (tool) {
             case BEDESP -> BedEspSettings.enabled();
-            case PLAYERTINT -> TintSettings.PLAYER.enabled();
             case SKYTINT -> TintSettings.SKY.enabled();
             case QUICKFALL -> QuickFallSettings.enabled();
             case QUICKJUMP -> QuickJumpSettings.enabled();
@@ -429,7 +425,6 @@ public final class ClientMenu {
         try {
             switch (tool) {
                 case BEDESP -> BedEspSettings.setEnabled(!BedEspSettings.enabled());
-                case PLAYERTINT -> TintSettings.PLAYER.setEnabled(!TintSettings.PLAYER.enabled());
                 case SKYTINT -> TintSettings.SKY.setEnabled(!TintSettings.SKY.enabled());
                 case QUICKFALL -> QuickFallSettings.setEnabled(!QuickFallSettings.enabled());
                 case QUICKJUMP -> QuickJumpSettings.setEnabled(!QuickJumpSettings.enabled());
@@ -582,10 +577,8 @@ public final class ClientMenu {
         if (category == 2) {
             drawVisualTabs(graphics, mouseX, mouseY);
             if (visualPage == 0) {
-                if (error.isEmpty()) graphics.text(game.font, "Scroll for more visuals; tabs open settings.", 127, HEIGHT - 19, MUTED);
-                MenuPaint.rounded(graphics, 452, 91, 2, 282, 1, 0xFF353047);
-                MenuPaint.rounded(graphics, 452, 91 + visualOffset * 47, 2, 235, 1, ACCENT);
-            } else if (visualPage >= 4) {
+                if (error.isEmpty()) graphics.text(game.font, "Use the tabs above to change visual settings.", 127, HEIGHT - 19, MUTED);
+            } else if (visualPage == 4) {
                 TintControls.render(graphics, visualPage);
             } else if (visualPage == 2) {
                 drawOreFilters(graphics, mouseX, mouseY);
@@ -604,13 +597,13 @@ public final class ClientMenu {
 
     private static void drawVisualTabs(GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
         graphics.nextStratum();
-        String[] tabs = {"All", "ESP", "Xray", "Beds", "Tint", "Sky"};
+        String[] tabs = {"All", "ESP", "Xray", "Beds", "Sky"};
         for (int page = 0; page < tabs.length; page++) {
-            int left = 116 + page * 56;
+            int left = 116 + page * 67;
             boolean selected = visualPage == page;
-            MenuPaint.rounded(graphics, left, 51, 52, 28, 7,
-                selected ? 0xFF51406D : inside(mouseX, mouseY, left, 51, 52, 28) ? 0xFF39304F : 0xFF29253B);
-            graphics.centeredText(Minecraft.getInstance().font, tabs[page], left + 26, 61, selected ? TEXT : MUTED);
+            MenuPaint.rounded(graphics, left, 51, 64, 28, 7,
+                selected ? 0xFF51406D : inside(mouseX, mouseY, left, 51, 64, 28) ? 0xFF39304F : 0xFF29253B);
+            graphics.centeredText(Minecraft.getInstance().font, tabs[page], left + 32, 61, selected ? TEXT : MUTED);
         }
     }
 
@@ -793,7 +786,6 @@ public final class ClientMenu {
         BEDESP("BedEsp", "Bed-colored outlines", 5),
         QUICKFALL("QuickFall", "Fast drops from edges", 6),
         QUICKJUMP("QuickJump", "Instant normal jump peak", 7),
-        PLAYERTINT("Player Tint", "Your hand + body outline", 2),
         SKYTINT("Sky Tint", "Choose your sky color", 4);
 
         final String title;

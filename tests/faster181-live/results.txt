@@ -1,0 +1,7 @@
+PASS Player Tint removed from Search and Visuals; all five remaining visuals fit
+PASS south horizon fog/background matches magenta; all six fog distances/alpha unchanged
+PASS horizontal views in all four directions use the same selected sky/horizon color
+PASS horizon changes live to cyan
+PASS disabling restores the native blue horizon and sky
+PASS underwater fog retains its native color while Sky Tint is enabled
+PASS screen transition during sky editing remains safe
