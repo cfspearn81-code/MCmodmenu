@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.8.0
+
+- Add Player Tint in Visuals/Search: Xray-style wireframe edges on visible first-person hands and the local third-person body, following animated model parts. Add a full-spectrum hue/saturation color wheel, brightness bar, swatch and hex readout.
+- Add Sky Tint with hue, saturation and brightness sliders for the Overworld sky and matching sunrise/sunset glow. Preserve native sun/moon/stars, terrain and dimensions without a normal sky.
+- Save each toggle/color independently. Preview drags in memory and save on release, menu close or screen transition. Batch the wheel/gradients and snapshot player edges once per submission.
+- Add Tint/Sky settings tabs and a scrollable six-module Visuals overview while retaining the blur crash fix and existing tools.
+
 ## 1.7.0
 
 - Add QuickJump with a saved default-off toggle in Search and Movement. Compress a grounded jump to its normal peak on the takeoff tick, using actual jump impulse, gravity and air drag.

@@ -1,0 +1,11 @@
+PASS wheel drag, brightness and Player Tint switch work
+PASS Sky hue/saturation/brightness sliders and switch work
+PASS screen transition during a drag commits safely without double blur
+PASS first-person visible hand edges: vertices=48, color=cyan
+PASS F5 front outlines complete animated model: vertices=288
+PASS F5 back outline updates to selected red
+PASS hand outline follows swing animation
+PASS disabling Player Tint stops all edge submissions
+PASS sky render state uses chosen red
+PASS sky color updates live to cyan
+PASS disabling Sky Tint restores natural sky

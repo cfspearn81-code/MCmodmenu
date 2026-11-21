@@ -1,0 +1,37 @@
+{
+  "hand-cyan": {
+    "cyan_pixels": 464,
+    "red_pixels": 48,
+    "sampled_pixels": 71760
+  },
+  "body-front-cyan": {
+    "cyan_pixels": 485,
+    "red_pixels": 0,
+    "sampled_pixels": 109461
+  },
+  "body-back-red": {
+    "cyan_pixels": 0,
+    "red_pixels": 606,
+    "sampled_pixels": 109461
+  },
+  "hand-off": {
+    "cyan_pixels": 0,
+    "red_pixels": 48,
+    "sampled_pixels": 71760
+  },
+  "sky-red": {
+    "cyan_pixels": 68,
+    "red_pixels": 155360,
+    "sampled_pixels": 266448
+  },
+  "sky-cyan": {
+    "cyan_pixels": 154980,
+    "red_pixels": 68,
+    "sampled_pixels": 266448
+  },
+  "sky-off": {
+    "cyan_pixels": 0,
+    "red_pixels": 0,
+    "sampled_pixels": 266448
+  }
+}

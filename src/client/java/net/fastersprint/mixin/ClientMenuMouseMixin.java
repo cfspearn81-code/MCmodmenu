@@ -20,10 +20,18 @@ abstract class ClientMenuMouseMixin {
             return;
         }
         callback.cancel();
+        if (button.button() == 1 && action == InputConstants.RELEASE) ClientMenu.releasePointer();
         if (button.button() == 1 && action == InputConstants.PRESS) {
             ClientMenu.click(game.mouseHandler.getScaledXPos(game.getWindow()),
                 game.mouseHandler.getScaledYPos(game.getWindow()));
         }
+    }
+
+    @Inject(method = "onMove", at = @At("TAIL"))
+    private void fastersprint$dragTintControl(long window, double x, double y, double dx, double dy, CallbackInfo callback) {
+        Minecraft game = Minecraft.getInstance();
+        if (ClientMenu.isOpen() && window == game.getWindow().handle()) ClientMenu.dragPointer(
+            game.mouseHandler.getScaledXPos(game.getWindow()), game.mouseHandler.getScaledYPos(game.getWindow()));
     }
 
     @Inject(method = "onScroll", at = @At("HEAD"), cancellable = true)
