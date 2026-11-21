@@ -9,6 +9,7 @@
     "PlayerDisplayNameMixin",
     "ClientMenuMouseMixin",
     "ClientMenuLifecycleMixin",
+    "MenuScreenLifecycleMixin",
     "GuiMoveInputMixin",
     "ClientLevelPredictionAccessor",
     "AutoBridgeAcknowledgementMixin",

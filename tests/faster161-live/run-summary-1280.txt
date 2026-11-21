@@ -1,0 +1,16 @@
+[14:48:10] [Render thread/INFO] (Minecraft) [STDOUT]: MENU PASS Visuals contains exactly Xray, Player ESP, BedEsp and Free Cam
+[14:48:10] [Render thread/INFO] (Minecraft) [STDOUT]: MENU PASS all four Visuals switches and Free Cam key binding work
+[14:48:11] [Render thread/INFO] (Minecraft) [STDOUT]: MENU PASS Visuals settings preserve ESP range/name limit, Xray radius/filters and BedEsp typed bounds
+[14:48:11] [Render thread/INFO] (Minecraft) [STDOUT]: MENU PASS Movement contains five movement modules without scrolling
+[14:48:12] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 1 screen=PauseScreen blurs=1
+[14:48:12] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 2 screen=PauseScreen blurs=1
+[14:48:12] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 3 screen=PauseScreen blurs=1
+[14:48:12] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 4 screen=PauseScreen blurs=1
+[14:48:12] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 5 screen=InventoryScreen blurs=0
+[14:48:12] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 6 screen=InventoryScreen blurs=0
+[14:48:12] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 7 screen=InventoryScreen blurs=0
+[14:48:13] [Render thread/INFO] (Minecraft) [STDOUT]: MENU TRANSITION 8 screen=InventoryScreen blurs=0
+[14:48:13] [Render thread/INFO] (Minecraft) [STDOUT]: MENU PASS overlay opening dismisses the menu before any tick
+[14:48:13] [Render thread/INFO] (Minecraft) [STDOUT]: MENU PASS eight between-tick pause/inventory transitions rendered safely with GuiMove on/off and forced stale menu state
+[14:48:14] [Render thread/INFO] (Minecraft) [STDOUT]: MENU PASS at most one blur per frame; menuFrames=11, pauseFrames=4, transitionFrames=8
+[14:48:14] [Render thread/INFO] (Minecraft) [STDOUT]: MENU ALL CHECKS COMPLETE

@@ -1,0 +1,7 @@
+PASS Visuals contains exactly Xray, Player ESP, BedEsp and Free Cam
+PASS all four Visuals switches and Free Cam key binding work
+PASS Visuals settings preserve ESP range/name limit, Xray radius/filters and BedEsp typed bounds
+PASS Movement contains five movement modules without scrolling
+PASS overlay opening dismisses the menu before any tick
+PASS eight between-tick pause/inventory transitions rendered safely with GuiMove on/off and forced stale menu state
+PASS at most one blur per frame; menuFrames=11, pauseFrames=4, transitionFrames=8

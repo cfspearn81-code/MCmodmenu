@@ -24,7 +24,7 @@ public final class ClientMenu {
     private static boolean searchSelected;
     private static String query = "";
     private static int searchOffset;
-    private static int movementOffset;
+    private static int visualPage;
     private static final int SEARCH_ROWS = 5;
     private static boolean open;
     private static boolean speedEnabled;
@@ -70,19 +70,32 @@ public final class ClientMenu {
         }
     }
 
+    private static boolean interrupted(Minecraft game) {
+        return game.player == null || game.gui.screen() != null || game.gui.overlay() != null;
+    }
+
+    /** Dismiss without grabbing the mouse away from the newly opened screen. */
+    public static void screenOpening() {
+        if (!open) return;
+        MenuCursor.end();
+        open = false;
+        bindingBridgeKey = false;
+        bindingFreeCamKey = false;
+        searchFocused = false;
+        editing = Setting.NONE;
+        error = "";
+        lastFrame = 0;
+    }
+
     public static void tick() {
         Minecraft game = Minecraft.getInstance();
+        if (open && interrupted(game)) {
+            screenOpening();
+            return;
+        }
         if (open) {
             if (game.isWindowActive() && game.mouseHandler.isMouseGrabbed()) game.mouseHandler.releaseMouse();
             MenuCursor.tick(game.isWindowActive());
-        }
-        if (open && (game.player == null || game.gui.screen() != null)) {
-            MenuCursor.end();
-            open = false;
-            bindingBridgeKey = false;
-            bindingFreeCamKey = false;
-            searchFocused = false;
-            editing = Setting.NONE;
         }
     }
 
@@ -179,15 +192,25 @@ public final class ClientMenu {
             bindingBridgeKey = false; bindingFreeCamKey = false; focusSearch(); return;
         }
         searchFocused = false;
-        for (int index = 0; index < 6; index++) {
+        for (int index = 0; index < 4; index++) {
             if (inside(x, y, 10, 48 + index * 30, 92, 26)) {
                 bindingBridgeKey = false; bindingFreeCamKey = false;
                 category = index;
-                if (category == 1) movementOffset = 0;
+                if (category == 2) visualPage = 0;
                 if (category == 0) focusSearch();
                 editing = Setting.NONE;
                 error = "";
                 return;
+            }
+        }
+        if (category == 2) {
+            for (int page = 0; page < 4; page++) {
+                if (inside(x, y, 116 + page * 84, 51, 80, 28)) {
+                    visualPage = page;
+                    bindingBridgeKey = false; bindingFreeCamKey = false;
+                    editing = Setting.NONE; error = "";
+                    return;
+                }
             }
         }
         if (visible(Tool.BRIDGE) && inside(x, y, 308, toolTop(Tool.BRIDGE) + 24, 130, 20)) {
@@ -200,10 +223,10 @@ public final class ClientMenu {
             bindingFreeCamKey = true; bindingBridgeKey = false; editing = Setting.NONE; error = ""; return;
         }
         bindingBridgeKey = false; bindingFreeCamKey = false;
-        if (category == 4) {
+        if (category == 2 && visualPage == 2) {
             for (OreType ore : OreType.values()) {
                 int left = 116 + (ore.ordinal() % 3) * 112;
-                int top = 198 + (ore.ordinal() / 3) * 34;
+                int top = 238 + (ore.ordinal() / 3) * 34;
                 if (inside(x, y, left, top, 108, 30)) {
                     try {
                         XraySettings.setOreEnabled(ore, !XraySettings.oreEnabled(ore));
@@ -286,7 +309,6 @@ public final class ClientMenu {
     public static void scroll(double amount) {
         if (amount == 0) return;
         if (category == 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
-        if (category == 1) movementOffset = Math.clamp(movementOffset + (amount < 0 ? 1 : -1), 0, 1);
     }
 
     private static void drawSearch(GuiGraphicsExtractor graphics) {
@@ -317,37 +339,40 @@ public final class ClientMenu {
             int index = searchResults().indexOf(tool);
             return index >= searchOffset && index < searchOffset + SEARCH_ROWS;
         }
-        if (category == 1) {
-            boolean movement = tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE
-                || tool == Tool.FREECAM || tool == Tool.WALLCLIMB || tool == Tool.QUICKFALL;
-            return movement && toolTop(tool) >= 47 && toolTop(tool) + 48 <= 385;
-        }
-        return (category == 2 && tool == Tool.PLAYERS) || (category == 3 && tool == Tool.HIT)
-            || (category == 4 && tool == Tool.XRAY) || (category == 5 && tool == Tool.BEDESP);
+        if (category == 1) return tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE
+            || tool == Tool.WALLCLIMB || tool == Tool.QUICKFALL;
+        if (category == 2) return switch (visualPage) {
+            case 0 -> tool == Tool.XRAY || tool == Tool.PLAYERS || tool == Tool.BEDESP || tool == Tool.FREECAM;
+            case 1 -> tool == Tool.PLAYERS;
+            case 2 -> tool == Tool.XRAY;
+            case 3 -> tool == Tool.BEDESP;
+            default -> false;
+        };
+        return category == 3 && tool == Tool.HIT;
     }
 
     private static int toolTop(Tool tool) {
-        if (category == 0) {
-            return 99 + (searchResults().indexOf(tool) - searchOffset) * 56;
+        if (category == 0) return 99 + (searchResults().indexOf(tool) - searchOffset) * 56;
+        if (category == 2) {
+            if (visualPage != 0) return 91;
+            return switch (tool) { case XRAY -> 91; case PLAYERS -> 147; case BEDESP -> 203; case FREECAM -> 259; default -> -1; };
         }
-        int top = switch (tool) {
+        return switch (tool) {
             case GUIMOVE -> 173;
             case BRIDGE -> 227;
-            case FREECAM -> 281;
-            case WALLCLIMB -> 335;
-            case QUICKFALL -> 389;
+            case WALLCLIMB -> 281;
+            case QUICKFALL -> 335;
             default -> 51;
         };
-        return category == 1 ? top - movementOffset * 54 : top;
     }
 
     private static int settingTop(Setting setting) {
         return switch (setting) {
-            case SPEED -> category == 1 ? 115 - movementOffset * 54 : -1;
-            case RANGE -> category == 2 ? 115 : -1;
-            case NAMES -> category == 2 ? 177 : -1;
-            case XRAY_RANGE -> category == 4 ? 115 : -1;
-            case BED_RANGE -> category == 5 ? 115 : -1;
+            case SPEED -> category == 1 ? 115 : -1;
+            case RANGE -> category == 2 && visualPage == 1 ? 155 : -1;
+            case NAMES -> category == 2 && visualPage == 1 ? 217 : -1;
+            case XRAY_RANGE -> category == 2 && visualPage == 2 ? 155 : -1;
+            case BED_RANGE -> category == 2 && visualPage == 3 ? 155 : -1;
             case NONE -> -1;
         };
     }
@@ -435,6 +460,11 @@ public final class ClientMenu {
             return;
         }
         Minecraft game = Minecraft.getInstance();
+        // A screen can open between game ticks. It owns this frame's background blur.
+        if (interrupted(game)) {
+            screenOpening();
+            return;
+        }
         Layout layout = layout();
         double mouseX = (game.mouseHandler.getScaledXPos(game.getWindow()) - layout.x) / layout.scale;
         double mouseY = (game.mouseHandler.getScaledYPos(game.getWindow()) - layout.y) / layout.scale;
@@ -459,9 +489,9 @@ public final class ClientMenu {
         graphics.fill(119, 39, WIDTH - 15, 40, 0x484A456B);
         graphics.text(game.font, "F A S T E R", 15, 12, TEXT);
         graphics.text(game.font, "CONTROL PANEL", 15, 25, 0xFF6F6B91);
-        String[] headings = {"Search", "Movement", "Players", "Combat", "Xray", "BedEsp"};
+        String[] headings = {"Search", "Movement", "Visuals", "Combat"};
         String[] subtitles = {"Find a module and make it yours.", "Fine-tune your movement.",
-            "Keep everyone in sight.", "Ready when you are.", "Find the ores you need.", "Keep beds in sight."};
+            "See what matters.", "Ready when you are."};
         graphics.text(game.font, headings[category], 127, 11, TEXT);
         graphics.text(game.font, subtitles[category], 127, 25, MUTED);
         int enabledCount = 0;
@@ -476,7 +506,7 @@ public final class ClientMenu {
             graphics.fill(WIDTH - 25 + step, 16 + step, WIDTH - 24 + step, 17 + step, MUTED);
             graphics.fill(WIDTH - 19 - step, 16 + step, WIDTH - 18 - step, 17 + step, MUTED);
         }
-        String[] categories = {"Search", "Movement", "Players", "Combat", "Xray", "BedEsp"};
+        String[] categories = {"Search", "Movement", "Visuals", "Combat"};
         for (int index = 0; index < categories.length; index++) {
             int top = 48 + index * 30;
             boolean selected = category == index;
@@ -485,7 +515,7 @@ public final class ClientMenu {
                 MenuPaint.rounded(graphics, 10, top, 92, 26, 7, selected ? 0xFF302949 : 0xFF222139);
                 if (selected) MenuPaint.rounded(graphics, 11, top + 7, 2, 12, 1, 0xFFC6A3FF);
             }
-            drawIcon(graphics, index, 19, top + 8, selected ? ACCENT : 0xFF74728E);
+            drawIcon(graphics, index == 2 ? 4 : index, 19, top + 8, selected ? ACCENT : 0xFF74728E);
             graphics.text(game.font, categories[index], 36, top + 9, selected ? TEXT : MUTED);
         }
         MenuPaint.rounded(graphics, 11, HEIGHT - 107, 85, 55, 8, 0xFF242139);
@@ -508,22 +538,35 @@ public final class ClientMenu {
         }
 
         if (category == 0) drawSearch(graphics);
-        if (category == 1) {
-            graphics.text(game.font, "Scroll for more movement tools", 127, HEIGHT - 19, MUTED);
-            MenuPaint.rounded(graphics, 452, 51, 2, 332, 1, 0xFF353047);
-            MenuPaint.rounded(graphics, 452, 51 + movementOffset * 48, 2, 284, 1, ACCENT);
+        if (category == 2) {
+            drawVisualTabs(graphics, mouseX, mouseY);
+            if (visualPage == 0) {
+                graphics.text(game.font, "Use the tabs above to change visual settings.", 127, 325, MUTED);
+            } else if (visualPage == 2) {
+                drawOreFilters(graphics, mouseX, mouseY);
+            } else if (visualPage == 3) {
+                graphics.text(game.font, "Outlines match each bed's wool color.", 127, 221, MUTED);
+                graphics.text(game.font, "Both halves share one bed-height outline.", 127, 239, MUTED);
+                graphics.text(game.font, "Loaded chunks only; cached and batched.", 127, 257, MUTED);
+            }
         }
-        if (category == 5) {
-            graphics.text(game.font, "Outlines match each bed's wool color.", 127, 181, MUTED);
-            graphics.text(game.font, "Both halves share one bed-height outline.", 127, 199, MUTED);
-            graphics.text(game.font, "Loaded chunks only; cached and batched.", 127, 217, MUTED);
-        }
-        if (category == 4) drawOreFilters(graphics, mouseX, mouseY);
         if (!error.isEmpty()) {
             graphics.text(game.font, error, 127, HEIGHT - 19, 0xFFFFB6A3);
         }
         graphics.pose().popMatrix();
         MenuCursor.render(graphics);
+    }
+
+    private static void drawVisualTabs(GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
+        graphics.nextStratum();
+        String[] tabs = {"All", "Player ESP", "Xray", "BedEsp"};
+        for (int page = 0; page < tabs.length; page++) {
+            int left = 116 + page * 84;
+            boolean selected = visualPage == page;
+            MenuPaint.rounded(graphics, left, 51, 80, 28, 7,
+                selected ? 0xFF51406D : inside(mouseX, mouseY, left, 51, 80, 28) ? 0xFF39304F : 0xFF29253B);
+            graphics.centeredText(Minecraft.getInstance().font, tabs[page], left + 40, 61, selected ? TEXT : MUTED);
+        }
     }
 
     private static void drawModule(GuiGraphicsExtractor graphics, Tool tool,
@@ -605,10 +648,10 @@ public final class ClientMenu {
     private static void drawOreFilters(GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
         Minecraft game = Minecraft.getInstance();
         graphics.nextStratum();
-        graphics.text(game.font, "ORE TYPES", 127, 181, MUTED);
+        graphics.text(game.font, "ORE TYPES", 127, 221, MUTED);
         for (OreType ore : OreType.values()) {
             int left = 116 + (ore.ordinal() % 3) * 112;
-            int top = 198 + (ore.ordinal() / 3) * 34;
+            int top = 238 + (ore.ordinal() / 3) * 34;
             boolean enabled = XraySettings.oreEnabled(ore);
             boolean hovered = inside(mouseX, mouseY, left, top, 108, 30);
             MenuPaint.rounded(graphics, left, top, 108, 30, 7,
@@ -617,8 +660,8 @@ public final class ClientMenu {
             graphics.text(game.font, ore.label, left + 20, top + 11, enabled ? TEXT : MUTED);
             graphics.fill(left + 98, top + 10, left + 101, top + 20, enabled ? ore.color : 0xFF524960);
         }
-        graphics.text(game.font, "Netherite = ancient debris. Copper excluded.", 127, 311, MUTED);
-        graphics.text(game.font, "Radius in all directions; loaded chunks only.", 127, 329, MUTED);
+        graphics.text(game.font, "Netherite = ancient debris. Copper excluded.", 127, 351, MUTED);
+        graphics.text(game.font, "Radius in all directions; loaded chunks only.", 127, 369, MUTED);
     }
 
     private static String multiplierText() {

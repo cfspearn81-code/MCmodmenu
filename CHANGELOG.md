@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.1
+
+- Fix `Can only blur once per frame` when pause/inventory screens open while the P menu is active. Dismiss on screen/overlay transitions and check again before rendering; leave the new screen in control of the mouse.
+- Group Xray, Player ESP, BedEsp and Free Cam under Visuals. Keep their switches together and provide Player ESP/Xray/BedEsp settings sub-tabs, retaining ranges, ore filters and the Free Cam keybinding.
+- Remove the old separate visual categories and move Free Cam out of Movement, allowing all five Movement modules to fit without scrolling.
+
 ## 1.6.0
 
 - Add BedEsp with all 16 bed colors, one combined bed-height outline per bed, and a saved 1–5000 block range (default 200).
