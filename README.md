@@ -2,11 +2,11 @@
 
 A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open the focused module search. Type a name, click a result to toggle it, or choose a category in the sidebar. The white dot cursor and fading trail remain available for all controls.
 
-[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.6.1/downloads/faster-1.6.1-mc26.3.jar)
+[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.7.0/downloads/faster-1.7.0-mc26.3.jar)
 
 ## Features and controls
 
-The **Search** page opens automatically each time, with an empty query ready for typing. It searches all ten module names/descriptions, supports names such as `freecam` or `Free Cam`, and shows a scrollable list. **Ctrl+A** replaces the query, **Ctrl+V** pastes, **Backspace** edits, and **Ctrl+F** focuses search from another category. **Esc** closes the menu. **Enter/Tab** leaves the search field; when the field is unfocused, **P** also closes the menu and movement keys work again. Typing in search and binding a key do not move the player.
+The **Search** page opens automatically each time, with an empty query ready for typing. It searches all eleven module names/descriptions, supports names such as `freecam` or `Free Cam`, and shows a scrollable list. **Ctrl+A** replaces the query, **Ctrl+V** pastes, **Backspace** edits, and **Ctrl+F** focuses search from another category. **Esc** closes the menu. **Enter/Tab** leaves the search field; when the field is unfocused, **P** also closes the menu and movement keys work again. Typing in search and binding a key do not move the player.
 
 - **Speed** changes walking and sprinting speed. It starts off at launch.
 - **GuiMove** permits movement while any screen is open in a loaded world, including inventory, containers, chat/search, settings and pause menus. It starts off. Keyboard/mouse movement bindings are read physically while the window is focused. Text fields still receive typing, so the same key can both type and move. With GuiMove on, opening a menu does not pause a single-player world. Existing CraftingMovement settings migrate automatically.
@@ -15,11 +15,12 @@ The **Search** page opens automatically each time, with an empty query ready for
 - **Xray** outlines coal, iron, gold, redstone, lapis, diamond, emerald, nether quartz and ancient debris through walls with a distinct color for each ore. It starts off. Copper is excluded. Normal/deepslate versions share one toggle; nether gold uses the Gold toggle.
 - **BedEsp** outlines beds through walls in their wool color, including all 16 dye colors. It starts off. Find it in Search or **Visuals → BedEsp**. Each complete bed gets one bed-height outline around both halves, including pairs spanning chunks. Click its range number to type **1–5000 blocks** (default **200**), then press Enter; plus/minus changes it by 25. Range measures from the player to the bed center in all directions. Settings save in `config/faster-bedesp.properties`.
 - **QuickFall** starts off, with a saved switch in Search and Movement. Walking off an edge applies fast downward velocity, up to **8 blocks per tick**, while preserving horizontal motion and using Minecraft’s normal collisions to land on floors and slabs. It leaves ordinary jumps alone and pauses for sneaking, climbing, Free Cam, swimming, flying, gliding and riding. It does not cancel fall damage. Its switch saves in `config/faster-quickfall.properties`.
+- **QuickJump** starts off, with a saved switch in Search (type `quickjump`) and Movement (scroll down). Press your normal jump key, **Space** by default, to move to the normal jump peak on the takeoff tick instead of rising gradually. The default peak is about **1.252 blocks** above your feet. It uses the jump impulse, gravity and air drag already computed by Minecraft, including Jump Boost and reduced jump surfaces, and clips the upward movement against ceilings. Horizontal sprint-jump impulse and ordinary falling remain active. It requires a real grounded jump, so it cannot add midair jumps; holding Space keeps vanilla's grounded repeat/cooldown behavior. Swimming, climbing, riding, flying, gliding, levitation and Free Cam retain normal behavior. Extreme or unsupported jump physics (non-positive gravity, a predicted rise over eight blocks or an unbounded ascent) use the original gradual jump. Settings save in `config/faster-quickjump.properties`.
 - **Wall Climb** starts off and has a saved toggle in **Search** (type `wallclimb` or `ladder`) and **Movement**. Walk into a solid block wall to climb using vanilla ladder physics. Release movement to slide slowly; release movement and hold sneak to stay in place. Jump, descending speed, horizontal speed limits and fall-distance handling use the normal ladder code. Back away to leave the wall and resume ordinary falling, or keep moving to step onto a reachable ledge. Floors/ceilings are excluded from wall contact. It pauses during Free Cam, flying, gliding, riding and swimming. Auto Bridge pauses its placement and edge guard while attached to the wall so it does not fight ladder movement. Real ladders and vines retain their normal behavior. The switch saves separately in `config/faster-wallclimb.properties`.
 - **Free Cam** detaches the camera from the player. Click its switch in Search/Visuals or press **F6** to toggle it on/off. Click **Toggle: F6** beside the module and press a keyboard key to rebind it; P/Esc are reserved. Camera mode starts off in every session, and only the keybinding persists. Use your configured movement keys to fly, Space/Shift (your jump/sneak bindings) for up/down, and sprint to fly three times faster. Mouse sensitivity and inversion use the normal game settings. The camera passes through blocks, while the real player retains normal physics and server corrections. Free Cam stops camera control in menus and when unfocused; it returns to normal on death, disconnect, or world/player changes. It pauses Auto Bridge/Auto Hit and world attack/use actions while active, and preserves the selected first/third-person perspective on return. It only displays terrain already sent to the client.
 - **Player ESP** draws wireframe boxes and tracers matching each player’s formatted nametag/team color, white player names, and green distances in M (meters). Off-screen players get direction indicators. It starts on.
 
-The **Visuals** tab groups Xray, Player ESP, BedEsp and Free Cam on one page. Its **All** view has all four switches and the Free Cam keybinding. The Player ESP, Xray and BedEsp sub-tabs expose their existing numeric controls and filters. Free Cam is now in Visuals; all five Movement modules fit without scrolling.
+The **Visuals** tab groups Xray, Player ESP, BedEsp and Free Cam on one page. Its **All** view has all four switches and the Free Cam keybinding. The Player ESP, Xray and BedEsp sub-tabs expose their existing numeric controls and filters. Free Cam is now in Visuals; Movement has six modules; scroll down to reach QuickJump.
 
 Choose **Movement** to edit the speed multiplier. The default **1.5x** is a 50% increase over normal speed. Use the plus and minus controls or click the number, type a multiplier of at least 1, and press Enter.
 
@@ -55,7 +56,7 @@ Windows PowerShell
 .\gradlew.bat clean build
 ```
 
-The installable output is `build/libs/faster-1.6.1-mc26.3.jar`. The sources JAR in that directory is for development.
+The installable output is `build/libs/faster-1.7.0-mc26.3.jar`. The sources JAR in that directory is for development.
 
 Install Fabric Loader **0.20.1 or later** for Minecraft **26.3**, then put the installable JAR in the instance's `mods` folder.
 
@@ -73,6 +74,7 @@ Java sources live in `src/client/java/net/fastersprint`. The mod metadata and mi
 | --- | --- |
 | `ClientMenu.java`, `ModuleSearch.java` | Focused module search, category layout, switches, bindings and numeric controls |
 | `BedEsp.java`, `BedGeometry.java`, `BedMesh.java`, `BedOutlineState.java` | Incremental bed scan, dye metadata, combined bed geometry and one overlay |
+| `QuickJump.java`, `QuickJumpPhysics.java`, `QuickJumpSettings.java`, `mixin/QuickJumpMixin.java` | Saved toggle, bounded vanilla peak calculation and collision-resolved takeoff |
 | `QuickFall.java`, `QuickFallState.java`, `mixin/QuickFall*Mixin.java` | Walk-off detection, collision-resolved downward velocity and correction reset |
 | `WallClimb.java`, `WallClimbSettings.java`, `mixin/WallClimbMixin.java` | Cached block-wall contact, saved switch and vanilla ladder movement |
 | `FreeCam.java`, `FreeCamMotion.java`, `FreeCamSettings.java` | Detached camera state, normalized flight, lifecycle and saved toggle key |
@@ -126,3 +128,5 @@ Wall Climb validation for 1.5.0 is documented in `tests/wallclimb-live/README.md
 BedEsp and QuickFall validation for 1.6.0 is documented in `tests/faster160-live/README.md`. The dense-bed CPU/batching measurement and typed-control checks are in `tests/bedesp-performance/README.md`.
 
 Version 1.6.1 fixes the reported `Can only blur once per frame` crash when a normal screen opens while the P menu is active. Screen/overlay transitions dismiss the custom menu immediately, with a render-time check for changes between game ticks. The native screen retains mouse control and its normal background blur. Real-client regression checks are in `tests/faster161-live/README.md`.
+
+QuickJump validation for 1.7.0 is in `tests/faster170-live/README.md`, including default/boosted jump references, immediate peak timing, ceilings, a one-block ledge, held jumping and interactions with other movement modules.

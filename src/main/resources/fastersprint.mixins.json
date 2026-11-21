@@ -25,6 +25,7 @@
     "FreeCamHandMixin",
     "WallClimbMixin",
     "QuickFallMixin",
+    "QuickJumpMixin",
     "QuickFallCorrectionMixin"
   ],
   "injectors": {

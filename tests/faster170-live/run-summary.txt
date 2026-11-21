@@ -1,0 +1,13 @@
+[16:58:10] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS QuickJump searchable and toggleable in scrolled Movement
+[16:58:14] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS normal: firstTickRise=0.41999998688697815, peak=1.252203340253729, peakTick=6, minVelocity=-0.4448259643949201, hops=0, corrections=0
+[16:58:16] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS quick: firstTickRise=1.252203340253729, peak=1.252203340253729, peakTick=1, minVelocity=-0.44749789698341763, hops=1, corrections=0
+[16:58:19] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS boost-normal: firstTickRise=0.5199999809265137, peak=1.8361316069918558, peakTick=7, minVelocity=-0.505540623551122, hops=0, corrections=0
+[16:58:22] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS boost-quick: firstTickRise=1.8361316069918558, peak=1.8361316069918558, peakTick=1, minVelocity=-0.5169479491049732, hops=1, corrections=0
+[16:58:25] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS ceiling: firstTickRise=0.20000004768371582, peak=0.20000004768371582, peakTick=1, minVelocity=-0.1552320045166016, hops=0, corrections=0
+[16:58:27] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS step: firstTickRise=1.252203340253729, peak=1.252203340253729, peakTick=1, minVelocity=-0.230527368912964, hops=1, corrections=0
+[16:58:32] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS hold: firstTickRise=1.252203340253729, peak=1.252203340253729, peakTick=1, minVelocity=-0.44749789698341763, hops=7, corrections=0
+[16:58:35] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS quickfall: firstTickRise=1.252203340253729, peak=1.252203340253729, peakTick=1, minVelocity=-0.44749789698341763, hops=1, corrections=0
+[16:58:37] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS wall: firstTickRise=0.41999998688697815, peak=4.418400064707015, peakTick=35, minVelocity=0.0, hops=0, corrections=0
+[16:58:40] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS freecam: firstTickRise=0.0, peak=0.0, peakTick=0, minVelocity=-0.0784000015258789, hops=0, corrections=0
+[16:58:43] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP PASS water: firstTickRise=0.034999999105934876, peak=4.214922367786443, peakTick=29, minVelocity=-0.3282090126633064, hops=0, corrections=0
+[16:58:43] [Render thread/INFO] (Minecraft) [STDOUT]: JUMP ALL CHECKS COMPLETE

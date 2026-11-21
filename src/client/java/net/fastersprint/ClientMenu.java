@@ -25,6 +25,7 @@ public final class ClientMenu {
     private static String query = "";
     private static int searchOffset;
     private static int visualPage;
+    private static int movementOffset;
     private static final int SEARCH_ROWS = 5;
     private static boolean open;
     private static boolean speedEnabled;
@@ -197,6 +198,7 @@ public final class ClientMenu {
                 bindingBridgeKey = false; bindingFreeCamKey = false;
                 category = index;
                 if (category == 2) visualPage = 0;
+                if (category == 1) movementOffset = 0;
                 if (category == 0) focusSearch();
                 editing = Setting.NONE;
                 error = "";
@@ -309,6 +311,7 @@ public final class ClientMenu {
     public static void scroll(double amount) {
         if (amount == 0) return;
         if (category == 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
+        if (category == 1) movementOffset = Math.clamp(movementOffset + (amount < 0 ? 1 : -1), 0, 1);
     }
 
     private static void drawSearch(GuiGraphicsExtractor graphics) {
@@ -339,8 +342,11 @@ public final class ClientMenu {
             int index = searchResults().indexOf(tool);
             return index >= searchOffset && index < searchOffset + SEARCH_ROWS;
         }
-        if (category == 1) return tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE
-            || tool == Tool.WALLCLIMB || tool == Tool.QUICKFALL;
+        if (category == 1) {
+            boolean movement = tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE
+                || tool == Tool.WALLCLIMB || tool == Tool.QUICKFALL || tool == Tool.QUICKJUMP;
+            return movement && toolTop(tool) >= 47 && toolTop(tool) + 48 <= 385;
+        }
         if (category == 2) return switch (visualPage) {
             case 0 -> tool == Tool.XRAY || tool == Tool.PLAYERS || tool == Tool.BEDESP || tool == Tool.FREECAM;
             case 1 -> tool == Tool.PLAYERS;
@@ -357,18 +363,20 @@ public final class ClientMenu {
             if (visualPage != 0) return 91;
             return switch (tool) { case XRAY -> 91; case PLAYERS -> 147; case BEDESP -> 203; case FREECAM -> 259; default -> -1; };
         }
-        return switch (tool) {
+        int top = switch (tool) {
             case GUIMOVE -> 173;
             case BRIDGE -> 227;
             case WALLCLIMB -> 281;
             case QUICKFALL -> 335;
+            case QUICKJUMP -> 389;
             default -> 51;
         };
+        return category == 1 ? top - movementOffset * 54 : top;
     }
 
     private static int settingTop(Setting setting) {
         return switch (setting) {
-            case SPEED -> category == 1 ? 115 : -1;
+            case SPEED -> category == 1 ? 115 - movementOffset * 54 : -1;
             case RANGE -> category == 2 && visualPage == 1 ? 155 : -1;
             case NAMES -> category == 2 && visualPage == 1 ? 217 : -1;
             case XRAY_RANGE -> category == 2 && visualPage == 2 ? 155 : -1;
@@ -381,6 +389,7 @@ public final class ClientMenu {
         return switch (tool) {
             case BEDESP -> BedEspSettings.enabled();
             case QUICKFALL -> QuickFallSettings.enabled();
+            case QUICKJUMP -> QuickJumpSettings.enabled();
             case WALLCLIMB -> WallClimbSettings.enabled();
             case FREECAM -> FreeCam.active();
             case XRAY -> XraySettings.enabled();
@@ -397,6 +406,7 @@ public final class ClientMenu {
             switch (tool) {
                 case BEDESP -> BedEspSettings.setEnabled(!BedEspSettings.enabled());
                 case QUICKFALL -> QuickFallSettings.setEnabled(!QuickFallSettings.enabled());
+                case QUICKJUMP -> QuickJumpSettings.setEnabled(!QuickJumpSettings.enabled());
                 case WALLCLIMB -> WallClimbSettings.setEnabled(!WallClimbSettings.enabled());
                 case FREECAM -> FreeCam.toggle();
                 case XRAY -> XraySettings.setEnabled(!XraySettings.enabled());
@@ -538,6 +548,11 @@ public final class ClientMenu {
         }
 
         if (category == 0) drawSearch(graphics);
+        if (category == 1) {
+            if (error.isEmpty()) graphics.text(game.font, "Scroll for more movement tools", 127, HEIGHT - 19, MUTED);
+            MenuPaint.rounded(graphics, 452, 51, 2, 332, 1, 0xFF353047);
+            MenuPaint.rounded(graphics, 452, 51 + movementOffset * 48, 2, 284, 1, ACCENT);
+        }
         if (category == 2) {
             drawVisualTabs(graphics, mouseX, mouseY);
             if (visualPage == 0) {
@@ -702,6 +717,9 @@ public final class ClientMenu {
             graphics.fill(x, y, x + 2, y + 10, color);
             graphics.fill(x + 2, y + 3, x + 10, y + 7, color);
             graphics.fill(x + 9, y + 7, x + 11, y + 10, color);
+        } else if (icon == 7) {
+            graphics.fill(x + 4, y + 2, x + 6, y + 10, color);
+            for (int row = 0; row < 4; row++) graphics.fill(x + row, y + 3 - row, x + 10 - row, y + 4 - row, color);
         } else if (icon == 6) {
             graphics.fill(x + 4, y, x + 6, y + 8, color);
             for (int row=0;row<4;row++) graphics.fill(x+row,y+6+row,x+10-row,y+7+row,color);
@@ -743,7 +761,8 @@ public final class ClientMenu {
         FREECAM("Free Cam", "Fly the camera freely", 2),
         WALLCLIMB("Wall Climb", "Ladder movement on walls", 1),
         BEDESP("BedEsp", "Bed-colored outlines", 5),
-        QUICKFALL("QuickFall", "Fast drops from edges", 6);
+        QUICKFALL("QuickFall", "Fast drops from edges", 6),
+        QUICKJUMP("QuickJump", "Instant normal jump peak", 7);
 
         final String title;
         final String description;

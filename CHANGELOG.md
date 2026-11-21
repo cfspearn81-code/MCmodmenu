@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.7.0
+
+- Add QuickJump with a saved default-off toggle in Search and Movement. Compress a grounded jump to its normal peak on the takeoff tick, using actual jump impulse, gravity and air drag.
+- Use normal collision sweeps to stop at ceilings; preserve horizontal sprint impulse, normal falling and grounded jump cooldown/repeats. Keep swimming, climbing, flight, riding, levitation and Free Cam unchanged. Unsupported/extreme physics retain their original gradual ascent.
+- Scroll Movement to reach the sixth movement module; preserve the Visuals grouping and screen-transition blur fix.
+
 ## 1.6.1
 
 - Fix `Can only blur once per frame` when pause/inventory screens open while the P menu is active. Dismiss on screen/overlay transitions and check again before rendering; leave the new screen in control of the mouse.

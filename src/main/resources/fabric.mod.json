@@ -3,7 +3,7 @@
   "id": "fastersprint",
   "version": "${version}",
   "name": "Faster",
-  "description": "P opens the searchable module menu. Free Cam with a configurable toggle key. BedEsp and QuickFall. Wall Climb with ladder physics, adjustable speed, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
+  "description": "P opens the searchable module menu. Free Cam with a configurable toggle key. BedEsp, QuickFall and QuickJump. Wall Climb with ladder physics, adjustable speed, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
   "environment": "client",
   "mixins": [
     "fastersprint.mixins.json"
