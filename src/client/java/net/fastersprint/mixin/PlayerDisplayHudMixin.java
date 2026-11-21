@@ -17,6 +17,7 @@ abstract class PlayerDisplayHudMixin {
             GuiGraphicsExtractor graphics, DeltaTracker delta, CallbackInfo callback) {
         net.fastersprint.Xray.render(graphics);
         PlayerDisplayRenderer.render(graphics, delta);
+        net.fastersprint.FreeCam.renderStatus(graphics);
         ClientMenu.render(graphics);
     }
 }

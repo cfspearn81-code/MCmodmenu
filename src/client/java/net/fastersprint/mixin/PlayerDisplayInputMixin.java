@@ -16,7 +16,7 @@ abstract class PlayerDisplayInputMixin {
             long window, int action, KeyEvent event, CallbackInfo callback) {
         Minecraft game = Minecraft.getInstance();
         if (window == game.getWindow().handle() && game.isWindowActive()
-                && ClientMenu.handleKey(action, event)) {
+                && (ClientMenu.handleKey(action, event) || net.fastersprint.FreeCam.handleKey(action, event))) {
             callback.cancel();
         }
     }

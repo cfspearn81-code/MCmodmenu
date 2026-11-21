@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "id": "fastersprint",
   "version": "${version}",
-  "name": "Faster Movement",
-  "description": "P opens the movement and ESP menu. Adjustable speed, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
+  "name": "Faster",
+  "description": "P opens the searchable module menu. Free Cam with a configurable toggle key. Adjustable speed, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
   "environment": "client",
   "mixins": [
     "fastersprint.mixins.json"

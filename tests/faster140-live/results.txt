@@ -1,0 +1,12 @@
+default F6 toggles both directions
+menu opens to focused search with seven modules
+typed ESP/P, no results, Ctrl+A replacement, compact FreeCam matching and movement capture
+camera crosses solid wall while body/input/rotation remain unchanged; real mouse path turns camera
+focus loss stops flight and rebound key restores normal camera
+key repeat does not toggle; normal movement resumes
+inventory pauses freecam controls
+Xray selection follows a translating detached camera
+death deactivates freecam
+original third-person setting is preserved
+movement packets stay at body; search scrolling exposes all seven modules
+position packets=2, input packets=0

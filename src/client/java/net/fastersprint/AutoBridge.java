@@ -38,7 +38,7 @@ public final class AutoBridge {
     }
 
     private static boolean active(Minecraft game) {
-        return PlayerDisplaySettings.autoBridgeEnabled() && game.player != null && game.level != null
+        return !FreeCam.active() && PlayerDisplaySettings.autoBridgeEnabled() && game.player != null && game.level != null
             && game.gameMode != null && game.isWindowActive() && !game.isPaused()
             && InputConstants.isKeyDown(PlayerDisplaySettings.autoBridgeKey())
             && game.player.isAlive() && !game.player.isSpectator() && !game.player.isPassenger()
@@ -74,7 +74,7 @@ public final class AutoBridge {
             status = "Release key to retry";
             return;
         }
-        if (game.gui.screen() != null || game.gui.overlay() != null || ClientMenu.isOpen()
+        if (FreeCam.active() || game.gui.screen() != null || game.gui.overlay() != null || ClientMenu.isOpen()
                 || game.options.keyUse.isDown() || player.isUsingItem()
                 || !limiter.ready(player.tickCount)) return;
         if (!(player.getMainHandItem().getItem() instanceof BlockItem)) {

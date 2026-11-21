@@ -30,6 +30,7 @@ abstract class ClientMenuMouseMixin {
     private void fastersprint$blockMenuHotbarScroll(
             long window, double horizontal, double vertical, CallbackInfo callback) {
         if (ClientMenu.isOpen()) {
+            ClientMenu.scroll(vertical);
             callback.cancel();
         }
     }

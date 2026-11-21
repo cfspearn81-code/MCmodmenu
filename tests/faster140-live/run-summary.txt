@@ -1,0 +1,22 @@
+[01:54:23] [Render thread/INFO] (Minecraft) [STDOUT]: PASS default F6 toggles both directions
+[01:54:24] [Render thread/INFO] (Minecraft) [STDOUT]: PASS menu opens to focused search with seven modules
+[01:54:24] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: FASTER SCREENSHOT Saved screenshot as search-default.png
+[01:54:25] [Render thread/INFO] (Minecraft) [STDOUT]: PASS typed ESP/P, no results, Ctrl+A replacement, compact FreeCam matching and movement capture
+[01:54:25] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: FASTER SCREENSHOT Saved screenshot as search-empty.png
+[01:54:25] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: FASTER SCREENSHOT Saved screenshot as search-freecam.png
+[01:54:26] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: FASTER SCREENSHOT Saved screenshot as freecam-keybind.png
+[01:54:27] [Render thread/INFO] (Minecraft) [STDOUT]: PASS camera crosses solid wall while body/input/rotation remain unchanged; real mouse path turns camera
+[01:54:29] [Render thread/INFO] (Minecraft) [STDOUT]: PASS focus loss stops flight and rebound key restores normal camera
+[01:54:30] [Render thread/INFO] (Minecraft) [STDOUT]: PASS key repeat does not toggle; normal movement resumes
+[01:54:32] [Render thread/INFO] (Minecraft) [STDOUT]: PASS inventory pauses freecam controls
+[01:54:35] [Render thread/INFO] (Minecraft) [STDOUT]: PASS Xray selection follows a translating detached camera
+[01:54:36] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: FASTER SCREENSHOT Saved screenshot as freecam-detached.png
+[01:54:37] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: FASTER SCREENSHOT Saved screenshot as camera-restored.png
+[01:54:37] [Render thread/INFO] (Minecraft) [STDOUT]: PASS death deactivates freecam
+[01:54:38] [Render thread/INFO] (Minecraft) [STDOUT]: PASS original third-person setting is preserved
+[01:54:38] [Render thread/INFO] (Minecraft) [STDOUT]: PASS movement packets stay at body; search scrolling exposes all seven modules
+[01:54:38] [Render thread/INFO] (Minecraft) [STDOUT]: FASTER 1.4.0 ALL CHECKS COMPLETE
+[01:54:38] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: FASTER SCREENSHOT Saved screenshot as search-scrolled.png
+BUILD SUCCESSFUL in 53s
+
+Visually inspected focused search, single-result Free Cam with binding, detached view with visible player body/hidden hands, and restored normal view.

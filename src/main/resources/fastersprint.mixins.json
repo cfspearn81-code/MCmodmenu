@@ -17,7 +17,11 @@
     "AutoBridgeBoundaryMixin",
     "GuiMovePauseMixin",
     "XrayChunkMixin",
-    "GuiRenderStateAccessor"
+    "GuiRenderStateAccessor",
+    "FreeCamCameraMixin",
+    "FreeCamMouseMixin",
+    "FreeCamInteractionMixin",
+    "FreeCamHandMixin"
   ],
   "injectors": {
     "defaultRequire": 1

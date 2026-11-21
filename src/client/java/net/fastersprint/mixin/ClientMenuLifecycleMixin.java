@@ -12,6 +12,7 @@ abstract class ClientMenuLifecycleMixin {
     @Inject(method = "tick", at = @At("HEAD"))
     private void fastersprint$updateMenu(CallbackInfo callback) {
         ClientMenu.tick();
+        net.fastersprint.FreeCam.tick();
     }
     @Inject(method = "tick", at = @At("TAIL"))
     private void fastersprint$autoHit(CallbackInfo callback) {

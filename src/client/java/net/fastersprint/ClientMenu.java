@@ -2,6 +2,8 @@ package net.fastersprint;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
@@ -13,10 +15,16 @@ public final class ClientMenu {
     private static final int TEXT = 0xFFF3F1FF;
     private static final int MUTED = 0xFF9996B5;
     private static final int ACCENT = 0xFFC6B1FF;
-    private static final float[] TOGGLES = new float[6];
+    private static final float[] TOGGLES = new float[7];
     private static long lastFrame;
     private static float smoothing;
     private static boolean bindingBridgeKey;
+    private static boolean bindingFreeCamKey;
+    private static boolean searchFocused;
+    private static boolean searchSelected;
+    private static String query = "";
+    private static int searchOffset;
+    private static final int SEARCH_ROWS = 5;
     private static boolean open;
     private static boolean speedEnabled;
     private static int category;
@@ -39,9 +47,11 @@ public final class ClientMenu {
         Minecraft game = Minecraft.getInstance();
         open = !open;
         bindingBridgeKey = false;
+        bindingFreeCamKey = false;
         editing = Setting.NONE;
         error = "";
         if (open) {
+            category = 0; query = ""; searchOffset = 0; focusSearch();
             game.options.keyAttack.setDown(false);
             game.options.keyUse.setDown(false);
             while (game.options.keyAttack.consumeClick()) {
@@ -69,6 +79,8 @@ public final class ClientMenu {
             MenuCursor.end();
             open = false;
             bindingBridgeKey = false;
+            bindingFreeCamKey = false;
+            searchFocused = false;
             editing = Setting.NONE;
         }
     }
@@ -78,14 +90,15 @@ public final class ClientMenu {
         if (game.player == null || game.gui.screen() != null || game.gui.overlay() != null) {
             return false;
         }
-        if (open && bindingBridgeKey) {
+        if (open && (bindingBridgeKey || bindingFreeCamKey)) {
             if (action == InputConstants.PRESS) {
                 if (event.isEscape()) {
-                    bindingBridgeKey = false;
+                    bindingBridgeKey = false; bindingFreeCamKey = false;
                 } else {
                     try {
-                        PlayerDisplaySettings.setAutoBridgeKey(event.key());
-                        bindingBridgeKey = false;
+                        if (bindingFreeCamKey) FreeCamSettings.setKey(event.key());
+                        else PlayerDisplaySettings.setAutoBridgeKey(event.key());
+                        bindingBridgeKey = false; bindingFreeCamKey = false;
                         error = "";
                     } catch (IllegalArgumentException invalid) {
                         error = "Choose a key other than P or Esc.";
@@ -96,6 +109,11 @@ public final class ClientMenu {
             }
             return true;
         }
+        if (open && event.hasControlDown() && event.key() == InputConstants.KEY_F) {
+            if (action == InputConstants.PRESS) { category = 0; editing = Setting.NONE; focusSearch(); }
+            return true;
+        }
+        if (open && category == 0 && searchFocused && !event.isEscape()) return searchKey(action, event);
         if (event.key() == InputConstants.KEY_P && !event.hasControlDown()
                 && !event.hasAltDown() && !game.options.keyDebugModifier.isDown()) {
             if (action == InputConstants.PRESS) {
@@ -156,22 +174,30 @@ public final class ClientMenu {
             toggle();
             return;
         }
+        if (category == 0 && inside(x, y, 116, 51, WIDTH - 128, 32)) {
+            bindingBridgeKey = false; bindingFreeCamKey = false; focusSearch(); return;
+        }
+        searchFocused = false;
         for (int index = 0; index < 5; index++) {
             if (inside(x, y, 10, 48 + index * 30, 92, 26)) {
-                bindingBridgeKey = false;
+                bindingBridgeKey = false; bindingFreeCamKey = false;
                 category = index;
+                if (category == 0) focusSearch();
                 editing = Setting.NONE;
                 error = "";
                 return;
             }
         }
         if (visible(Tool.BRIDGE) && inside(x, y, 308, toolTop(Tool.BRIDGE) + 24, 130, 20)) {
-            bindingBridgeKey = true;
+            bindingBridgeKey = true; bindingFreeCamKey = false;
             editing = Setting.NONE;
             error = "";
             return;
         }
-        bindingBridgeKey = false;
+        if (visible(Tool.FREECAM) && inside(x, y, 308, toolTop(Tool.FREECAM) + 24, 130, 20)) {
+            bindingFreeCamKey = true; bindingBridgeKey = false; editing = Setting.NONE; error = ""; return;
+        }
+        bindingBridgeKey = false; bindingFreeCamKey = false;
         if (category == 4) {
             for (OreType ore : OreType.values()) {
                 int left = 116 + (ore.ordinal() % 3) * 112;
@@ -216,17 +242,87 @@ public final class ClientMenu {
         }
     }
 
+    public static boolean capturesMovement() {
+        return open && (searchFocused || bindingBridgeKey || bindingFreeCamKey);
+    }
+
+    private static void focusSearch() {
+        searchFocused = true; searchSelected = false;
+        var game = Minecraft.getInstance();
+        for (var key : new net.minecraft.client.KeyMapping[]{game.options.keyUp, game.options.keyDown,
+                game.options.keyLeft, game.options.keyRight, game.options.keyJump, game.options.keyShift, game.options.keySprint}) key.setDown(false);
+    }
+
+    private static boolean searchKey(int action, KeyEvent event) {
+        if (action == InputConstants.RELEASE) return true;
+        if (event.isConfirmation() || event.key() == InputConstants.KEY_TAB) { searchFocused = false; return true; }
+        if (event.hasControlDown()) {
+            if (event.key() == InputConstants.KEY_A) searchSelected = true;
+            else if (event.key() == InputConstants.KEY_V) {
+                query = ModuleSearch.append(searchSelected ? "" : query, Minecraft.getInstance().keyboardHandler.getClipboard());
+                searchSelected = false; searchOffset = 0;
+            }
+            return true;
+        }
+        if (event.key() == InputConstants.KEY_BACKSPACE) {
+            query = searchSelected ? "" : ModuleSearch.backspace(query); searchSelected = false; searchOffset = 0; return true;
+        }
+        int code = event.keycode();
+        if (!event.hasAltDown() && Character.isValidCodePoint(code) && !Character.isISOControl(code)) {
+            query = ModuleSearch.append(searchSelected ? "" : query, new String(Character.toChars(code)));
+            searchSelected = false; searchOffset = 0;
+        }
+        return true;
+    }
+
+    private static List<Tool> searchResults() {
+        List<Tool> result = new ArrayList<>();
+        for (Tool tool : Tool.values()) if (ModuleSearch.matches(tool.title, tool.description, query)) result.add(tool);
+        return result;
+    }
+
+    public static void scroll(double amount) {
+        if (category == 0 && amount != 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
+    }
+
+    private static void drawSearch(GuiGraphicsExtractor graphics) {
+        var game = Minecraft.getInstance();
+        graphics.nextStratum();
+        MenuPaint.rounded(graphics, 116, 51, WIDTH - 128, 32, 8, searchFocused ? 0xFFAE8DE2 : 0xFF48405D);
+        MenuPaint.rounded(graphics, 117, 52, WIDTH - 130, 30, 7, 0xFF211E36);
+        if (searchSelected && !query.isEmpty()) MenuPaint.rounded(graphics, 126, 59, Math.min(300,game.font.width(query)+3), 15, 3, 0xFF51406D);
+        String displayed = query.isEmpty() && !searchFocused ? "Search modules..." : query + (searchFocused ? "_" : "");
+        if (query.isEmpty() && searchFocused) displayed = "Search modules... _";
+        graphics.text(game.font, game.font.plainSubstrByWidth(displayed, 304), 127, 63, query.isEmpty() ? MUTED : TEXT);
+        List<Tool> result = searchResults();
+        if (result.isEmpty()) {
+            graphics.centeredText(game.font, "No modules found", 282, 166, TEXT);
+            graphics.centeredText(game.font, "Try another name or press Ctrl+A to replace.", 282, 185, MUTED);
+        }
+        if (error.isEmpty()) graphics.text(game.font, result.size() + (result.size() == 1 ? " module" : " modules") + (result.size() > SEARCH_ROWS ? "  /  Scroll for more" : ""), 127, HEIGHT - 19, MUTED);
+        if (result.size() > SEARCH_ROWS) {
+            MenuPaint.rounded(graphics, 452, 99, 2, 272, 1, 0xFF353047);
+            int thumb = 272 * SEARCH_ROWS / result.size();
+            int top = 99 + (272 - thumb) * searchOffset / (result.size() - SEARCH_ROWS);
+            MenuPaint.rounded(graphics, 452, top, 2, thumb, 1, ACCENT);
+        }
+    }
+
     private static boolean visible(Tool tool) {
-        return category == 0 || (category == 1 && (tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE))
+        if (category == 0) {
+            int index = searchResults().indexOf(tool);
+            return index >= searchOffset && index < searchOffset + SEARCH_ROWS;
+        }
+        return (category == 1 && (tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE || tool == Tool.FREECAM))
             || (category == 2 && tool == Tool.PLAYERS) || (category == 3 && tool == Tool.HIT)
             || (category == 4 && tool == Tool.XRAY);
     }
 
     private static int toolTop(Tool tool) {
         if (category == 0) {
-            return 51 + tool.ordinal() * 56;
+            return 99 + (searchResults().indexOf(tool) - searchOffset) * 56;
         }
-        return tool == Tool.BRIDGE ? 233 : tool == Tool.GUIMOVE ? 177 : 51;
+        return tool == Tool.BRIDGE ? 233 : tool == Tool.GUIMOVE ? 177 : tool == Tool.FREECAM ? 289 : 51;
     }
 
     private static int settingTop(Setting setting) {
@@ -241,6 +337,7 @@ public final class ClientMenu {
 
     private static boolean toolEnabled(Tool tool) {
         return switch (tool) {
+            case FREECAM -> FreeCam.active();
             case XRAY -> XraySettings.enabled();
             case SPEED -> speedEnabled;
             case GUIMOVE -> PlayerDisplaySettings.guiMoveEnabled();
@@ -253,6 +350,7 @@ public final class ClientMenu {
     private static void toggleTool(Tool tool) {
         try {
             switch (tool) {
+                case FREECAM -> FreeCam.toggle();
                 case XRAY -> XraySettings.setEnabled(!XraySettings.enabled());
                 case HIT -> PlayerDisplaySettings.setAutoHitEnabled(!PlayerDisplaySettings.autoHitEnabled());
                 case BRIDGE -> PlayerDisplaySettings.setAutoBridgeEnabled(!PlayerDisplaySettings.autoBridgeEnabled());
@@ -336,8 +434,8 @@ public final class ClientMenu {
         graphics.fill(119, 39, WIDTH - 15, 40, 0x484A456B);
         graphics.text(game.font, "F A S T E R", 15, 12, TEXT);
         graphics.text(game.font, "CONTROL PANEL", 15, 25, 0xFF6F6B91);
-        String[] headings = {"Overview", "Movement", "Players", "Combat", "Xray"};
-        String[] subtitles = {"Your controls, in one place.", "Fine-tune your movement.",
+        String[] headings = {"Search", "Movement", "Players", "Combat", "Xray"};
+        String[] subtitles = {"Find a module and make it yours.", "Fine-tune your movement.",
             "Keep everyone in sight.", "Ready when you are.", "Find the ores you need."};
         graphics.text(game.font, headings[category], 127, 11, TEXT);
         graphics.text(game.font, subtitles[category], 127, 25, MUTED);
@@ -353,7 +451,7 @@ public final class ClientMenu {
             graphics.fill(WIDTH - 25 + step, 16 + step, WIDTH - 24 + step, 17 + step, MUTED);
             graphics.fill(WIDTH - 19 - step, 16 + step, WIDTH - 18 - step, 17 + step, MUTED);
         }
-        String[] categories = {"All tools", "Movement", "Players", "Combat", "Xray"};
+        String[] categories = {"Search", "Movement", "Players", "Combat", "Xray"};
         for (int index = 0; index < categories.length; index++) {
             int top = 48 + index * 30;
             boolean selected = category == index;
@@ -368,10 +466,10 @@ public final class ClientMenu {
         MenuPaint.rounded(graphics, 11, HEIGHT - 107, 85, 55, 8, 0xFF242139);
         MenuPaint.circle(graphics, 23, HEIGHT - 93, 3, 0xFF8F7BD5);
         graphics.text(game.font, "YOUR SETUP", 33, HEIGHT - 96, 0xFFC5B5E7);
-        graphics.text(game.font, "6 modules", 20, HEIGHT - 79, TEXT);
+        graphics.text(game.font, Tool.values().length + " modules", 20, HEIGHT - 79, TEXT);
         graphics.text(game.font, "Quick access", 20, HEIGHT - 65, 0xFF77738E);
-        graphics.text(game.font, "WASD to move", 15, HEIGHT - 31, 0xFF77738E);
-        graphics.text(game.font, "P / Esc to close", 15, HEIGHT - 18, 0xFF77738E);
+        graphics.text(game.font, searchFocused ? "Type to search" : "WASD to move", 15, HEIGHT - 31, 0xFF77738E);
+        graphics.text(game.font, searchFocused ? "Esc to close" : "P / Esc to close", 15, HEIGHT - 18, 0xFF77738E);
         for (Tool tool : Tool.values()) {
             if (visible(tool)) {
                 drawModule(graphics, tool, toolTop(tool), mouseX, mouseY);
@@ -384,6 +482,7 @@ public final class ClientMenu {
             }
         }
 
+        if (category == 0) drawSearch(graphics);
         if (category == 4) drawOreFilters(graphics, mouseX, mouseY);
         if (!error.isEmpty()) {
             graphics.text(game.font, error, 127, HEIGHT - 19, 0xFFFFB6A3);
@@ -414,11 +513,13 @@ public final class ClientMenu {
             ? "Walk and sprint " + multiplierText() + "x"
             : tool == Tool.BRIDGE ? AutoBridge.status() : tool.description;
         graphics.text(game.font, description, 163, top + 28, MUTED);
-        if (tool == Tool.BRIDGE) {
-            MenuPaint.rounded(graphics, 308, top + 24, 130, 20, 5, bindingBridgeKey ? 0xFF4C3A65 : 0xFF322B49);
-            String key = InputConstants.Type.KEYBOARD.getOrCreate(PlayerDisplaySettings.autoBridgeKey()).getDisplayName().getString();
-            if (key == null) key = "Key " + PlayerDisplaySettings.autoBridgeKey();
-            String label = bindingBridgeKey ? "Press a key..." : "Hold: " + key.toUpperCase();
+        if (tool == Tool.BRIDGE || tool == Tool.FREECAM) {
+            boolean binding = tool == Tool.BRIDGE ? bindingBridgeKey : bindingFreeCamKey;
+            int boundKey = tool == Tool.BRIDGE ? PlayerDisplaySettings.autoBridgeKey() : FreeCamSettings.key();
+            MenuPaint.rounded(graphics, 308, top + 24, 130, 20, 5, binding ? 0xFF4C3A65 : 0xFF322B49);
+            String key = InputConstants.Type.KEYBOARD.getOrCreate(boundKey).getDisplayName().getString();
+            if (key == null) key = "Key " + boundKey;
+            String label = binding ? "Press a key..." : (tool == Tool.BRIDGE ? "Hold: " : "Toggle: ") + key.toUpperCase(java.util.Locale.ROOT);
             graphics.text(game.font, game.font.plainSubstrByWidth(label, 122), 312, top + 30, ACCENT);
         }
         graphics.text(game.font, enabled ? "ON" : "OFF", WIDTH - 80, top + 12,
@@ -551,7 +652,8 @@ public final class ClientMenu {
         PLAYERS("Player ESP", "Boxes, tracers + distances", 2),
         BRIDGE("Auto Bridge", "Place underfoot", 0),
         HIT("Auto Hit", "Crosshair + weapon cooldown", 2),
-        XRAY("Xray", "Color-coded ore outlines", 4);
+        XRAY("Xray", "Color-coded ore outlines", 4),
+        FREECAM("Free Cam", "Fly the camera freely", 2);
 
         final String title;
         final String description;

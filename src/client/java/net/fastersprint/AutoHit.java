@@ -18,7 +18,7 @@ public final class AutoHit {
             cadence = new AttackCadence();
         }
         if (!PlayerDisplaySettings.autoHitEnabled() || actor == null || game.level == null
-                || game.gameMode == null || game.isPaused() || !game.isWindowActive()
+                || FreeCam.active() || game.gameMode == null || game.isPaused() || !game.isWindowActive()
                 || game.gui.screen() != null || game.gui.overlay() != null || ClientMenu.isOpen()
                 || !actor.isAlive() || actor.isSpectator() || actor.isUsingItem()
                 || game.options.keyAttack.isDown() || game.options.keyUse.isDown()) return;

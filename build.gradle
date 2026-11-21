@@ -6,7 +6,7 @@ version = project.mod_version
 group = 'net.fastersprint'
 
 base {
-    archivesName = 'faster-movement'
+    archivesName = 'faster'
 }
 
 loom {
@@ -53,5 +53,5 @@ tasks.withType(AbstractArchiveTask).configureEach {
 }
 
 jar {
-    archiveFileName = "faster-movement-${project.version}-mc${project.minecraft_version}.jar"
+    archiveFileName = "faster-${project.version}-mc${project.minecraft_version}.jar"
 }

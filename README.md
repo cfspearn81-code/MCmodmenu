@@ -1,18 +1,19 @@
-# Faster Movement
+# Faster
 
-A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open its menu. Movement keys work while the menu is open, and the cursor is available for clicking its controls.
+A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open the focused module search. Type a name, click a result to toggle it, or choose a category in the sidebar. The white dot cursor and fading trail remain available for all controls.
 
-[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.3.5-xray.2/downloads/faster-movement-1.3.5-xray.2-mc26.3.jar)
+[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.4.0/downloads/faster-1.4.0-mc26.3.jar)
 
 ## Features and controls
 
-The **All tools** tab contains the feature switches.
+The **Search** page opens automatically each time, with an empty query ready for typing. It searches all seven module names/descriptions, supports names such as `freecam` or `Free Cam`, and shows a scrollable list. **Ctrl+A** replaces the query, **Ctrl+V** pastes, **Backspace** edits, and **Ctrl+F** focuses search from another category. **Esc** closes the menu. **Enter/Tab** leaves the search field; when the field is unfocused, **P** also closes the menu and movement keys work again. Typing in search and binding a key do not move the player.
 
 - **Speed** changes walking and sprinting speed. It starts off at launch.
 - **GuiMove** permits movement while any screen is open in a loaded world, including inventory, containers, chat/search, settings and pause menus. It starts off. Keyboard/mouse movement bindings are read physically while the window is focused. Text fields still receive typing, so the same key can both type and move. With GuiMove on, opening a menu does not pause a single-player world. Existing CraftingMovement settings migrate automatically.
 - **Auto Bridge** uses the restored 1.3.5 implementation: standing movement with manual crosshair targeting, a configurable hold key (B by default), the four-tick placement budget, and the enhanced edge protection. Its switch and hold key are in the P menu.
-- **Auto Hit** starts off. Enable it in **All tools** or **Combat** in the P menu. It attacks the live player directly under your crosshair, within normal reach and line of sight, when your held item’s vanilla attack cooldown is fully charged. It pauses in menus, while unfocused, using items, or manually attacking/using. It does not rotate your view or attack everyone on screen. Cooldown timing depends on the held weapon; servers may enforce stricter limits. The toggle is saved.
+- **Auto Hit** starts off. Enable it through **Search** or **Combat** in the P menu. It attacks the live player directly under your crosshair, within normal reach and line of sight, when your held item’s vanilla attack cooldown is fully charged. It pauses in menus, while unfocused, using items, or manually attacking/using. It does not rotate your view or attack everyone on screen. Cooldown timing depends on the held weapon; servers may enforce stricter limits. The toggle is saved.
 - **Xray** outlines coal, iron, gold, redstone, lapis, diamond, emerald, nether quartz and ancient debris through walls with a distinct color for each ore. It starts off. Copper is excluded. Normal/deepslate versions share one toggle; nether gold uses the Gold toggle.
+- **Free Cam** detaches the camera from the player. Click its switch in Search/Movement or press **F6** to toggle it on/off. Click **Toggle: F6** beside the module and press a keyboard key to rebind it; P/Esc are reserved. Camera mode starts off in every session, and only the keybinding persists. Use your configured movement keys to fly, Space/Shift (your jump/sneak bindings) for up/down, and sprint to fly three times faster. Mouse sensitivity and inversion use the normal game settings. The camera passes through blocks, while the real player retains normal physics and server corrections. Free Cam stops camera control in menus and when unfocused; it returns to normal on death, disconnect, or world/player changes. It pauses Auto Bridge/Auto Hit and world attack/use actions while active, and preserves the selected first/third-person perspective on return. It only displays terrain already sent to the client.
 - **Player ESP** draws wireframe boxes and tracers matching each player’s formatted nametag/team color, white player names, and green block distances. Off-screen players get direction indicators. It starts on.
 
 Choose **Movement** to edit the speed multiplier. The default **1.5x** is a 50% increase over normal speed. Use the plus and minus controls or click the number, type a multiplier of at least 1, and press Enter.
@@ -27,7 +28,7 @@ Choose **Xray** for its switch, radius and nine ore filters. Click the radius nu
 
 Xray reads only chunk data already loaded by the client; a larger radius does not load or request distant terrain, or reveal ores hidden from the client by the server. It scans unchanged sections only once, updates the cache from normal block-change/chunk events, and discards unloaded chunks and old dimensions. New ores appear as the initial scan progresses. Scan work is generated incrementally from loaded chunks, with up to 32 section checks and a 0.35 ms soft budget per tick (at most four populated sections); this avoids a full-world queue allocation when enabling a large radius. All-disabled filters suspend scanning and drawing. The overlay uses a single batched GUI element, compact primitive ore positions, allocation-free per-edge projection, and shared-edge deduplication instead of a separate transformed GUI rectangle for every line. Candidate selection is cached and refreshed at most ten times per second as the view/cache changes, while the camera projection remains smooth each frame. Normal mining/placement updates bypass that selection delay. In exceptionally dense fields, at most 4096 on-screen boxes are drawn per frame, with nearer sections first. Xray settings persist separately in `config/faster-movement-xray.properties`.
 
-Press **P**, **Esc**, or the close control to close the menu. Settings are saved to `config/faster-movement.properties` in the Minecraft instance.
+Press **Esc** or the close control to close the menu; P also closes it when search is unfocused. Existing settings remain in `config/faster-movement.properties` and `config/faster-movement-xray.properties` so the rename preserves preferences. The new camera binding saves in `config/faster-freecam.properties`.
 
 The mod is installed in the client's `mods` folder. Multiplayer movement is subject to the server's movement rules.
 
@@ -47,7 +48,7 @@ Windows PowerShell
 .\gradlew.bat clean build
 ```
 
-The installable output is `build/libs/faster-movement-1.3.5-xray.2-mc26.3.jar`. The sources JAR in that directory is for development.
+The installable output is `build/libs/faster-1.4.0-mc26.3.jar`. The sources JAR in that directory is for development.
 
 Install Fabric Loader **0.20.1 or later** for Minecraft **26.3**, then put the installable JAR in the instance's `mods` folder.
 
@@ -63,7 +64,9 @@ Java sources live in `src/client/java/net/fastersprint`. The mod metadata and mi
 
 | File | Responsibility |
 | --- | --- |
-| `ClientMenu.java` | P menu, category layout, feature switches, and numeric controls |
+| `ClientMenu.java`, `ModuleSearch.java` | Focused module search, category layout, switches, bindings and numeric controls |
+| `FreeCam.java`, `FreeCamMotion.java`, `FreeCamSettings.java` | Detached camera state, normalized flight, lifecycle and saved toggle key |
+| `mixin/FreeCam*Mixin.java` | Camera/frustum alignment, mouse look, detached hands and interaction guards |
 | `OreType.java`, `XraySettings.java`, `Xray.java` | Ore colors/variants, saved filters/radius, loaded-chunk scan and outlines |
 | `mixin/XrayChunkMixin.java` | Tracks client chunks and block changes without periodic rescanning |
 | `OreSection.java`, `OreMesh.java`, `OreProjection.java`, `OreOutlineState.java` | Compact ore cache, shared edges, frustum rejection and one batched overlay |
@@ -96,7 +99,7 @@ Version 1.3.0 was tested with real 26.3 Fabric clients connected to an isolated 
 Current test fixture sources are under `tests/`, outside production source roots. Downloaded Minecraft binaries are outside this repository.
 
 
-This build is based on 1.3.5. The later bridge changes from 1.3.6–1.3.8 are excluded. This revision adds Auto Hit and nametag-colored ESP boxes; the 1.3.5 placement targeting/timing are retained with an added movement-boundary guard. Uncolored players use the normal white nametag fallback.
+This build is based on 1.3.5. The later bridge changes from 1.3.6–1.3.8 are excluded. Version 1.4.0 adds the search and Free Cam on top of Auto Hit, nametag-colored ESP and optimized Xray; the 1.3.5 placement targeting/timing are retained with an added movement-boundary guard. Uncolored players use the normal white nametag fallback.
 
 The P menu uses a dark indigo/violet panel theme with rounded cards, animated switches, and a white dot cursor with a short fading trail. The normal cursor is restored when the menu closes or the window loses focus. Controls and existing feature behavior remain from the 1.3.5-based tools build.
 
@@ -105,3 +108,5 @@ While Auto Bridge is enabled and its hold key is down, a final check in vanilla 
 ESP tracer lines and off-screen markers use the same resolved nametag/team color as the player box. GuiMove also keeps single-player menus from pausing while enabled and focused; world-loading overlays and unfocused windows retain normal behavior.
 
 The Xray performance regression, dense-ore measurements and validation limits are documented in `tests/xray-performance/README.md`. These are cloud test measurements, not a promise of a particular FPS on every PC.
+
+Version 1.4.0 validation is documented in `tests/faster140-live/README.md`, with the local real-client checks and movement packet audit. The installable artifact uses the new `faster-<version>-mc<game>.jar` name; the internal mod ID stays compatible with previous builds. Replace the older mod JAR when installing.

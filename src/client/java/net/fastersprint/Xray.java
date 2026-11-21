@@ -31,7 +31,7 @@ public final class Xray {
     private static final ArrayDeque<Work> pending=new ArrayDeque<>();
     private static int scanRange, scanSection, lastMask, meshRange;
     private static boolean queueDirty, meshDirty=true;
-    private static Vec3 scanCenter=Vec3.ZERO, meshCenter=Vec3.ZERO;
+    private static Vec3 scanCenter=Vec3.ZERO, meshCenter=Vec3.ZERO, meshCamera=Vec3.ZERO;
     private static float meshYaw,meshPitch;
     private static long nextMesh;
     private static OreMesh mesh=OreMesh.EMPTY;
@@ -143,11 +143,11 @@ public final class Xray {
         Vec3 center=game.player.position(),cameraPos=camera.position();
         camera.getViewRotationProjectionMatrix(projection);
         int range=XraySettings.range(),mask=XraySettings.mask();long now=System.nanoTime();
-        boolean changedView=center.distanceToSqr(meshCenter)>.25||Math.abs(camera.yRot()-meshYaw)>4||Math.abs(camera.xRot()-meshPitch)>4;
+        boolean changedView=center.distanceToSqr(meshCenter)>.25||cameraPos.distanceToSqr(meshCamera)>.25||Math.abs(camera.yRot()-meshYaw)>4||Math.abs(camera.xRot()-meshPitch)>4;
         if(range!=meshRange||mask!=lastMask){meshDirty=true;nextMesh=0;lastMask=mask;}
         if(now>=nextMesh&&(meshDirty||changedView)){
             select(center,cameraPos,range,mask);
-            meshCenter=center;meshYaw=camera.yRot();meshPitch=camera.xRot();meshRange=range;meshDirty=false;nextMesh=now+100_000_000;
+            meshCenter=center;meshCamera=cameraPos;meshYaw=camera.yRot();meshPitch=camera.xRot();meshRange=range;meshDirty=false;nextMesh=now+100_000_000;
         }
         if(mesh.edges.length==0)return;
         ((GuiRenderStateAccessor)graphics).fastersprint$guiRenderState().addGuiElement(new OreOutlineState(mesh,projection,cameraPos,graphics.pose(),graphics.guiWidth(),graphics.guiHeight()));
