@@ -1,0 +1,1 @@
+{"schemaVersion":1,"id":"xray_performance","version":"1.0.0","environment":"client","mixins":["profile.mixins.json"],"depends":{"fastersprint":"*"}}

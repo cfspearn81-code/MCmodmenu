@@ -9,10 +9,14 @@ import net.minecraft.client.input.KeyEvent;
 
 public final class ClientMenu {
     private static final int WIDTH = 460;
-    private static final int HEIGHT = 300;
-    private static final int TEXT = 0xFFF2FAF7;
-    private static final int MUTED = 0xFFAAC3BE;
-    private static final int ACCENT = 0xFFB8EAB6;
+    private static final int HEIGHT = 410;
+    private static final int TEXT = 0xFFF3F1FF;
+    private static final int MUTED = 0xFF9996B5;
+    private static final int ACCENT = 0xFFC6B1FF;
+    private static final float[] TOGGLES = new float[6];
+    private static long lastFrame;
+    private static float smoothing;
+    private static boolean bindingBridgeKey;
     private static boolean open;
     private static boolean speedEnabled;
     private static int category;
@@ -34,6 +38,7 @@ public final class ClientMenu {
     public static void toggle() {
         Minecraft game = Minecraft.getInstance();
         open = !open;
+        bindingBridgeKey = false;
         editing = Setting.NONE;
         error = "";
         if (open) {
@@ -46,15 +51,24 @@ public final class ClientMenu {
                 // Discard queued clicks when opening the menu.
             }
             game.mouseHandler.releaseMouse();
+            MenuCursor.begin();
+            lastFrame = 0;
         } else {
+            MenuCursor.end();
             game.mouseHandler.grabMouse();
         }
     }
 
     public static void tick() {
         Minecraft game = Minecraft.getInstance();
+        if (open) {
+            if (game.isWindowActive() && game.mouseHandler.isMouseGrabbed()) game.mouseHandler.releaseMouse();
+            MenuCursor.tick(game.isWindowActive());
+        }
         if (open && (game.player == null || game.gui.screen() != null)) {
+            MenuCursor.end();
             open = false;
+            bindingBridgeKey = false;
             editing = Setting.NONE;
         }
     }
@@ -63,6 +77,24 @@ public final class ClientMenu {
         Minecraft game = Minecraft.getInstance();
         if (game.player == null || game.gui.screen() != null || game.gui.overlay() != null) {
             return false;
+        }
+        if (open && bindingBridgeKey) {
+            if (action == InputConstants.PRESS) {
+                if (event.isEscape()) {
+                    bindingBridgeKey = false;
+                } else {
+                    try {
+                        PlayerDisplaySettings.setAutoBridgeKey(event.key());
+                        bindingBridgeKey = false;
+                        error = "";
+                    } catch (IllegalArgumentException invalid) {
+                        error = "Choose a key other than P or Esc.";
+                    } catch (IOException failure) {
+                        error = "Could not save settings.";
+                    }
+                }
+            }
+            return true;
         }
         if (event.key() == InputConstants.KEY_P && !event.hasControlDown()
                 && !event.hasAltDown() && !game.options.keyDebugModifier.isDown()) {
@@ -124,12 +156,33 @@ public final class ClientMenu {
             toggle();
             return;
         }
-        for (int index = 0; index < 3; index++) {
+        for (int index = 0; index < 5; index++) {
             if (inside(x, y, 10, 48 + index * 30, 92, 26)) {
+                bindingBridgeKey = false;
                 category = index;
                 editing = Setting.NONE;
                 error = "";
                 return;
+            }
+        }
+        if (visible(Tool.BRIDGE) && inside(x, y, 308, toolTop(Tool.BRIDGE) + 24, 130, 20)) {
+            bindingBridgeKey = true;
+            editing = Setting.NONE;
+            error = "";
+            return;
+        }
+        bindingBridgeKey = false;
+        if (category == 4) {
+            for (OreType ore : OreType.values()) {
+                int left = 116 + (ore.ordinal() % 3) * 112;
+                int top = 198 + (ore.ordinal() / 3) * 34;
+                if (inside(x, y, left, top, 108, 30)) {
+                    try {
+                        XraySettings.setOreEnabled(ore, !XraySettings.oreEnabled(ore));
+                        error = "";
+                    } catch (IOException failure) { error = "Could not save settings."; }
+                    return;
+                }
             }
         }
         for (Tool tool : Tool.values()) {
@@ -164,15 +217,16 @@ public final class ClientMenu {
     }
 
     private static boolean visible(Tool tool) {
-        return category == 0 || (category == 1 && tool != Tool.PLAYERS)
-            || (category == 2 && tool == Tool.PLAYERS);
+        return category == 0 || (category == 1 && (tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE))
+            || (category == 2 && tool == Tool.PLAYERS) || (category == 3 && tool == Tool.HIT)
+            || (category == 4 && tool == Tool.XRAY);
     }
 
     private static int toolTop(Tool tool) {
         if (category == 0) {
             return 51 + tool.ordinal() * 56;
         }
-        return tool == Tool.CRAFTING ? 177 : 51;
+        return tool == Tool.BRIDGE ? 233 : tool == Tool.GUIMOVE ? 177 : 51;
     }
 
     private static int settingTop(Setting setting) {
@@ -180,24 +234,31 @@ public final class ClientMenu {
             case SPEED -> category == 1 ? 115 : -1;
             case RANGE -> category == 2 ? 115 : -1;
             case NAMES -> category == 2 ? 177 : -1;
+            case XRAY_RANGE -> category == 4 ? 115 : -1;
             case NONE -> -1;
         };
     }
 
     private static boolean toolEnabled(Tool tool) {
         return switch (tool) {
+            case XRAY -> XraySettings.enabled();
             case SPEED -> speedEnabled;
-            case CRAFTING -> PlayerDisplaySettings.craftingMovementEnabled();
+            case GUIMOVE -> PlayerDisplaySettings.guiMoveEnabled();
             case PLAYERS -> PlayerDisplaySettings.enabled();
+            case BRIDGE -> PlayerDisplaySettings.autoBridgeEnabled();
+            case HIT -> PlayerDisplaySettings.autoHitEnabled();
         };
     }
 
     private static void toggleTool(Tool tool) {
         try {
             switch (tool) {
+                case XRAY -> XraySettings.setEnabled(!XraySettings.enabled());
+                case HIT -> PlayerDisplaySettings.setAutoHitEnabled(!PlayerDisplaySettings.autoHitEnabled());
+                case BRIDGE -> PlayerDisplaySettings.setAutoBridgeEnabled(!PlayerDisplaySettings.autoBridgeEnabled());
                 case SPEED -> speedEnabled = !speedEnabled;
-                case CRAFTING -> PlayerDisplaySettings.setCraftingMovementEnabled(
-                    !PlayerDisplaySettings.craftingMovementEnabled());
+                case GUIMOVE -> PlayerDisplaySettings.setGuiMoveEnabled(
+                    !PlayerDisplaySettings.guiMoveEnabled());
                 case PLAYERS -> PlayerDisplaySettings.setEnabled(!PlayerDisplaySettings.enabled());
             }
             error = "";
@@ -213,10 +274,12 @@ public final class ClientMenu {
                 .add(BigDecimal.valueOf(direction * 0.1)).max(BigDecimal.ONE);
             input = next.stripTrailingZeros().toPlainString();
         } else {
-            int current = setting == Setting.RANGE
-                ? PlayerDisplaySettings.range() : PlayerDisplaySettings.nameLimit();
-            long next = (long) current + direction * (setting == Setting.RANGE ? 25 : 1);
-            input = Long.toString(Math.clamp(next, setting == Setting.RANGE ? 1L : 0L, Integer.MAX_VALUE));
+            int current = setting == Setting.RANGE ? PlayerDisplaySettings.range()
+                : setting == Setting.XRAY_RANGE ? XraySettings.range() : PlayerDisplaySettings.nameLimit();
+            long next = (long) current + direction * (setting == Setting.NAMES ? 1 : 25);
+            long minimum = setting == Setting.NAMES ? 0 : 1;
+            long maximum = setting == Setting.XRAY_RANGE ? XraySettings.MAX_RANGE : Integer.MAX_VALUE;
+            input = Long.toString(Math.clamp(next, minimum, maximum));
         }
         saveInput();
     }
@@ -225,6 +288,7 @@ public final class ClientMenu {
         try {
             switch (editing) {
                 case SPEED -> PlayerDisplaySettings.setSpeedMultiplier(Double.parseDouble(input));
+                case XRAY_RANGE -> XraySettings.setRange(Integer.parseInt(input));
                 case RANGE -> PlayerDisplaySettings.setRange(Integer.parseInt(input));
                 case NAMES -> PlayerDisplaySettings.setNameLimit(Integer.parseInt(input));
                 case NONE -> {
@@ -234,7 +298,8 @@ public final class ClientMenu {
             editing = Setting.NONE;
             error = "";
         } catch (IllegalArgumentException invalid) {
-            error = editing == Setting.SPEED ? "Enter a multiplier of 1 or more."
+            error = editing == Setting.XRAY_RANGE ? "Enter a whole number from 1 to 5000."
+                : editing == Setting.SPEED ? "Enter a multiplier of 1 or more."
                 : editing == Setting.RANGE ? "Enter a positive whole number."
                 : "Enter a whole number of zero or more.";
         } catch (IOException failure) {
@@ -250,36 +315,63 @@ public final class ClientMenu {
         Layout layout = layout();
         double mouseX = (game.mouseHandler.getScaledXPos(game.getWindow()) - layout.x) / layout.scale;
         double mouseY = (game.mouseHandler.getScaledYPos(game.getWindow()) - layout.y) / layout.scale;
+        long now = System.nanoTime();
+        float elapsed = lastFrame == 0 ? 0.016F : Math.min(0.1F, (now - lastFrame) / 1_000_000_000F);
+        lastFrame = now;
+        smoothing = 1F - (float) Math.exp(-elapsed / 0.075F);
         graphics.nextStratum();
+        graphics.blurBeforeThisStratum();
+        graphics.fill(0, 0, graphics.guiWidth(), graphics.guiHeight(), 0x4C080B17);
         graphics.pose().pushMatrix();
         graphics.pose().translate(layout.x, layout.y);
         graphics.pose().scale(layout.scale);
-        graphics.fill(3, 5, WIDTH + 3, HEIGHT + 5, 0x55000000);
-        graphics.fillGradient(0, 0, WIDTH, HEIGHT, 0xF0162A39, 0xEF234D40);
-        graphics.outline(0, 0, WIDTH, HEIGHT, 0xFF668E87);
-        graphics.fill(1, 1, WIDTH - 1, 35, 0xB30C1B28);
-        graphics.fill(1, 35, 108, HEIGHT - 1, 0x5C10252D);
-        graphics.fill(107, 35, 108, HEIGHT - 1, 0x5582ABA3);
-        graphics.text(game.font, "FASTER MOVEMENT", 13, 14, TEXT);
-        graphics.text(game.font, "P to close", WIDTH - 104, 14, MUTED);
-        for (int step = 0; step < 7; step++) {
-            graphics.fill(WIDTH - 26 + step, 12 + step, WIDTH - 25 + step, 13 + step, MUTED);
-            graphics.fill(WIDTH - 20 - step, 12 + step, WIDTH - 19 - step, 13 + step, MUTED);
+        for (int spread = 10; spread >= 2; spread -= 2) {
+            MenuPaint.rounded(graphics, -spread, -spread + 5, WIDTH + spread * 2,
+                HEIGHT + spread * 2, 14 + spread, 0x0C02020C);
         }
-        String[] categories = {"All tools", "Movement", "Players"};
+        MenuPaint.rounded(graphics, 0, 0, WIDTH, HEIGHT, 12, 0xFF51496F);
+        MenuPaint.rounded(graphics, 1, 1, WIDTH - 2, HEIGHT - 2, 11, 0xFC1C1B32);
+        MenuPaint.rounded(graphics, 2, 2, 106, HEIGHT - 4, 10, 0xFF19192F);
+        graphics.fill(105, 35, 106, HEIGHT - 15, 0x283E3B5C);
+        graphics.fill(119, 39, WIDTH - 15, 40, 0x484A456B);
+        graphics.text(game.font, "F A S T E R", 15, 12, TEXT);
+        graphics.text(game.font, "CONTROL PANEL", 15, 25, 0xFF6F6B91);
+        String[] headings = {"Overview", "Movement", "Players", "Combat", "Xray"};
+        String[] subtitles = {"Your controls, in one place.", "Fine-tune your movement.",
+            "Keep everyone in sight.", "Ready when you are.", "Find the ores you need."};
+        graphics.text(game.font, headings[category], 127, 11, TEXT);
+        graphics.text(game.font, subtitles[category], 127, 25, MUTED);
+        int enabledCount = 0;
+        for (Tool tool : Tool.values()) if (toolEnabled(tool)) enabledCount++;
+        MenuPaint.rounded(graphics, WIDTH - 118, 10, 75, 20, 10, 0xFF2C2948);
+        MenuPaint.circle(graphics, WIDTH - 108, 20, 2, 0xFF79D8C5);
+        graphics.text(game.font, enabledCount + " active", WIDTH - 101, 16, 0xFFD2C7EB);
+        boolean closeHovered = inside(mouseX, mouseY, WIDTH - 32, 9, 22, 20);
+        MenuPaint.rounded(graphics, WIDTH - 32, 9, 22, 22, 7,
+            closeHovered ? 0xFF4C375B : 0xFF29263F);
+        for (int step = 0; step < 7; step++) {
+            graphics.fill(WIDTH - 25 + step, 16 + step, WIDTH - 24 + step, 17 + step, MUTED);
+            graphics.fill(WIDTH - 19 - step, 16 + step, WIDTH - 18 - step, 17 + step, MUTED);
+        }
+        String[] categories = {"All tools", "Movement", "Players", "Combat", "Xray"};
         for (int index = 0; index < categories.length; index++) {
             int top = 48 + index * 30;
+            boolean selected = category == index;
             boolean hovered = inside(mouseX, mouseY, 10, top, 92, 26);
-            if (category == index || hovered) {
-                graphics.fill(10, top, 102, top + 26,
-                    category == index ? 0x3869BBA8 : 0x204A8D83);
-                graphics.outline(10, top, 92, 26, category == index ? 0xFF82B8AA : 0x506B9890);
+            if (selected || hovered) {
+                MenuPaint.rounded(graphics, 10, top, 92, 26, 7, selected ? 0xFF302949 : 0xFF222139);
+                if (selected) MenuPaint.rounded(graphics, 11, top + 7, 2, 12, 1, 0xFFC6A3FF);
             }
-            drawIcon(graphics, index, 16, top + 7, category == index ? ACCENT : MUTED);
-            graphics.text(game.font, categories[index], 34, top + 9, TEXT);
+            drawIcon(graphics, index, 19, top + 8, selected ? ACCENT : 0xFF74728E);
+            graphics.text(game.font, categories[index], 36, top + 9, selected ? TEXT : MUTED);
         }
-        graphics.text(game.font, "WASD to move", 13, HEIGHT - 31, MUTED);
-        graphics.text(game.font, "Esc to close", 13, HEIGHT - 18, MUTED);
+        MenuPaint.rounded(graphics, 11, HEIGHT - 107, 85, 55, 8, 0xFF242139);
+        MenuPaint.circle(graphics, 23, HEIGHT - 93, 3, 0xFF8F7BD5);
+        graphics.text(game.font, "YOUR SETUP", 33, HEIGHT - 96, 0xFFC5B5E7);
+        graphics.text(game.font, "6 modules", 20, HEIGHT - 79, TEXT);
+        graphics.text(game.font, "Quick access", 20, HEIGHT - 65, 0xFF77738E);
+        graphics.text(game.font, "WASD to move", 15, HEIGHT - 31, 0xFF77738E);
+        graphics.text(game.font, "P / Esc to close", 15, HEIGHT - 18, 0xFF77738E);
         for (Tool tool : Tool.values()) {
             if (visible(tool)) {
                 drawModule(graphics, tool, toolTop(tool), mouseX, mouseY);
@@ -291,63 +383,104 @@ public final class ClientMenu {
                 drawSetting(graphics, setting, top, mouseX, mouseY);
             }
         }
-        if (category == 0) {
-            graphics.text(game.font, "Movement and Players contain settings.", 127, 239, MUTED);
-        }
+
+        if (category == 4) drawOreFilters(graphics, mouseX, mouseY);
         if (!error.isEmpty()) {
             graphics.text(game.font, error, 127, HEIGHT - 19, 0xFFFFB6A3);
         }
         graphics.pose().popMatrix();
+        MenuCursor.render(graphics);
     }
 
     private static void drawModule(GuiGraphicsExtractor graphics, Tool tool,
             int top, double mouseX, double mouseY) {
         Minecraft game = Minecraft.getInstance();
+        graphics.nextStratum();
         boolean enabled = toolEnabled(tool);
         boolean hovered = inside(mouseX, mouseY, 116, top, WIDTH - 128, 48);
-        graphics.fill(116, top, WIDTH - 12, top + 48, hovered ? 0x80345C56 : 0x70243F43);
-        graphics.outline(116, top, WIDTH - 128, 48, hovered ? 0xFF95C5B7 : 0x55658C87);
-        graphics.fill(125, top + 10, 153, top + 38, 0x80385755);
-        drawIcon(graphics, tool.icon, 133, top + 18, enabled ? ACCENT : MUTED);
+        float value = TOGGLES[tool.ordinal()];
+        value += ((enabled ? 1F : 0F) - value) * smoothing;
+        TOGGLES[tool.ordinal()] = value;
+        MenuPaint.rounded(graphics, 117, top + 2, WIDTH - 128, 48, 9, 0x48060512);
+        MenuPaint.rounded(graphics, 116, top, WIDTH - 128, 48, 9,
+            hovered ? 0xFF625578 : enabled ? 0xFF4D4366 : 0xFF37334F);
+        MenuPaint.rounded(graphics, 117, top + 1, WIDTH - 130, 46, 8,
+            hovered ? 0xFF2E2949 : 0xFF25223D);
+        MenuPaint.rounded(graphics, 125, top + 10, 28, 28, 7,
+            MenuPaint.mix(0xFF302B46, 0xFF49355F, value));
+        drawIcon(graphics, tool.icon, 133, top + 18, enabled ? ACCENT : 0xFF89839E);
         graphics.text(game.font, tool.title, 163, top + 10, TEXT);
         String description = tool == Tool.SPEED
-            ? "Walk and sprint " + multiplierText() + "x" : tool.description;
+            ? "Walk and sprint " + multiplierText() + "x"
+            : tool == Tool.BRIDGE ? AutoBridge.status() : tool.description;
         graphics.text(game.font, description, 163, top + 28, MUTED);
-        graphics.text(game.font, enabled ? "ON" : "OFF", WIDTH - 70, top + 11,
-            enabled ? ACCENT : MUTED);
-        graphics.fill(WIDTH - 44, top + 10, WIDTH - 22, top + 20,
-            enabled ? 0xAA8CC9A0 : 0xAA526B6E);
-        int knob = enabled ? WIDTH - 31 : WIDTH - 42;
-        graphics.fill(knob, top + 12, knob + 7, top + 18, TEXT);
+        if (tool == Tool.BRIDGE) {
+            MenuPaint.rounded(graphics, 308, top + 24, 130, 20, 5, bindingBridgeKey ? 0xFF4C3A65 : 0xFF322B49);
+            String key = InputConstants.Type.KEYBOARD.getOrCreate(PlayerDisplaySettings.autoBridgeKey()).getDisplayName().getString();
+            if (key == null) key = "Key " + PlayerDisplaySettings.autoBridgeKey();
+            String label = bindingBridgeKey ? "Press a key..." : "Hold: " + key.toUpperCase();
+            graphics.text(game.font, game.font.plainSubstrByWidth(label, 122), 312, top + 30, ACCENT);
+        }
+        graphics.text(game.font, enabled ? "ON" : "OFF", WIDTH - 80, top + 12,
+            enabled ? ACCENT : 0xFF77718F);
+        MenuPaint.rounded(graphics, WIDTH - 46, top + 10, 28, 14, 7,
+            MenuPaint.mix(0xFF49415C, 0xFF9C7CD6, value));
+        MenuPaint.circle(graphics, WIDTH - 39 + value * 14, top + 17, 4.5F, 0xFFF3EDFF);
+
     }
 
     private static void drawSetting(GuiGraphicsExtractor graphics, Setting setting,
             int top, double mouseX, double mouseY) {
         Minecraft game = Minecraft.getInstance();
+        graphics.nextStratum();
+        MenuPaint.rounded(graphics, 116, top - 4, WIDTH - 128, 56, 8, 0xFF373049);
+        MenuPaint.rounded(graphics, 117, top - 3, WIDTH - 130, 54, 7, 0xFF211E36);
         String label = switch (setting) {
             case SPEED -> "Speed multiplier";
+            case XRAY_RANGE -> "Xray radius (blocks)";
             case RANGE -> "ESP range (blocks)";
             case NAMES -> "Name limit";
             case NONE -> "";
         };
         String value = switch (setting) {
             case SPEED -> multiplierText() + "x";
+            case XRAY_RANGE -> Integer.toString(XraySettings.range());
             case RANGE -> Integer.toString(PlayerDisplaySettings.range());
             case NAMES -> Integer.toString(PlayerDisplaySettings.nameLimit());
             case NONE -> "";
         };
-        String hint = setting == Setting.NAMES ? "Hide names above this player count."
+        String hint = setting == Setting.XRAY_RANGE ? "Type any number from 1 to 5000."
+            : setting == Setting.NAMES ? "Hide names above this player count."
             : "Click the number to type a value.";
         graphics.text(game.font, label, 127, top + 8, TEXT);
         drawAdjustment(graphics, 303, top, false, mouseX, mouseY);
         drawAdjustment(graphics, 425, top, true, mouseX, mouseY);
-        graphics.fill(333, top, 418, top + 24, 0x99203435);
-        graphics.outline(333, top, 85, 24, editing == setting ? ACCENT : 0x705B8780);
+        MenuPaint.rounded(graphics, 333, top, 85, 24, 6, editing == setting ? 0xFFAD8EE4 : 0xFF4C425F);
+        MenuPaint.rounded(graphics, 334, top + 1, 83, 22, 5, 0xFF221D36);
         String displayed = editing == setting ? input + "_" : value;
         displayed = game.font.plainSubstrByWidth(displayed, 77);
         graphics.centeredText(game.font, displayed, 375, top + 8, TEXT);
         graphics.text(game.font, editing == setting ? "Type a value, then Enter." : hint,
             127, top + 31, MUTED);
+    }
+
+    private static void drawOreFilters(GuiGraphicsExtractor graphics, double mouseX, double mouseY) {
+        Minecraft game = Minecraft.getInstance();
+        graphics.nextStratum();
+        graphics.text(game.font, "ORE TYPES", 127, 181, MUTED);
+        for (OreType ore : OreType.values()) {
+            int left = 116 + (ore.ordinal() % 3) * 112;
+            int top = 198 + (ore.ordinal() / 3) * 34;
+            boolean enabled = XraySettings.oreEnabled(ore);
+            boolean hovered = inside(mouseX, mouseY, left, top, 108, 30);
+            MenuPaint.rounded(graphics, left, top, 108, 30, 7,
+                hovered ? 0xFF514363 : enabled ? 0xFF39304F : 0xFF29253B);
+            MenuPaint.circle(graphics, left + 11, top + 15, 3, enabled ? ore.color : 0xFF666075);
+            graphics.text(game.font, ore.label, left + 20, top + 11, enabled ? TEXT : MUTED);
+            graphics.fill(left + 98, top + 10, left + 101, top + 20, enabled ? ore.color : 0xFF524960);
+        }
+        graphics.text(game.font, "Netherite = ancient debris. Copper excluded.", 127, 311, MUTED);
+        graphics.text(game.font, "Radius in all directions; loaded chunks only.", 127, 329, MUTED);
     }
 
     private static String multiplierText() {
@@ -357,8 +490,8 @@ public final class ClientMenu {
 
     private static void drawAdjustment(GuiGraphicsExtractor graphics,
             int left, int top, boolean plus, double mouseX, double mouseY) {
-        graphics.fill(left, top, left + 23, top + 24,
-            inside(mouseX, mouseY, left, top, 23, 24) ? 0xAA4A7667 : 0x88344F4B);
+        MenuPaint.rounded(graphics, left, top, 23, 24, 6,
+            inside(mouseX, mouseY, left, top, 23, 24) ? 0xFF534168 : 0xFF342C4B);
         graphics.fill(left + 7, top + 11, left + 16, top + 12, TEXT);
         if (plus) {
             graphics.fill(left + 11, top + 7, left + 12, top + 16, TEXT);
@@ -384,6 +517,13 @@ public final class ClientMenu {
             graphics.fill(x + 11, y + 2, x + 12, y + 8, color);
             graphics.fill(x - 2, y + 2, x, y + 3, color);
             graphics.fill(x + 10, y + 2, x + 12, y + 3, color);
+        } else if (icon == 4) {
+            graphics.fill(x, y, x + 10, y + 1, color);
+            graphics.fill(x, y + 9, x + 10, y + 10, color);
+            graphics.fill(x, y, x + 1, y + 10, color);
+            graphics.fill(x + 9, y, x + 10, y + 10, color);
+            graphics.fill(x + 3, y + 3, x + 6, y + 5, color);
+            graphics.fill(x + 5, y + 6, x + 7, y + 8, color);
         } else {
             graphics.fill(x - 1, y + 1, x + 11, y + 4, color);
             graphics.fill(x, y + 4, x + 2, y + 11, color);
@@ -407,8 +547,11 @@ public final class ClientMenu {
 
     private enum Tool {
         SPEED("Speed", "", 1),
-        CRAFTING("CraftingMovement", "Move with crafting table open", 3),
-        PLAYERS("Player ESP", "Boxes, tracers + distances", 2);
+        GUIMOVE("GuiMove", "Move with any screen open", 3),
+        PLAYERS("Player ESP", "Boxes, tracers + distances", 2),
+        BRIDGE("Auto Bridge", "Place underfoot", 0),
+        HIT("Auto Hit", "Crosshair + weapon cooldown", 2),
+        XRAY("Xray", "Color-coded ore outlines", 4);
 
         final String title;
         final String description;
@@ -422,7 +565,7 @@ public final class ClientMenu {
     }
 
     private enum Setting {
-        NONE, SPEED, RANGE, NAMES
+        NONE, SPEED, RANGE, NAMES, XRAY_RANGE
     }
 
     private record Layout(float x, float y, float scale) {

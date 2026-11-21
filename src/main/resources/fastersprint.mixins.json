@@ -9,7 +9,15 @@
     "PlayerDisplayNameMixin",
     "ClientMenuMouseMixin",
     "ClientMenuLifecycleMixin",
-    "CraftingMovementInputMixin"
+    "GuiMoveInputMixin",
+    "ClientLevelPredictionAccessor",
+    "AutoBridgeAcknowledgementMixin",
+    "AutoBridgeInputMixin",
+    "MinecraftAttackInvoker",
+    "AutoBridgeBoundaryMixin",
+    "GuiMovePauseMixin",
+    "XrayChunkMixin",
+    "GuiRenderStateAccessor"
   ],
   "injectors": {
     "defaultRequire": 1

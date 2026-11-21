@@ -1,0 +1,12 @@
+{
+  "scenario": "diagonal",
+  "ticks": 30,
+  "dx": 2.8008,
+  "dz": 2.8008,
+  "minY": 80.2315,
+  "maxY": 81.0,
+  "used": 0,
+  "attempts": 0,
+  "rateErrors": 0,
+  "status": "Select blocks"
+}

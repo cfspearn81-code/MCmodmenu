@@ -1,6 +1,7 @@
 package net.fastersprint;
 
 import java.io.IOException;
+import com.mojang.blaze3d.platform.InputConstants;
 import java.io.Reader;
 import java.io.Writer;
 import java.nio.file.Files;
@@ -15,7 +16,7 @@ public final class PlayerDisplaySettings {
     private static final Logger LOGGER = LoggerFactory.getLogger("fastersprint");
     private static final Path FILE = FabricLoader.getInstance().getConfigDir()
         .resolve("faster-movement.properties");
-    private static final Values DEFAULTS = new Values(true, 500, 10, 1.5, false);
+    private static final Values DEFAULTS = new Values(true, 500, 10, 1.5, false, false, InputConstants.KEY_B, false);
     private static Values values = DEFAULTS;
     private static boolean loaded;
 
@@ -38,14 +39,14 @@ public final class PlayerDisplaySettings {
         return current().speedMultiplier;
     }
 
-    public static boolean craftingMovementEnabled() {
-        return current().craftingMovementEnabled;
+    public static boolean guiMoveEnabled() {
+        return current().guiMoveEnabled;
     }
 
     public static void setEnabled(boolean enabled) throws IOException {
         Values previous = current();
         save(new Values(enabled, previous.range, previous.nameLimit,
-            previous.speedMultiplier, previous.craftingMovementEnabled));
+            previous.speedMultiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
     public static void setRange(int range) throws IOException {
@@ -54,7 +55,7 @@ public final class PlayerDisplaySettings {
         }
         Values previous = current();
         save(new Values(previous.playerDisplayEnabled, range, previous.nameLimit,
-            previous.speedMultiplier, previous.craftingMovementEnabled));
+            previous.speedMultiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
     public static void setNameLimit(int nameLimit) throws IOException {
@@ -63,7 +64,7 @@ public final class PlayerDisplaySettings {
         }
         Values previous = current();
         save(new Values(previous.playerDisplayEnabled, previous.range, nameLimit,
-            previous.speedMultiplier, previous.craftingMovementEnabled));
+            previous.speedMultiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
     public static void setSpeedMultiplier(double multiplier) throws IOException {
@@ -72,13 +73,60 @@ public final class PlayerDisplaySettings {
         }
         Values previous = current();
         save(new Values(previous.playerDisplayEnabled, previous.range, previous.nameLimit,
-            multiplier, previous.craftingMovementEnabled));
+            multiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
-    public static void setCraftingMovementEnabled(boolean enabled) throws IOException {
+    public static void setGuiMoveEnabled(boolean enabled) throws IOException {
         Values previous = current();
         save(new Values(previous.playerDisplayEnabled, previous.range, previous.nameLimit,
-            previous.speedMultiplier, enabled));
+            previous.speedMultiplier, enabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
+    }
+
+    public static boolean autoBridgeEnabled() { return current().autoBridgeEnabled; }
+
+    public static int autoBridgeKey() { return current().autoBridgeKey; }
+
+    public static void setAutoBridgeEnabled(boolean enabled) throws IOException {
+        Values v = current();
+        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit, v.speedMultiplier,
+            v.guiMoveEnabled, enabled, v.autoBridgeKey, v.autoHitEnabled));
+    }
+
+    public static void setAutoBridgeKey(int key) throws IOException {
+        if (!validBridgeKey(key)) {
+            throw new IllegalArgumentException("Choose a keyboard key other than P or Escape");
+        }
+        Values v = current();
+        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit, v.speedMultiplier,
+            v.guiMoveEnabled, v.autoBridgeEnabled, key, v.autoHitEnabled));
+    }
+
+    public static boolean autoHitEnabled() { return current().autoHitEnabled; }
+
+    public static void setAutoHitEnabled(boolean enabled) throws IOException {
+        Values v = current();
+        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit, v.speedMultiplier,
+            v.guiMoveEnabled, v.autoBridgeEnabled, v.autoBridgeKey, enabled));
+    }
+
+    private static boolean validBridgeKey(int key) {
+        // 26.3 uses SDL scancodes, not GLFW/ASCII key codes. Letters occupy 4–29.
+        return key >= InputConstants.KEY_A && key < 512
+            && key != InputConstants.KEY_P && key != InputConstants.KEY_ESCAPE;
+    }
+
+    private static int readBridgeKey(Properties properties) {
+        try {
+            int key = Integer.parseInt(properties.getProperty("autoBridge.key",
+                Integer.toString(InputConstants.KEY_B)));
+            // The first Auto Bridge build accidentally used GLFW's B (66) as its default.
+            if (!properties.containsKey("autoBridge.keyFormat") && key == 66) {
+                return InputConstants.KEY_B;
+            }
+            return validBridgeKey(key) ? key : InputConstants.KEY_B;
+        } catch (NumberFormatException invalid) {
+            return InputConstants.KEY_B;
+        }
     }
 
     private static Values current() {
@@ -97,7 +145,11 @@ public final class PlayerDisplaySettings {
                 readInteger(properties, "players.range", 500, 1),
                 readInteger(properties, "players.nameLimit", 10, 0),
                 readMultiplier(properties),
-                Boolean.parseBoolean(properties.getProperty("craftingMovement.enabled", "false")));
+                Boolean.parseBoolean(properties.getProperty("guiMove.enabled",
+                    properties.getProperty("craftingMovement.enabled", "false"))),
+                Boolean.parseBoolean(properties.getProperty("autoBridge.enabled", "false")),
+                readBridgeKey(properties),
+                Boolean.parseBoolean(properties.getProperty("autoHit.enabled", "false")));
         } catch (IOException | IllegalArgumentException failure) {
             LOGGER.warn("Could not read Faster Movement settings", failure);
         }
@@ -128,7 +180,11 @@ public final class PlayerDisplaySettings {
         properties.setProperty("players.range", Integer.toString(next.range));
         properties.setProperty("players.nameLimit", Integer.toString(next.nameLimit));
         properties.setProperty("speed.multiplier", Double.toString(next.speedMultiplier));
-        properties.setProperty("craftingMovement.enabled", Boolean.toString(next.craftingMovementEnabled));
+        properties.setProperty("guiMove.enabled", Boolean.toString(next.guiMoveEnabled));
+        properties.setProperty("autoBridge.enabled", Boolean.toString(next.autoBridgeEnabled));
+        properties.setProperty("autoBridge.keyFormat", "sdl-scancode-v1");
+        properties.setProperty("autoBridge.key", Integer.toString(next.autoBridgeKey));
+        properties.setProperty("autoHit.enabled", Boolean.toString(next.autoHitEnabled));
         Path temporary = Files.createTempFile(FILE.getParent(), "faster-movement-", ".tmp");
         try {
             try (Writer writer = Files.newBufferedWriter(temporary)) {
@@ -142,6 +198,6 @@ public final class PlayerDisplaySettings {
     }
 
     private record Values(boolean playerDisplayEnabled, int range, int nameLimit,
-            double speedMultiplier, boolean craftingMovementEnabled) {
+            double speedMultiplier, boolean guiMoveEnabled, boolean autoBridgeEnabled, int autoBridgeKey, boolean autoHitEnabled) {
     }
 }

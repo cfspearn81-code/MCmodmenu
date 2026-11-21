@@ -21,9 +21,11 @@ abstract class LocalPlayerMixin {
 
     @Inject(method = "tick", at = @At("HEAD"))
     private void fastersprint$updateMovementSpeed(CallbackInfo callback) {
+        net.fastersprint.AutoBridge.tick();
         LocalPlayer player = (LocalPlayer) (Object) this;
         AttributeInstance speed = player.getAttribute(Attributes.MOVEMENT_SPEED);
         boolean shouldBoost = ClientMenu.speedEnabled()
+            && !net.fastersprint.AutoBridge.isProtecting()
             && player.isAlive()
             && !player.isSpectator()
             && !player.isPassenger()

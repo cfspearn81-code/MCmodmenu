@@ -1,0 +1,13 @@
+[22:41:48] [Render thread/INFO] (Minecraft) [STDOUT]: PASS ore mapping, copper exclusion, six-direction range boundaries
+[22:41:52] [Render thread/INFO] (Minecraft) [STDOUT]: PASS default-200 actual loaded-chunk scan, 18 ores
+[22:41:52] [IO-Worker-1/INFO] (Minecraft) [STDOUT]: XRAY SCREENSHOT all-ores-through-wall.png Saved screenshot as all-ores-through-wall.png
+[22:41:53] [IO-Worker-2/INFO] (Minecraft) [STDOUT]: XRAY SCREENSHOT overview.png Saved screenshot as overview.png
+[22:41:54] [IO-Worker-2/INFO] (Minecraft) [STDOUT]: XRAY SCREENSHOT xray-menu-default.png Saved screenshot as xray-menu-default.png
+[22:41:54] [Render thread/INFO] (Minecraft) [STDOUT]: PASS nine UI ore toggles and typed 1/5000; 5001 rejected
+[22:41:55] [IO-Worker-2/INFO] (Minecraft) [STDOUT]: XRAY SCREENSHOT xray-menu-5000.png Saved screenshot as xray-menu-5000.png
+[22:41:57] [IO-Worker-2/INFO] (Minecraft) [STDOUT]: XRAY SCREENSHOT diamonds-only.png Saved screenshot as diamonds-only.png
+[22:42:00] [IO-Worker-2/INFO] (Minecraft) [STDOUT]: XRAY SCREENSHOT range-one.png Saved screenshot as range-one.png
+[22:42:06] [Render thread/INFO] (Minecraft) [STDOUT]: XRAY ALL CHECKS COMPLETE: filter, range, updates and disabled cache
+BUILD SUCCESSFUL in 57s
+
+Screenshot pixel checks: {'all-ores-through-wall': {'coal': 2596, 'iron': 2180, 'gold': 3509, 'redstone': 2761, 'lapis': 1845, 'diamond': 2432, 'emerald': 2347, 'quartz': 1390, 'netherite': 1514}, 'diamonds-only': {'coal': 0, 'iron': 0, 'gold': 0, 'redstone': 0, 'lapis': 0, 'diamond': 2721, 'emerald': 0, 'quartz': 0, 'netherite': 0}, 'range-one': {'coal': 0, 'iron': 0, 'gold': 0, 'redstone': 0, 'lapis': 0, 'diamond': 0, 'emerald': 0, 'quartz': 0, 'netherite': 0}}

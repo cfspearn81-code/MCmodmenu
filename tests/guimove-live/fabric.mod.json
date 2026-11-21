@@ -1,0 +1,1 @@
+{"schemaVersion": 1, "id": "gui_move_check", "version": "1.0.1", "environment": "client", "mixins": ["check.mixins.json"], "depends": {"fastersprint": "*"}}

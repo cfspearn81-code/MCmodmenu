@@ -15,6 +15,7 @@ abstract class PlayerDisplayHudMixin {
     @Inject(method = "extractRenderState", at = @At("TAIL"))
     private void fastersprint$drawPlayerDirections(
             GuiGraphicsExtractor graphics, DeltaTracker delta, CallbackInfo callback) {
+        net.fastersprint.Xray.render(graphics);
         PlayerDisplayRenderer.render(graphics, delta);
         ClientMenu.render(graphics);
     }

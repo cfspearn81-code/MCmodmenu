@@ -17,7 +17,6 @@ import org.joml.Vector4f;
 
 public final class PlayerDisplayRenderer {
     private static final int BOX_COLOR = 0xFF00FF00;
-    private static final int TRACER_COLOR = 0xFFFF3030;
     private static final int NAME_COLOR = 0xFFFFFFFF;
     private static final float MINIMUM_W = Camera.PROJECTION_Z_NEAR;
 
@@ -65,16 +64,39 @@ public final class PlayerDisplayRenderer {
             Vector4f[] corners = projectCorners(bounds, cameraPosition, projection);
             double distance = Math.sqrt(game.player.distanceToSqr(player));
             String name = showNames ? player.getName().getString() : "";
+            int playerColor = NametagColor.resolve(player.getDisplayName(), player.getName().getString(),
+                player.getTeamColor());
             String distanceText = Math.round(distance) + " blocks";
             Vector4f feet = project(new Vec3(
                 bounds.getCenter().x, bounds.minY, bounds.getCenter().z), cameraPosition, projection);
             if (isOnScreen(corners)) {
                 drawPlayer(graphics, bounds, corners, feet, cameraPosition, projection,
-                    name, distanceText, width, height, labels);
+                    name, distanceText, width, height, labels, playerColor);
             } else {
-                drawOffscreenMarker(graphics, feet, name, distanceText, width, height, labels);
+                drawOffscreenMarker(graphics, feet, name, distanceText, width, height, labels, playerColor);
             }
         }
+    }
+
+    static boolean boxOnScreen(AABB bounds, Vec3 camera, Matrix4f projection) {
+        return isOnScreen(bounds, camera, projection);
+    }
+
+    /** The same clipped twelve-edge projection used for player ESP, without labels/tracers. */
+    static boolean drawOutline(GuiGraphicsExtractor graphics, AABB bounds, Vec3 camera,
+            Matrix4f projection, int color) {
+        Vector4f[] corners = projectCorners(bounds, camera, projection);
+        if (!isOnScreen(corners)) return false;
+        boolean drawn = false;
+        for (int corner = 0; corner < 8; corner++) {
+            for (int axis = 1; axis <= 4; axis *= 2) {
+                if ((corner & axis) != 0) continue;
+                Segment edge = clipProjectedLine(corners[corner], corners[corner | axis],
+                    graphics.guiWidth(), graphics.guiHeight());
+                if (edge != null) { drawLine(graphics, edge, color); drawn = true; }
+            }
+        }
+        return drawn;
     }
 
     private static boolean shouldShowNames(int selectedCount, int limit) {
@@ -84,10 +106,10 @@ public final class PlayerDisplayRenderer {
     private static void drawPlayer(
             GuiGraphicsExtractor graphics, AABB bounds, Vector4f[] corners, Vector4f feet,
             Vec3 cameraPosition, Matrix4f projection, String name, String distance,
-            int width, int height, List<LabelBounds> labels) {
+            int width, int height, List<LabelBounds> labels, int playerColor) {
         if (feet.w >= MINIMUM_W) {
             drawScreenLine(graphics, width / 2.0, height / 2.0,
-                screenX(feet, width), screenY(feet, height), width, height, TRACER_COLOR);
+                screenX(feet, width), screenY(feet, height), width, height, playerColor);
         }
 
         // Each corner connects along X, Y and Z, yielding the twelve edges of the player's box.
@@ -98,7 +120,7 @@ public final class PlayerDisplayRenderer {
                 }
                 Segment edge = clipProjectedLine(corners[corner], corners[corner | axis], width, height);
                 if (edge != null) {
-                    drawLine(graphics, edge, BOX_COLOR);
+                    drawLine(graphics, edge, playerColor);
                 }
             }
         }
@@ -126,7 +148,7 @@ public final class PlayerDisplayRenderer {
 
     private static void drawOffscreenMarker(
             GuiGraphicsExtractor graphics, Vector4f feet, String name, String distance,
-            int width, int height, List<LabelBounds> labels) {
+            int width, int height, List<LabelBounds> labels, int playerColor) {
         double centerX = width / 2.0;
         double centerY = height / 2.0;
         // Undivided clip coordinates preserve left/right and up/down for players behind the camera.
@@ -140,10 +162,10 @@ public final class PlayerDisplayRenderer {
             (centerY - 14) / Math.max(0.0001, Math.abs(directionY)));
         double endX = centerX + directionX * scale;
         double endY = centerY + directionY * scale;
-        drawScreenLine(graphics, centerX, centerY, endX, endY, width, height, TRACER_COLOR);
+        drawScreenLine(graphics, centerX, centerY, endX, endY, width, height, playerColor);
         int markerX = (int) Math.round(endX);
         int markerY = (int) Math.round(endY);
-        graphics.fill(markerX - 1, markerY - 1, markerX + 2, markerY + 2, TRACER_COLOR);
+        graphics.fill(markerX - 1, markerY - 1, markerX + 2, markerY + 2, playerColor);
 
         double length = Math.hypot(endX - centerX, endY - centerY);
         int labelX = (int) Math.round(endX - (endX - centerX) * 24.0 / length);
