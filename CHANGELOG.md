@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.8.2
+
+- Exclude every outstanding vanilla block prediction from Auto Bridge footing checks, including manual and secondary positions beyond its expected placement target.
+- Use the normal BlockPlaceContext to identify replaceable-face placement targets. Wait for prediction reconciliation and four additional stable ticks before trusting newly placed footing; treat early server rollback as a rejection.
+- Keep the edge guard active through a pending interaction and rejected placement even if the hold key is released while movement continues. Release the bridge key and stop moving to reset the rejection safety latch, or disable the module.
+- Preserve the four-tick attempt budget, no-resend waiting and rejected-placement backoff; count success only after footing stabilizes. No custom movement/rotation packets or server-position overrides.
+
 ## 1.8.1
 
 - Fix the blue lower-sky/horizon band by matching the clear background and distant fog color to Sky Tint. Keep native fog distances and fluid/dimension-specific fog, and restore native colors immediately when disabled.

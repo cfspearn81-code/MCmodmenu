@@ -2,7 +2,7 @@
 
 A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open the focused module search. Type a name, click a result to toggle it, or choose a category in the sidebar. The white dot cursor and fading trail remain available for all controls.
 
-[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.8.1/downloads/faster-1.8.1-mc26.3.jar)
+[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.8.2/downloads/faster-1.8.2-mc26.3.jar)
 
 ## Features and controls
 
@@ -10,7 +10,7 @@ The **Search** page opens automatically each time, with an empty query ready for
 
 - **Speed** changes walking and sprinting speed. It starts off at launch.
 - **GuiMove** permits movement while any screen is open in a loaded world, including inventory, containers, chat/search, settings and pause menus. It starts off. Keyboard/mouse movement bindings are read physically while the window is focused. Text fields still receive typing, so the same key can both type and move. With GuiMove on, opening a menu does not pause a single-player world. Existing CraftingMovement settings migrate automatically.
-- **Auto Bridge** uses the restored 1.3.5 implementation: standing movement with manual crosshair targeting, a configurable hold key (B by default), the four-tick placement budget, and the enhanced edge protection. Its switch and hold key are in the P menu.
+- **Auto Bridge** uses the restored 1.3.5 implementation: standing movement with manual crosshair targeting, a configurable hold key (B by default), the four-tick placement budget, and the enhanced edge protection. Its switch and hold key are in the P menu. Every outstanding client block prediction is excluded from safe footing, including manual/secondary predictions. A new bridge block needs vanilla server reconciliation and a four-tick stability check before it counts as support. Waiting/rejection protection continues if the bridge key is released while movement is still held. After a rejection, release the bridge key and stop moving to clear the safety latch, or turn the module off; retreating toward supported ground remains allowed. The module waits without resending while an interaction is outstanding, and rejected/rolled-back attempts use the existing backoff and three-rejection stop.
 - **Auto Hit** starts off. Enable it through **Search** or **Combat** in the P menu. It attacks the live player directly under your crosshair, within normal reach and line of sight, when your held item’s vanilla attack cooldown is fully charged. It pauses in menus, while unfocused, using items, or manually attacking/using. It does not rotate your view or attack everyone on screen. Cooldown timing depends on the held weapon; servers may enforce stricter limits. The toggle is saved.
 - **Xray** outlines coal, iron, gold, redstone, lapis, diamond, emerald, nether quartz and ancient debris through walls with a distinct color for each ore. It starts off. Copper is excluded. Normal/deepslate versions share one toggle; nether gold uses the Gold toggle.
 - **BedEsp** outlines beds through walls in their wool color, including all 16 dye colors. It starts off. Find it in Search or **Visuals → Beds**. Each complete bed gets one bed-height outline around both halves, including pairs spanning chunks. Click its range number to type **1–5000 blocks** (default **200**), then press Enter; plus/minus changes it by 25. Range measures from the player to the bed center in all directions. Settings save in `config/faster-bedesp.properties`.
@@ -57,7 +57,7 @@ Windows PowerShell
 .\gradlew.bat clean build
 ```
 
-The installable output is `build/libs/faster-1.8.1-mc26.3.jar`. The sources JAR in that directory is for development.
+The installable output is `build/libs/faster-1.8.2-mc26.3.jar`. The sources JAR in that directory is for development.
 
 Install Fabric Loader **0.20.1 or later** for Minecraft **26.3**, then put the installable JAR in the instance's `mods` folder.
 
@@ -118,7 +118,7 @@ This build is based on 1.3.5. The later bridge changes from 1.3.6–1.3.8 are ex
 
 The P menu uses a dark indigo/violet panel theme with rounded cards, animated switches, and a white dot cursor with a short fading trail. The normal cursor is restored when the menu closes or the window loses focus. Controls and existing feature behavior remain from the 1.3.5-based tools build.
 
-While Auto Bridge is enabled and its hold key is down, a final check in vanilla player movement catches residual horizontal momentum that the input-only guard could miss. Support is checked with a 0.10-block inset of the real footprint, reserving an edge margin even at diagonal corners. An unsafe movement is shortened and blocked horizontal momentum is cleared. Pending placements do not count as support, and short steps back from the safety margin are allowed. This does not force crouching or add rotation packets. Server teleports, removing footing under the player, and a fall already underway remain outside the guarantee.
+While Auto Bridge is enabled and its hold key is down (or a pending/rejected placement keeps its safety latch active), a final check in vanilla player movement catches residual horizontal momentum that the input-only guard could miss. Support is checked with a 0.10-block inset of the real footprint, reserving an edge margin even at diagonal corners. An unsafe movement is shortened and blocked horizontal momentum is cleared. All outstanding vanilla predictions and newly acknowledged footing in its four-tick check do not count as support, and short steps back from the safety margin are allowed. This does not force crouching or add rotation packets. Server teleports, removing footing under the player, and a fall already underway remain outside the guarantee.
 
 ESP tracer lines and off-screen markers use the same resolved nametag/team color as the player box. GuiMove also keeps single-player menus from pausing while enabled and focused; world-loading overlays and unfocused windows retain normal behavior.
 
@@ -135,3 +135,5 @@ Version 1.6.1 fixes the reported `Can only blur once per frame` crash when a nor
 QuickJump validation for 1.7.0 is in `tests/faster170-live/README.md`, including default/boosted jump references, immediate peak timing, ceilings, a one-block ledge, held jumping and interactions with other movement modules.
 
 Version 1.8.1 removes Player Tint and fixes the blue lower-sky band by applying the selected Sky Tint color to the clear background/horizon fog as well as the sky disc. Normal fog distances and underwater/lava colors are retained. The horizontal-view regression, four-direction screenshots and toggle restoration checks are documented in `tests/faster181-live/README.md`. Historical Player Tint tests under `tests/faster180-live` target the older 1.8.0 tag. Sky Tint keeps the same config filename and HSV values so existing selections remain compatible.
+
+Auto Bridge ghost-footing validation for 1.8.2 is in `tests/faster182-live/README.md`: accepted/delayed bridge progress, genuine server-rejected predictions, key release during a delayed rejection, post-ack server rollback and secondary/manual predictions. These are local vanilla server tests. Protection stops at known support; server teleports, removal of already trusted ground beneath the player, or a fall already underway remain outside the guarantee.

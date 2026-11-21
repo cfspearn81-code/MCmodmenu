@@ -1,0 +1,6 @@
+PASS accepted: attempts=19, predictedBlocks=19, rollbackRemovals=0, travelZ=20.614826174590235, minY=120.0
+PASS delay-accepted: attempts=9, predictedBlocks=9, rollbackRemovals=0, travelZ=10.680689431812013, minY=120.0
+PASS reject: attempts=3, predictedBlocks=3, rollbackRemovals=0, travelZ=2.6966429754556174, minY=120.0
+PASS reject-release: attempts=1, predictedBlocks=1, rollbackRemovals=0, travelZ=2.6966429754556174, minY=120.0
+PASS rollback: attempts=3, predictedBlocks=3, rollbackRemovals=3, travelZ=2.6966429754556174, minY=120.0
+PASS secondary-ghost: attempts=0, predictedBlocks=9, rollbackRemovals=0, travelZ=2.672890589019275, minY=120.0

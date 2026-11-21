@@ -14,6 +14,7 @@
     "SkyTintFogMixin",
     "GuiMoveInputMixin",
     "ClientLevelPredictionAccessor",
+    "BridgePredictionAccessor",
     "AutoBridgeAcknowledgementMixin",
     "AutoBridgeInputMixin",
     "MinecraftAttackInvoker",

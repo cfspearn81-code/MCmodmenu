@@ -1,0 +1,1 @@
+{"required":true,"package":"check.mixin","compatibilityLevel":"JAVA_25","client":["GameMixin","HoldMixin","AckMixin","InteractionMixin","ConfirmMixin"],"injectors":{"defaultRequire":1}}

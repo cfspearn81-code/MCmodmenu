@@ -2,12 +2,13 @@ package net.fastersprint;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import net.fastersprint.mixin.ClientLevelPredictionAccessor;
+import net.fastersprint.mixin.BridgePredictionAccessor;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.item.component.SwingAnimation;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.phys.AABB;
@@ -20,6 +21,9 @@ public final class AutoBridge {
     private static net.minecraft.client.player.LocalPlayer actor;
     private static BlockPos pending;
     private static int pendingSequence;
+    private static boolean acknowledged, safetyHold;
+    private static int footingReadyTick;
+    private static final int FOOTING_SETTLE_TICKS = 4;
     private static BridgePlacementLimiter limiter = new BridgePlacementLimiter();
     private static String status = "Place underfoot";
 
@@ -32,42 +36,82 @@ public final class AutoBridge {
             world = game.level;
             actor = game.player;
             pending = null;
+            acknowledged = false; safetyHold = false;
             limiter = new BridgePlacementLimiter();
             status = "Place underfoot";
         }
     }
 
-    private static boolean active(Minecraft game) {
+    private static boolean eligible(Minecraft game) {
         return !FreeCam.active() && PlayerDisplaySettings.autoBridgeEnabled() && game.player != null && game.level != null
             && game.gameMode != null && game.isWindowActive() && !game.isPaused()
-            && InputConstants.isKeyDown(PlayerDisplaySettings.autoBridgeKey())
             && game.player.isAlive() && !game.player.isSpectator() && !game.player.isPassenger()
             && !game.player.getAbilities().flying && !game.player.isFallFlying()
             && !game.player.isInWater() && !WallClimb.onWall(game.player);
     }
 
+    private static boolean active(Minecraft game) {
+        return eligible(game) && InputConstants.isKeyDown(PlayerDisplaySettings.autoBridgeKey());
+    }
+
+    private static boolean protecting(Minecraft game) {
+        return eligible(game) && (active(game) || pending != null || safetyHold);
+    }
+
+    private static boolean predicted(ClientLevel level, BlockPos pos) {
+        var handler = ((ClientLevelPredictionAccessor) level).fastersprint$predictionHandler();
+        return ((BridgePredictionAccessor) handler).fastersprint$predictions().containsKey(pos.asLong());
+    }
+
+    /** Release a rejection latch only after the user stops, never while forward momentum continues. */
+    public static void updateControls(net.minecraft.world.phys.Vec2 requested, boolean jump) {
+        var game = Minecraft.getInstance(); syncWorld(game);
+        if (!PlayerDisplaySettings.autoBridgeEnabled()) { safetyHold = false; return; }
+        if (pending == null && game.player != null && !active(game) && !jump
+                && requested.lengthSquared() < .000001F && game.player.onGround()
+                && game.player.getDeltaMovement().horizontalDistanceSqr() < .0001) safetyHold = false;
+    }
+
+    private static void reject(net.minecraft.client.player.LocalPlayer player) {
+        pending = null; acknowledged = false; safetyHold = true;
+        status = "Rejected: stop to reset";
+        if (player != null) limiter.rejected(player.tickCount);
+    }
+
+    private static void checkFooting(Minecraft game) {
+        if (pending == null || !acknowledged || game.player == null) return;
+        if (predicted(game.level, pending)) { acknowledged = false; status = "Waiting for server"; return; }
+        if (game.level.getBlockState(pending).getCollisionShape(game.level, pending).isEmpty()) { reject(game.player); return; }
+        if (game.player.tickCount >= footingReadyTick) {
+            pending = null; acknowledged = false; safetyHold = false; status = "Place underfoot";
+            limiter.accepted();
+        } else status = "Checking footing";
+    }
+
     /** Called only after vanilla has reconciled predictions with authoritative server state. */
     public static void acknowledge(ClientLevel level, int sequence) {
         if (level != world || pending == null || sequence < pendingSequence) return;
-        boolean accepted = !level.getBlockState(pending).getCollisionShape(level, pending).isEmpty();
-        status = accepted ? "Place underfoot" : "Server rejected";
-        pending = null;
-        // Rejected actions back off instead of sending repeated placements every tick.
+        // A newer manual prediction can still hide the server's state at this position.
+        if (predicted(level, pending) || acknowledged) return;
         var player = Minecraft.getInstance().player;
-        if (accepted) limiter.accepted();
-        else if (player != null) limiter.rejected(player.tickCount);
+        boolean accepted = !level.getBlockState(pending).getCollisionShape(level, pending).isEmpty();
+        if (!accepted || player == null) { reject(player); return; }
+        acknowledged = true;
+        footingReadyTick = player.tickCount + FOOTING_SETTLE_TICKS;
+        status = "Checking footing";
     }
 
     public static void tick() {
         Minecraft game = Minecraft.getInstance();
         syncWorld(game);
+        checkFooting(game);
         if (!active(game)) {
             limiter.released();
             return;
         }
         var player = game.player;
         if (pending != null) {
-            status = "Waiting for server";
+            status = acknowledged ? "Checking footing" : "Waiting for server";
             return; // Never resend an unacknowledged interaction, even after a long delay.
         }
         if (limiter.blocked()) {
@@ -91,8 +135,7 @@ public final class AutoBridge {
             return;
         }
         BlockPos support = ray.getBlockPos();
-        Direction face = ray.getDirection();
-        BlockPos target = support.relative(face);
+        BlockPos target = new BlockPlaceContext(player, InteractionHand.MAIN_HAND, player.getMainHandItem(), ray).getClickedPos();
         int layer = BridgeSafety.footingLayer(player.getY());
         // Only place underneath/near the player, including a lower landing layer during jumps.
         if (target.getY() > layer || target.getY() < layer - 1
@@ -112,6 +155,7 @@ public final class AutoBridge {
         if (prediction.currentSequence() != before) {
             pending = target.immutable();
             pendingSequence = prediction.currentSequence();
+            acknowledged = false; safetyHold = true;
             status = "Waiting for server";
         } else {
             limiter.rejected(player.tickCount);
@@ -123,14 +167,15 @@ public final class AutoBridge {
     }
 
     public static boolean isProtecting() {
-        return active(Minecraft.getInstance());
+        var game = Minecraft.getInstance(); syncWorld(game);
+        return protecting(game);
     }
 
     /** Early input check; the final guard separately catches motion left over from earlier ticks. */
     public static boolean shouldStopInput(net.minecraft.world.phys.Vec2 requested, boolean jump, boolean sprint) {
         Minecraft game = Minecraft.getInstance();
         syncWorld(game);
-        if (!active(game)) return false;
+        if (!protecting(game)) return false;
         var player = game.player;
         Vec3 motion = player.getDeltaMovement();
         var step = BridgeMotion.project(requested.x, requested.y, player.getYRot(),
@@ -148,7 +193,7 @@ public final class AutoBridge {
     public static Vec3 guardMovement(Vec3 movement) {
         Minecraft game = Minecraft.getInstance();
         syncWorld(game);
-        if (!active(game) || (movement.x == 0 && movement.z == 0)) return movement;
+        if (!protecting(game) || (movement.x == 0 && movement.z == 0)) return movement;
         var player = game.player;
         AABB full = player.getBoundingBox();
         AABB inset = full.deflate(0.10, 0, 0.10);
@@ -165,14 +210,15 @@ public final class AutoBridge {
     }
 
     private static boolean supported(Minecraft game, AABB box, double maxDrop) {
-        // Pending blocks never count. Inset footprints reserve 0.10 blocks of the real collision box.
+        // Reject every outstanding prediction, including manual/secondary placements and replaceable-face targets.
+        // Acknowledged bridge footing also stays excluded during its short rollback check.
         int bottom = (int) Math.floor(box.minY - maxDrop);
         int top = (int) Math.floor(box.minY - 0.001);
         for (int y = bottom; y <= top; y++) {
             for (int x = (int) Math.floor(box.minX); x <= (int) Math.floor(box.maxX); x++) {
                 for (int z = (int) Math.floor(box.minZ); z <= (int) Math.floor(box.maxZ); z++) {
                     BlockPos pos = new BlockPos(x, y, z);
-                    if (pos.equals(pending)) continue;
+                    if (pos.equals(pending) || predicted(game.level, pos)) continue;
                     for (AABB shape : game.level.getBlockState(pos).getCollisionShape(game.level, pos).toAabbs()) {
                         double surface = y + shape.maxY;
                         if (surface <= box.minY + 0.01 && surface >= box.minY - maxDrop
