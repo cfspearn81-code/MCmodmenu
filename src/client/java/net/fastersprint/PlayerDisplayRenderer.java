@@ -66,7 +66,7 @@ public final class PlayerDisplayRenderer {
             String name = showNames ? player.getName().getString() : "";
             int playerColor = NametagColor.resolve(player.getDisplayName(), player.getName().getString(),
                 player.getTeamColor());
-            String distanceText = Math.round(distance) + " blocks";
+            String distanceText = Math.round(distance) + " M";
             Vector4f feet = project(new Vec3(
                 bounds.getCenter().x, bounds.minY, bounds.getCenter().z), cameraPosition, projection);
             if (isOnScreen(corners)) {

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4.1
+
+- Display Player ESP distances and its range setting in `M` (meters), including off-screen labels, using the same numeric distances.
+
 ## 1.4.0
 
 - Rename the mod display name to Faster and the installable file to `faster-1.4.0-mc26.3.jar`.

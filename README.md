@@ -2,7 +2,7 @@
 
 A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open the focused module search. Type a name, click a result to toggle it, or choose a category in the sidebar. The white dot cursor and fading trail remain available for all controls.
 
-[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.4.0/downloads/faster-1.4.0-mc26.3.jar)
+[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.4.1/downloads/faster-1.4.1-mc26.3.jar)
 
 ## Features and controls
 
@@ -14,13 +14,13 @@ The **Search** page opens automatically each time, with an empty query ready for
 - **Auto Hit** starts off. Enable it through **Search** or **Combat** in the P menu. It attacks the live player directly under your crosshair, within normal reach and line of sight, when your held item’s vanilla attack cooldown is fully charged. It pauses in menus, while unfocused, using items, or manually attacking/using. It does not rotate your view or attack everyone on screen. Cooldown timing depends on the held weapon; servers may enforce stricter limits. The toggle is saved.
 - **Xray** outlines coal, iron, gold, redstone, lapis, diamond, emerald, nether quartz and ancient debris through walls with a distinct color for each ore. It starts off. Copper is excluded. Normal/deepslate versions share one toggle; nether gold uses the Gold toggle.
 - **Free Cam** detaches the camera from the player. Click its switch in Search/Movement or press **F6** to toggle it on/off. Click **Toggle: F6** beside the module and press a keyboard key to rebind it; P/Esc are reserved. Camera mode starts off in every session, and only the keybinding persists. Use your configured movement keys to fly, Space/Shift (your jump/sneak bindings) for up/down, and sprint to fly three times faster. Mouse sensitivity and inversion use the normal game settings. The camera passes through blocks, while the real player retains normal physics and server corrections. Free Cam stops camera control in menus and when unfocused; it returns to normal on death, disconnect, or world/player changes. It pauses Auto Bridge/Auto Hit and world attack/use actions while active, and preserves the selected first/third-person perspective on return. It only displays terrain already sent to the client.
-- **Player ESP** draws wireframe boxes and tracers matching each player’s formatted nametag/team color, white player names, and green block distances. Off-screen players get direction indicators. It starts on.
+- **Player ESP** draws wireframe boxes and tracers matching each player’s formatted nametag/team color, white player names, and green distances in M (meters). Off-screen players get direction indicators. It starts on.
 
 Choose **Movement** to edit the speed multiplier. The default **1.5x** is a 50% increase over normal speed. Use the plus and minus controls or click the number, type a multiplier of at least 1, and press Enter.
 
 Choose **Players** to edit the ESP range and name limit.
 
-- The default range is **500 blocks**. ESP displays players whose positions the server currently sends to the client.
+- The default range is **500 M** (one block equals one meter). ESP displays players whose positions the server currently sends to the client.
 - The default name limit is **10**. When more than 10 players are displayed, names hide and boxes, tracers, and distances continue to render. Raising the limit changes that cutoff. Setting it to zero hides names whenever any player is displayed.
 - Range changes use 25-block steps. Name-limit changes use one-player steps. Click either number to type an exact whole number, then press Enter.
 
@@ -48,7 +48,7 @@ Windows PowerShell
 .\gradlew.bat clean build
 ```
 
-The installable output is `build/libs/faster-1.4.0-mc26.3.jar`. The sources JAR in that directory is for development.
+The installable output is `build/libs/faster-1.4.1-mc26.3.jar`. The sources JAR in that directory is for development.
 
 Install Fabric Loader **0.20.1 or later** for Minecraft **26.3**, then put the installable JAR in the instance's `mods` folder.
 

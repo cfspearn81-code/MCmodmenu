@@ -539,7 +539,7 @@ public final class ClientMenu {
         String label = switch (setting) {
             case SPEED -> "Speed multiplier";
             case XRAY_RANGE -> "Xray radius (blocks)";
-            case RANGE -> "ESP range (blocks)";
+            case RANGE -> "ESP range (M)";
             case NAMES -> "Name limit";
             case NONE -> "";
         };
