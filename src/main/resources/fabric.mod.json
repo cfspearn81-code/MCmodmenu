@@ -3,7 +3,7 @@
   "id": "fastersprint",
   "version": "${version}",
   "name": "Faster",
-  "description": "P opens the searchable module menu. Free Cam with a configurable toggle key. Adjustable speed, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
+  "description": "P opens the searchable module menu. Free Cam with a configurable toggle key. Wall Climb with ladder physics, adjustable speed, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
   "environment": "client",
   "mixins": [
     "fastersprint.mixins.json"

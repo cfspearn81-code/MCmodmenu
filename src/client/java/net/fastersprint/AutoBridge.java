@@ -43,7 +43,7 @@ public final class AutoBridge {
             && InputConstants.isKeyDown(PlayerDisplaySettings.autoBridgeKey())
             && game.player.isAlive() && !game.player.isSpectator() && !game.player.isPassenger()
             && !game.player.getAbilities().flying && !game.player.isFallFlying()
-            && !game.player.isInWater();
+            && !game.player.isInWater() && !WallClimb.onWall(game.player);
     }
 
     /** Called only after vanilla has reconciled predictions with authoritative server state. */

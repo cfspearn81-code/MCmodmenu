@@ -21,7 +21,8 @@
     "FreeCamCameraMixin",
     "FreeCamMouseMixin",
     "FreeCamInteractionMixin",
-    "FreeCamHandMixin"
+    "FreeCamHandMixin",
+    "WallClimbMixin"
   ],
   "injectors": {
     "defaultRequire": 1

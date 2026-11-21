@@ -2,17 +2,18 @@
 
 A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open the focused module search. Type a name, click a result to toggle it, or choose a category in the sidebar. The white dot cursor and fading trail remain available for all controls.
 
-[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.4.1/downloads/faster-1.4.1-mc26.3.jar)
+[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.5.0/downloads/faster-1.5.0-mc26.3.jar)
 
 ## Features and controls
 
-The **Search** page opens automatically each time, with an empty query ready for typing. It searches all seven module names/descriptions, supports names such as `freecam` or `Free Cam`, and shows a scrollable list. **Ctrl+A** replaces the query, **Ctrl+V** pastes, **Backspace** edits, and **Ctrl+F** focuses search from another category. **Esc** closes the menu. **Enter/Tab** leaves the search field; when the field is unfocused, **P** also closes the menu and movement keys work again. Typing in search and binding a key do not move the player.
+The **Search** page opens automatically each time, with an empty query ready for typing. It searches all eight module names/descriptions, supports names such as `freecam` or `Free Cam`, and shows a scrollable list. **Ctrl+A** replaces the query, **Ctrl+V** pastes, **Backspace** edits, and **Ctrl+F** focuses search from another category. **Esc** closes the menu. **Enter/Tab** leaves the search field; when the field is unfocused, **P** also closes the menu and movement keys work again. Typing in search and binding a key do not move the player.
 
 - **Speed** changes walking and sprinting speed. It starts off at launch.
 - **GuiMove** permits movement while any screen is open in a loaded world, including inventory, containers, chat/search, settings and pause menus. It starts off. Keyboard/mouse movement bindings are read physically while the window is focused. Text fields still receive typing, so the same key can both type and move. With GuiMove on, opening a menu does not pause a single-player world. Existing CraftingMovement settings migrate automatically.
 - **Auto Bridge** uses the restored 1.3.5 implementation: standing movement with manual crosshair targeting, a configurable hold key (B by default), the four-tick placement budget, and the enhanced edge protection. Its switch and hold key are in the P menu.
 - **Auto Hit** starts off. Enable it through **Search** or **Combat** in the P menu. It attacks the live player directly under your crosshair, within normal reach and line of sight, when your held item’s vanilla attack cooldown is fully charged. It pauses in menus, while unfocused, using items, or manually attacking/using. It does not rotate your view or attack everyone on screen. Cooldown timing depends on the held weapon; servers may enforce stricter limits. The toggle is saved.
 - **Xray** outlines coal, iron, gold, redstone, lapis, diamond, emerald, nether quartz and ancient debris through walls with a distinct color for each ore. It starts off. Copper is excluded. Normal/deepslate versions share one toggle; nether gold uses the Gold toggle.
+- **Wall Climb** starts off and has a saved toggle in **Search** (type `wallclimb` or `ladder`) and **Movement**. Walk into a solid block wall to climb using vanilla ladder physics. Release movement to slide slowly; release movement and hold sneak to stay in place. Jump, descending speed, horizontal speed limits and fall-distance handling use the normal ladder code. Back away to leave the wall and resume ordinary falling, or keep moving to step onto a reachable ledge. Floors/ceilings are excluded from wall contact. It pauses during Free Cam, flying, gliding, riding and swimming. Auto Bridge pauses its placement and edge guard while attached to the wall so it does not fight ladder movement. Real ladders and vines retain their normal behavior. The switch saves separately in `config/faster-wallclimb.properties`.
 - **Free Cam** detaches the camera from the player. Click its switch in Search/Movement or press **F6** to toggle it on/off. Click **Toggle: F6** beside the module and press a keyboard key to rebind it; P/Esc are reserved. Camera mode starts off in every session, and only the keybinding persists. Use your configured movement keys to fly, Space/Shift (your jump/sneak bindings) for up/down, and sprint to fly three times faster. Mouse sensitivity and inversion use the normal game settings. The camera passes through blocks, while the real player retains normal physics and server corrections. Free Cam stops camera control in menus and when unfocused; it returns to normal on death, disconnect, or world/player changes. It pauses Auto Bridge/Auto Hit and world attack/use actions while active, and preserves the selected first/third-person perspective on return. It only displays terrain already sent to the client.
 - **Player ESP** draws wireframe boxes and tracers matching each player’s formatted nametag/team color, white player names, and green distances in M (meters). Off-screen players get direction indicators. It starts on.
 
@@ -48,7 +49,7 @@ Windows PowerShell
 .\gradlew.bat clean build
 ```
 
-The installable output is `build/libs/faster-1.4.1-mc26.3.jar`. The sources JAR in that directory is for development.
+The installable output is `build/libs/faster-1.5.0-mc26.3.jar`. The sources JAR in that directory is for development.
 
 Install Fabric Loader **0.20.1 or later** for Minecraft **26.3**, then put the installable JAR in the instance's `mods` folder.
 
@@ -65,6 +66,7 @@ Java sources live in `src/client/java/net/fastersprint`. The mod metadata and mi
 | File | Responsibility |
 | --- | --- |
 | `ClientMenu.java`, `ModuleSearch.java` | Focused module search, category layout, switches, bindings and numeric controls |
+| `WallClimb.java`, `WallClimbSettings.java`, `mixin/WallClimbMixin.java` | Cached block-wall contact, saved switch and vanilla ladder movement |
 | `FreeCam.java`, `FreeCamMotion.java`, `FreeCamSettings.java` | Detached camera state, normalized flight, lifecycle and saved toggle key |
 | `mixin/FreeCam*Mixin.java` | Camera/frustum alignment, mouse look, detached hands and interaction guards |
 | `OreType.java`, `XraySettings.java`, `Xray.java` | Ore colors/variants, saved filters/radius, loaded-chunk scan and outlines |
@@ -110,3 +112,5 @@ ESP tracer lines and off-screen markers use the same resolved nametag/team color
 The Xray performance regression, dense-ore measurements and validation limits are documented in `tests/xray-performance/README.md`. These are cloud test measurements, not a promise of a particular FPS on every PC.
 
 Version 1.4.0 validation is documented in `tests/faster140-live/README.md`, with the local real-client checks and movement packet audit. The installable artifact uses the new `faster-<version>-mc<game>.jar` name; the internal mod ID stays compatible with previous builds. Replace the older mod JAR when installing.
+
+Wall Climb validation for 1.5.0 is documented in `tests/wallclimb-live/README.md`. The local client/server comparison matched a real ladder through ascending, sliding and sneak-holding, with no unexpected server corrections.

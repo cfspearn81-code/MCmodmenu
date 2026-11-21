@@ -15,7 +15,7 @@ public final class ClientMenu {
     private static final int TEXT = 0xFFF3F1FF;
     private static final int MUTED = 0xFF9996B5;
     private static final int ACCENT = 0xFFC6B1FF;
-    private static final float[] TOGGLES = new float[7];
+    private static final float[] TOGGLES = new float[Tool.values().length];
     private static long lastFrame;
     private static float smoothing;
     private static boolean bindingBridgeKey;
@@ -313,7 +313,7 @@ public final class ClientMenu {
             int index = searchResults().indexOf(tool);
             return index >= searchOffset && index < searchOffset + SEARCH_ROWS;
         }
-        return (category == 1 && (tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE || tool == Tool.FREECAM))
+        return (category == 1 && (tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE || tool == Tool.FREECAM || tool == Tool.WALLCLIMB))
             || (category == 2 && tool == Tool.PLAYERS) || (category == 3 && tool == Tool.HIT)
             || (category == 4 && tool == Tool.XRAY);
     }
@@ -322,7 +322,13 @@ public final class ClientMenu {
         if (category == 0) {
             return 99 + (searchResults().indexOf(tool) - searchOffset) * 56;
         }
-        return tool == Tool.BRIDGE ? 233 : tool == Tool.GUIMOVE ? 177 : tool == Tool.FREECAM ? 289 : 51;
+        return switch (tool) {
+            case GUIMOVE -> 173;
+            case BRIDGE -> 227;
+            case FREECAM -> 281;
+            case WALLCLIMB -> 335;
+            default -> 51;
+        };
     }
 
     private static int settingTop(Setting setting) {
@@ -337,6 +343,7 @@ public final class ClientMenu {
 
     private static boolean toolEnabled(Tool tool) {
         return switch (tool) {
+            case WALLCLIMB -> WallClimbSettings.enabled();
             case FREECAM -> FreeCam.active();
             case XRAY -> XraySettings.enabled();
             case SPEED -> speedEnabled;
@@ -350,6 +357,7 @@ public final class ClientMenu {
     private static void toggleTool(Tool tool) {
         try {
             switch (tool) {
+                case WALLCLIMB -> WallClimbSettings.setEnabled(!WallClimbSettings.enabled());
                 case FREECAM -> FreeCam.toggle();
                 case XRAY -> XraySettings.setEnabled(!XraySettings.enabled());
                 case HIT -> PlayerDisplaySettings.setAutoHitEnabled(!PlayerDisplaySettings.autoHitEnabled());
@@ -653,7 +661,8 @@ public final class ClientMenu {
         BRIDGE("Auto Bridge", "Place underfoot", 0),
         HIT("Auto Hit", "Crosshair + weapon cooldown", 2),
         XRAY("Xray", "Color-coded ore outlines", 4),
-        FREECAM("Free Cam", "Fly the camera freely", 2);
+        FREECAM("Free Cam", "Fly the camera freely", 2),
+        WALLCLIMB("Wall Climb", "Ladder movement on walls", 1);
 
         final String title;
         final String description;

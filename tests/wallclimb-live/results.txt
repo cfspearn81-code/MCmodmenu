@@ -1,0 +1,11 @@
+PASS ladder: rise=13.994400272370129, slide=2.4076842291365494, holdDelta=0.0, unexpectedServerCorrections=0
+PASS wall: rise=13.994400272370129, slide=2.4076842291365494, holdDelta=0.0, unexpectedServerCorrections=0
+PASS off: rise=0.0, unexpectedServerCorrections=0
+PASS diagonal: rise=5.174400100708283, unexpectedServerCorrections=0
+PASS corner: rise=5.174400100708283, unexpectedServerCorrections=0
+PASS ledge: topped out y=85.0, z=3.2500904546254104, unexpectedServerCorrections=0
+PASS floor: rise=0.0, unexpectedServerCorrections=0
+PASS air: fallVelocity=-1.406611164032995, unexpectedServerCorrections=0
+PASS freecam: bodyMovement=0.0, unexpectedServerCorrections=0
+PASS bridgewall: rise=5.174400100708283, unexpectedServerCorrections=0
+PASS wall trajectory matches real ladder through climb, slide and sneak: maxDelta=0.0

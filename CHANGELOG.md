@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.5.0
+
+- Add Wall Climb in Search and Movement, with a saved default-off switch.
+- Treat contacted block walls as climbable and use vanilla ladder physics for ascending, controlled sliding and sneak-holding. No custom jump impulses or packet loop.
+- Allow stepping onto a ledge and backing away into ordinary falling; exclude floors/ceilings and pause synthetic wall climbing during Free Cam, flight, riding and swimming.
+- Pause Auto Bridge while Wall Climb is attached to a wall, so its safety guard does not block the climb.
+- Keep real ladders/vines intact and clear wall-contact cache references on world/player changes or disable.
+
 ## 1.4.1
 
 - Display Player ESP distances and its range setting in `M` (meters), including off-screen labels, using the same numeric distances.
