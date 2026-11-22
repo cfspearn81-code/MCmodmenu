@@ -1,0 +1,7 @@
+Independent project build: BUILD SUCCESSFUL (8s)
+Standalone real Fabric client: 14 unique checks pass, Faster absent.
+Faster 1.9.4 integration client using the release JAR: 15 unique checks pass, including Aim Lock acquisition.
+Both final runs: native chat Enter command, copied appearance/equipment, ordinary/diamond/repeated hits, isolated multiple dummies, entity-ID replacement, ordinary real-entity attacks, dimension cleanup and packet routing pass.
+Zero local /spawnnpc command packets, zero dummy attack packets, zero dummy interaction packets. Normal swing packets may occur.
+Archive result lists deduplicate identical shutdown-tick checks; run summaries preserve the original log lines. A final fixture exit guard prevents duplicate finishing ticks on reproduction.
+Artifact check: own mod ID spawnnpc/version 1.0.0, no Faster dependency, and no Faster or fixture classes inside release JAR.

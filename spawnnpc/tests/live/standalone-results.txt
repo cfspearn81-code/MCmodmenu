@@ -1,0 +1,14 @@
+PASS chat Enter /spawnnpc creates a standalone local player entity (Faster loaded=false)
+PASS unique local ID/UUID, matching player skin and independent equipment copies on clear ground
+PASS ordinary left click gives local hurt feedback/cooldown and preserves stationary dummy
+PASS diamond block in offhand alone does not remove the dummy
+PASS right clicks on local dummies do not send invalid server entity interactions
+PASS diamond-block mainhand left click fully despawns dummy without consuming block
+PASS repeat clicks after despawn stay local without touching other entities
+PASS repeated commands create independent non-overlapping player dummies
+PASS diamond block removes only the targeted owned dummy
+PASS invalid arguments show usage; unrelated server commands still pass through
+PASS reused entity ID cannot let a stale dummy reference remove another entity
+PASS normal server entities retain ordinary attack behavior even with diamond block
+PASS real dimension transition clears all old-world dummies
+PASS packet audit: zero local-command packets, zero dummy attack/interact packets; ordinary server commands and attacks preserved

@@ -1,0 +1,18 @@
+[21:50:18] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS chat Enter /spawnnpc creates a standalone local player entity (Faster loaded=false)
+[21:50:18] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS unique local ID/UUID, matching player skin and independent equipment copies on clear ground
+[21:50:19] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS ordinary left click gives local hurt feedback/cooldown and preserves stationary dummy
+[21:50:19] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diamond block in offhand alone does not remove the dummy
+[21:50:19] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS right clicks on local dummies do not send invalid server entity interactions
+[21:50:21] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diamond-block mainhand left click fully despawns dummy without consuming block
+[21:50:21] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS repeat clicks after despawn stay local without touching other entities
+[21:50:22] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS repeated commands create independent non-overlapping player dummies
+[21:50:22] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diamond block removes only the targeted owned dummy
+[21:50:22] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS invalid arguments show usage; unrelated server commands still pass through
+[21:50:23] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS reused entity ID cannot let a stale dummy reference remove another entity
+[21:50:23] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS normal server entities retain ordinary attack behavior even with diamond block
+[21:50:25] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS real dimension transition clears all old-world dummies
+[21:50:25] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS packet audit: zero local-command packets, zero dummy attack/interact packets; ordinary server commands and attacks preserved
+[21:50:25] [Render thread/INFO] (Minecraft) [STDOUT]: NPC ALL CHECKS COMPLETE
+[21:50:25] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS real dimension transition clears all old-world dummies
+[21:50:25] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS packet audit: zero local-command packets, zero dummy attack/interact packets; ordinary server commands and attacks preserved
+[21:50:25] [Render thread/INFO] (Minecraft) [STDOUT]: NPC ALL CHECKS COMPLETE

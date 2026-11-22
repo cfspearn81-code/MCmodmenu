@@ -149,3 +149,5 @@ Adaptive Auto Bridge validation for 1.9.2 is in `tests/faster192-live/README.md`
 Aim Lock target-retention validation for 1.9.3 is in `tests/faster193-live/README.md`, including closer competitors, acquisition direction/range, occlusion/invisibility, death, key release and menu/focus/Free Cam pauses.
 
 Aim Lock wall-tracking validation for 1.9.4 is in `tests/faster194-live/README.md`, including continuous head alignment through a real wall while the target moves and visible-only initial acquisition.
+
+[Spawn NPC](spawnnpc/README.md) is a separate optional test-dummy mod with `/spawnnpc` and diamond-block removal. It can be installed independently or alongside Faster.

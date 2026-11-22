@@ -1,0 +1,57 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.19.4'
+}
+
+version = project.mod_version
+group = 'net.spawnnpc'
+
+base {
+    archivesName = 'spawnnpc'
+}
+
+loom {
+    splitEnvironmentSourceSets()
+
+    mods {
+        spawnnpc {
+            sourceSet sourceSets.main
+            sourceSet sourceSets.client
+        }
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+}
+
+def modVersion = project.version.toString()
+
+processResources {
+    inputs.property 'version', modVersion
+    filesMatching('fabric.mod.json') {
+        expand version: modVersion
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.release = 25
+    options.encoding = 'UTF-8'
+    options.debug = false
+    options.compilerArgs += ['-proc:none']
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+    withSourcesJar()
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+jar {
+    archiveFileName = "spawnnpc-${project.version}-mc${project.minecraft_version}.jar"
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "id": "spawnnpc",
+  "version": "${version}",
+  "name": "Spawn NPC",
+  "description": "Standalone local test players. Use /spawnnpc to create a stationary copy of your skin and equipment; hit it with a diamond block to remove it.",
+  "environment": "client",
+  "mixins": ["spawnnpc.mixins.json"],
+  "depends": {"fabricloader": ">=0.20.1", "minecraft": "26.3", "java": ">=25"}
+}
