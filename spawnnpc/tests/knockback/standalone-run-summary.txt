@@ -1,0 +1,24 @@
+[22:25:55] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS chat Enter /spawnnpc creates a standalone local player entity (Faster loaded=false)
+[22:25:55] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS unique local ID/UUID, matching player skin and independent equipment copies on clear ground
+[22:25:56] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS ordinary left click gives local hurt feedback/cooldown and preserves stationary dummy
+[22:25:56] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diamond block in offhand alone does not remove the dummy
+[22:25:56] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS right clicks on local dummies do not send invalid server entity interactions
+[22:25:57] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS plain /spawnnpc remains stationary across later physics ticks
+[22:25:58] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diamond-block mainhand left click fully despawns dummy without consuming block
+[22:25:58] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS repeat clicks after despawn stay local without touching other entities
+[22:25:59] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS repeated commands create independent non-overlapping player dummies
+[22:25:59] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diamond block removes only the targeted owned dummy
+[22:25:59] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS invalid arguments show usage; unrelated server commands still pass through
+[22:26:00] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS reused entity ID cannot let a stale dummy reference remove another entity
+[22:26:00] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS normal server entities retain ordinary attack behavior even with diamond block
+[22:26:01] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS /spawnnpc kb enables physics only on that NPC, including normalized command whitespace
+[22:26:02] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS ordinary hit applies outward knockback and grounded upward hop to kb dummy
+[22:26:03] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS kb dummy visibly moves away and rises over subsequent ticks
+[22:26:04] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS native gravity/drag lands kb dummy on floor while normal dummy remains fixed
+[22:26:05] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS landed kb dummy reacts to a second hit
+[22:26:06] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diamond-block hit removes airborne kb dummy without consuming block
+[22:26:08] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS kb movement collides with solid wall instead of phasing through it
+[22:26:10] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS diagonal hit knocks away from attacker position in both horizontal axes
+[22:26:13] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS real dimension transition clears all old-world dummies
+[22:26:13] [Render thread/INFO] (Minecraft) [STDOUT]: NPC PASS packet audit: zero local-command packets, zero dummy attack/interact packets; ordinary server commands and attacks preserved
+[22:26:13] [Render thread/INFO] (Minecraft) [STDOUT]: NPC ALL CHECKS COMPLETE

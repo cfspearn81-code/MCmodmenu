@@ -45,13 +45,15 @@ public final class NpcManager {
         while (end < command.length() && !Character.isWhitespace(command.charAt(end))) end++;
         if (!command.substring(0, end).equals("spawnnpc")) return false;
         tick();
-        if (end != command.length()) { message("Usage: /spawnnpc"); return true; }
+        String argument = command.substring(end).strip();
+        boolean knockback = argument.equals("kb");
+        if (!argument.isEmpty() && !knockback) { message("Usage: /spawnnpc [kb]"); return true; }
         if (world == null || owner == null) { message("Join a world first."); return true; }
         if (npcs.size() >= 64) { message("Limit reached (64). Hit a dummy with a diamond block to remove it."); return true; }
         int number = serial + 1;
         String suffix = "_NPC" + number, name = owner.getGameProfile().name();
         name = name.substring(0, Math.min(name.length(), 16 - suffix.length())) + suffix;
-        var npc = new TestNpc(world, new GameProfile(UUID.randomUUID(), name), owner);
+        var npc = new TestNpc(world, new GameProfile(UUID.randomUUID(), name), owner, knockback);
         double yaw = Math.toRadians(owner.getYRot());
         boolean positioned = false;
         positions: for (double offset : new double[]{0, -30, 30, -60, 60}) for (double distance : new double[]{2.5, 2, 1.5, 1}) {
@@ -69,13 +71,14 @@ public final class NpcManager {
         if (!positioned) { message("No clear floor nearby. Face an open area and try again."); return true; }
         while (world.getEntity(nextId) != null) nextId--;
         npc.setId(nextId--);
+        if (knockback) npc.setOnGround(true);
         npc.setYRot(owner.getYRot() + 180); npc.setYHeadRot(npc.getYRot()); npc.setYBodyRot(npc.getYRot());
         npc.yHeadRotO = npc.yBodyRotO = npc.getYRot(); npc.setOldPosAndRot();
         for (var slot : new EquipmentSlot[]{EquipmentSlot.MAINHAND, EquipmentSlot.OFFHAND,
                 EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS, EquipmentSlot.FEET})
             npc.setItemSlot(slot, owner.getItemBySlot(slot).copy());
         npcs.put(npc.getId(), npc); world.addEntity(npc); serial = number;
-        message("Spawned " + name + ". Hit it with a diamond block to remove it.");
+        message("Spawned " + name + (knockback ? " (knockback enabled)" : "") + ". Hit it with a diamond block to remove it.");
         return true;
     }
 
@@ -91,7 +94,7 @@ public final class NpcManager {
         if (player.getMainHandItem().is(Items.DIAMOND_BLOCK)) {
             npcs.remove(entity.getId()); world.removeEntity(entity.getId(), Entity.RemovalReason.DISCARDED);
             message("Removed " + entity.getName().getString() + ".");
-        } else entity.animateHurt(player.getYRot());
+        } else ((TestNpc) entity).reactToHit(player);
         player.resetAttackStrengthTicker();
         return true;
     }

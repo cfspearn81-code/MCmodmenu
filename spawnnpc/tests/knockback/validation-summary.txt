@@ -1,0 +1,7 @@
+Final independent Gradle build: BUILD SUCCESSFUL (8s)
+Standalone real-client run: 23 checks pass; BUILD SUCCESSFUL (55s).
+Faster 1.9.4 integration real-client run using release JAR: 25 checks pass; BUILD SUCCESSFUL (59s).
+Physics: fixed mode preserved, per-NPC opt-in, outward/upward impulse, actual displacement, landing/drag, repeat hits, diagonal direction, full-block wall collision and airborne diamond-block removal pass.
+Integration: Faster Aim Lock acquires and retains moving KB dummy; prior command/identity/appearance/removal/cleanup cases pass.
+Zero local NPC command/attack/interact packets; normal server command/entity behavior preserved. Normal swing packets can still occur.
+Artifact: own spawnnpc ID/version 1.1.0, no Faster dependency, no Faster or fixture classes in JAR.
