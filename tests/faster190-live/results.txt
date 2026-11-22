@@ -1,0 +1,16 @@
+PASS Search/Combat switches, letter/function hold bindings, and existing Bridge/Free Cam bindings work
+PASS enabled module leaves manual view alone while hold key is released
+PASS nearest visible player's head aligns both real player view and camera
+PASS moving a player closer switches to the new closest head
+PASS tracks crouching head height
+PASS invisible nearest player is skipped
+PASS dead nearest player is skipped
+PASS blocked closer head is skipped for unobstructed farther player
+PASS nearest unobstructed head can be selected behind the original view
+PASS releasing hold immediately stops tracking
+PASS P menu pauses aim
+PASS Free Cam pauses aim without rotating the body
+PASS focus loss pauses aim
+PASS disabled module leaves view alone even with key held
+PASS no valid players clears the target without changing view
+PASS vanilla look packets match visible angles; at most one movement packet per tick; zero attack interactions; lookPackets=14, alignedCameraFrames=437

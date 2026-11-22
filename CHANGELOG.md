@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.9.0
+
+- Add Aim Lock in Combat/Search with a saved default-off switch and configurable hold key (R by default). Aim the real player view at the nearest unobstructed player head while held and stop on release.
+- Track changing/crouching heads, use shortest yaw turns and skip self, invisible-to-viewer, dead/removed and spectator targets. Pause in menus, while unfocused, during Free Cam and on death/spectating/world changes.
+- Cache nearest selection per player tick and align interpolated head tracking before camera update. Use only normal vanilla rotation packets; no automatic attacks are added. Preserve existing Bridge/Free Cam binding behavior and all other modules.
+
 ## 1.8.2
 
 - Exclude every outstanding vanilla block prediction from Auto Bridge footing checks, including manual and secondary positions beyond its expected placement target.

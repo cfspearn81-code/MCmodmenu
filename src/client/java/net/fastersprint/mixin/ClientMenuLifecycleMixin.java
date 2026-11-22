@@ -13,6 +13,7 @@ abstract class ClientMenuLifecycleMixin {
     private void fastersprint$updateMenu(CallbackInfo callback) {
         ClientMenu.tick();
         net.fastersprint.FreeCam.tick();
+        net.fastersprint.AimLock.update(1);
         net.fastersprint.WallClimb.tick();
         net.fastersprint.QuickFall.lifecycle();
     }

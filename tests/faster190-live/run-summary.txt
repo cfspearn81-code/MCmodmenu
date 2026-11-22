@@ -1,0 +1,17 @@
+[00:59:40] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS Search/Combat switches, letter/function hold bindings, and existing Bridge/Free Cam bindings work
+[00:59:42] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS enabled module leaves manual view alone while hold key is released
+[00:59:43] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS nearest visible player's head aligns both real player view and camera
+[00:59:44] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS moving a player closer switches to the new closest head
+[00:59:45] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS tracks crouching head height
+[00:59:46] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS invisible nearest player is skipped
+[00:59:47] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS dead nearest player is skipped
+[00:59:48] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS blocked closer head is skipped for unobstructed farther player
+[00:59:50] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS nearest unobstructed head can be selected behind the original view
+[00:59:51] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS releasing hold immediately stops tracking
+[00:59:52] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS P menu pauses aim
+[00:59:53] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS Free Cam pauses aim without rotating the body
+[00:59:54] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS focus loss pauses aim
+[00:59:55] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS disabled module leaves view alone even with key held
+[00:59:57] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS no valid players clears the target without changing view
+[00:59:57] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS vanilla look packets match visible angles; at most one movement packet per tick; zero attack interactions; lookPackets=14, alignedCameraFrames=437
+[00:59:57] [Render thread/INFO] (Minecraft) [STDOUT]: AIM ALL CHECKS COMPLETE
