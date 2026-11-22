@@ -1,7 +1,6 @@
 package net.fastersprint;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import com.mojang.blaze3d.platform.InputConstants;
@@ -25,10 +24,8 @@ public final class ClientMenu {
     private static int searchOffset;
     private static int visualPage;
     private static int visualOffset;
-    private static int movementOffset;
     private static final int SEARCH_ROWS = 5;
     private static boolean open;
-    private static boolean speedEnabled;
     private static int category;
     private static Setting editing = Setting.NONE;
     private static String input = "";
@@ -39,10 +36,6 @@ public final class ClientMenu {
 
     public static boolean isOpen() {
         return open;
-    }
-
-    public static boolean speedEnabled() {
-        return speedEnabled;
     }
 
     public static void toggle() {
@@ -160,12 +153,6 @@ public final class ClientMenu {
             }
             return true;
         }
-        if (editing == Setting.SPEED && keycode == '.') {
-            if (action != InputConstants.RELEASE && !input.contains(".") && input.length() < 10) {
-                input += ".";
-            }
-            return true;
-        }
         if (event.key() == InputConstants.KEY_BACKSPACE) {
             if (action != InputConstants.RELEASE && !input.isEmpty()) {
                 input = input.substring(0, input.length() - 1);
@@ -204,7 +191,6 @@ public final class ClientMenu {
                     visualPage = 0;
                     visualOffset = 0;
                 }
-                if (category == 1) movementOffset = 0;
                 if (category == 0) focusSearch();
                 editing = Setting.NONE;
                 error = "";
@@ -333,7 +319,6 @@ public final class ClientMenu {
     public static void scroll(double amount) {
         if (amount == 0) return;
         if (category == 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
-        if (category == 1) movementOffset = Math.clamp(movementOffset + (amount < 0 ? 1 : -1), 0, 1);
         if (category == 2 && visualPage == 0) visualOffset = amount < 0 ? 1 : 0;
         if (bindingTool != null && !visible(bindingTool)) bindingTool = null;
     }
@@ -367,9 +352,8 @@ public final class ClientMenu {
             return index >= searchOffset && index < searchOffset + SEARCH_ROWS;
         }
         if (category == 1) {
-            boolean movement = tool == Tool.SPEED || tool == Tool.GUIMOVE || tool == Tool.BRIDGE
-                || tool == Tool.WALLCLIMB || tool == Tool.QUICKFALL || tool == Tool.QUICKJUMP;
-            return movement && toolTop(tool) >= 47 && toolTop(tool) + 48 <= 385;
+            return tool == Tool.GUIMOVE || tool == Tool.BRIDGE || tool == Tool.WALLCLIMB
+                || tool == Tool.QUICKFALL || tool == Tool.QUICKJUMP;
         }
         if (category == 2) return switch (visualPage) {
             case 0 -> toolTop(tool) >= 91 && toolTop(tool) + 48 <= 385;
@@ -397,21 +381,19 @@ public final class ClientMenu {
             };
             return top - visualOffset * 56;
         }
-        int top = switch (tool) {
+        return switch (tool) {
+            case GUIMOVE -> 51;
+            case BRIDGE -> 105;
+            case WALLCLIMB -> 159;
+            case QUICKFALL -> 213;
+            case QUICKJUMP -> 267;
             case AIMLOCK -> 107;
-            case GUIMOVE -> 173;
-            case BRIDGE -> 227;
-            case WALLCLIMB -> 281;
-            case QUICKFALL -> 335;
-            case QUICKJUMP -> 389;
             default -> 51;
         };
-        return category == 1 ? top - movementOffset * 54 : top;
     }
 
     private static int settingTop(Setting setting) {
         return switch (setting) {
-            case SPEED -> category == 1 ? 115 - movementOffset * 54 : -1;
             case RANGE -> category == 2 && visualPage == 1 ? 155 : -1;
             case NAMES -> category == 2 && visualPage == 1 ? 217 : -1;
             case XRAY_RANGE -> category == 2 && visualPage == 2 ? 155 : -1;
@@ -431,7 +413,6 @@ public final class ClientMenu {
             case FREECAM -> FreeCam.active();
             case FREELOOK -> FreeLookSettings.enabled();
             case XRAY -> XraySettings.enabled();
-            case SPEED -> speedEnabled;
             case GUIMOVE -> PlayerDisplaySettings.guiMoveEnabled();
             case PLAYERS -> PlayerDisplaySettings.enabled();
             case BRIDGE -> PlayerDisplaySettings.autoBridgeEnabled();
@@ -453,7 +434,6 @@ public final class ClientMenu {
                 case XRAY -> XraySettings.setEnabled(!XraySettings.enabled());
                 case HIT -> PlayerDisplaySettings.setAutoHitEnabled(!PlayerDisplaySettings.autoHitEnabled());
                 case BRIDGE -> PlayerDisplaySettings.setAutoBridgeEnabled(!PlayerDisplaySettings.autoBridgeEnabled());
-                case SPEED -> speedEnabled = !speedEnabled;
                 case GUIMOVE -> PlayerDisplaySettings.setGuiMoveEnabled(
                     !PlayerDisplaySettings.guiMoveEnabled());
                 case PLAYERS -> PlayerDisplaySettings.setEnabled(!PlayerDisplaySettings.enabled());
@@ -466,26 +446,19 @@ public final class ClientMenu {
 
     private static void adjust(Setting setting, int direction) {
         editing = setting;
-        if (setting == Setting.SPEED) {
-            BigDecimal next = BigDecimal.valueOf(PlayerDisplaySettings.speedMultiplier())
-                .add(BigDecimal.valueOf(direction * 0.1)).max(BigDecimal.ONE);
-            input = next.stripTrailingZeros().toPlainString();
-        } else {
-            int current = setting == Setting.RANGE ? PlayerDisplaySettings.range()
-                : setting == Setting.XRAY_RANGE ? XraySettings.range()
-                : setting == Setting.BED_RANGE ? BedEspSettings.range() : PlayerDisplaySettings.nameLimit();
-            long next = (long) current + direction * (setting == Setting.NAMES ? 1 : 25);
-            long minimum = setting == Setting.NAMES ? 0 : 1;
-            long maximum = (setting == Setting.XRAY_RANGE || setting == Setting.BED_RANGE) ? XraySettings.MAX_RANGE : Integer.MAX_VALUE;
-            input = Long.toString(Math.clamp(next, minimum, maximum));
-        }
+        int current = setting == Setting.RANGE ? PlayerDisplaySettings.range()
+            : setting == Setting.XRAY_RANGE ? XraySettings.range()
+            : setting == Setting.BED_RANGE ? BedEspSettings.range() : PlayerDisplaySettings.nameLimit();
+        long next = (long) current + direction * (setting == Setting.NAMES ? 1 : 25);
+        long minimum = setting == Setting.NAMES ? 0 : 1;
+        long maximum = (setting == Setting.XRAY_RANGE || setting == Setting.BED_RANGE) ? XraySettings.MAX_RANGE : Integer.MAX_VALUE;
+        input = Long.toString(Math.clamp(next, minimum, maximum));
         saveInput();
     }
 
     private static void saveInput() {
         try {
             switch (editing) {
-                case SPEED -> PlayerDisplaySettings.setSpeedMultiplier(Double.parseDouble(input));
                 case BED_RANGE -> BedEspSettings.setRange(Integer.parseInt(input));
                 case XRAY_RANGE -> XraySettings.setRange(Integer.parseInt(input));
                 case RANGE -> PlayerDisplaySettings.setRange(Integer.parseInt(input));
@@ -498,7 +471,6 @@ public final class ClientMenu {
             error = "";
         } catch (IllegalArgumentException invalid) {
             error = (editing == Setting.XRAY_RANGE || editing == Setting.BED_RANGE) ? "Enter a whole number from 1 to 5000."
-                : editing == Setting.SPEED ? "Enter a multiplier of 1 or more."
                 : editing == Setting.RANGE ? "Enter a positive whole number."
                 : "Enter a whole number of zero or more.";
         } catch (IOException failure) {
@@ -593,11 +565,6 @@ public final class ClientMenu {
             graphics.text(game.font, "Aim Lock: hold to lock a nearby player ahead.", 127, 179, MUTED);
             graphics.text(game.font, "Keeps target until death or key release.", 127, 197, MUTED);
         }
-        if (category == 1) {
-            if (error.isEmpty()) graphics.text(game.font, "Scroll for more movement tools", 127, HEIGHT - 19, MUTED);
-            MenuPaint.rounded(graphics, 452, 51, 2, 332, 1, 0xFF353047);
-            MenuPaint.rounded(graphics, 452, 51 + movementOffset * 48, 2, 284, 1, ACCENT);
-        }
         if (category == 2) {
             drawVisualTabs(graphics, mouseX, mouseY);
             if (visualPage == 0) {
@@ -651,9 +618,7 @@ public final class ClientMenu {
             MenuPaint.mix(0xFF302B46, 0xFF49355F, value));
         drawIcon(graphics, tool.icon, 133, top + 18, enabled ? ACCENT : 0xFF89839E);
         graphics.text(game.font, tool.title, 163, top + 10, TEXT);
-        String description = tool == Tool.SPEED
-            ? "Walk and sprint " + multiplierText() + "x"
-            : tool == Tool.BRIDGE ? AutoBridge.status() : tool.description;
+        String description = tool == Tool.BRIDGE ? AutoBridge.status() : tool.description;
         graphics.text(game.font, description, 163, top + 28, MUTED);
         if (tool.hasBinding()) {
             boolean binding = tool == bindingTool;
@@ -685,7 +650,6 @@ public final class ClientMenu {
         MenuPaint.rounded(graphics, 116, top - 4, WIDTH - 128, 56, 8, 0xFF373049);
         MenuPaint.rounded(graphics, 117, top - 3, WIDTH - 130, 54, 7, 0xFF211E36);
         String label = switch (setting) {
-            case SPEED -> "Speed multiplier";
             case BED_RANGE -> "BedEsp range (blocks)";
             case XRAY_RANGE -> "Xray radius (blocks)";
             case RANGE -> "ESP range (M)";
@@ -693,7 +657,6 @@ public final class ClientMenu {
             case NONE -> "";
         };
         String value = switch (setting) {
-            case SPEED -> multiplierText() + "x";
             case BED_RANGE -> Integer.toString(BedEspSettings.range());
             case XRAY_RANGE -> Integer.toString(XraySettings.range());
             case RANGE -> Integer.toString(PlayerDisplaySettings.range());
@@ -732,11 +695,6 @@ public final class ClientMenu {
         }
         graphics.text(game.font, "Netherite = ancient debris. Copper excluded.", 127, 351, MUTED);
         graphics.text(game.font, "Radius in all directions; loaded chunks only.", 127, 369, MUTED);
-    }
-
-    private static String multiplierText() {
-        return BigDecimal.valueOf(PlayerDisplaySettings.speedMultiplier())
-            .stripTrailingZeros().toPlainString();
     }
 
     private static void saveBinding(Tool tool, int key) throws IOException {
@@ -817,7 +775,6 @@ public final class ClientMenu {
     }
 
     private enum Tool {
-        SPEED("Speed", "", 1),
         GUIMOVE("GuiMove", "Move with any screen open", 3),
         PLAYERS("Player ESP", "Boxes, tracers + distances", 2),
         BRIDGE("Auto Bridge", "Place underfoot", 0),
@@ -848,7 +805,7 @@ public final class ClientMenu {
     }
 
     private enum Setting {
-        NONE, SPEED, RANGE, NAMES, XRAY_RANGE, BED_RANGE
+        NONE, RANGE, NAMES, XRAY_RANGE, BED_RANGE
     }
 
     private record Layout(float x, float y, float scale) {

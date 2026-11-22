@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.10.1
+
+- Remove Speed and its walking and sprinting multiplier. All five remaining Movement modules fit on one page.
+
 ## 1.10.0
 
 - Add Free Look to Visuals and Search. Hold Left Alt by default to orbit the player with normal mouse sensitivity and inversion while maintaining the player’s movement direction.

@@ -16,7 +16,7 @@ public final class PlayerDisplaySettings {
     private static final Logger LOGGER = LoggerFactory.getLogger("fastersprint");
     private static final Path FILE = FabricLoader.getInstance().getConfigDir()
         .resolve("faster-movement.properties");
-    private static final Values DEFAULTS = new Values(true, 500, 10, 1.5, false, false, InputConstants.KEY_B, false);
+    private static final Values DEFAULTS = new Values(true, 500, 10, false, false, InputConstants.KEY_B, false);
     private static Values values = DEFAULTS;
     private static boolean loaded;
 
@@ -35,10 +35,6 @@ public final class PlayerDisplaySettings {
         return current().nameLimit;
     }
 
-    public static double speedMultiplier() {
-        return current().speedMultiplier;
-    }
-
     public static boolean guiMoveEnabled() {
         return current().guiMoveEnabled;
     }
@@ -46,7 +42,7 @@ public final class PlayerDisplaySettings {
     public static void setEnabled(boolean enabled) throws IOException {
         Values previous = current();
         save(new Values(enabled, previous.range, previous.nameLimit,
-            previous.speedMultiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
+            previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
     public static void setRange(int range) throws IOException {
@@ -55,7 +51,7 @@ public final class PlayerDisplaySettings {
         }
         Values previous = current();
         save(new Values(previous.playerDisplayEnabled, range, previous.nameLimit,
-            previous.speedMultiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
+            previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
     public static void setNameLimit(int nameLimit) throws IOException {
@@ -64,22 +60,13 @@ public final class PlayerDisplaySettings {
         }
         Values previous = current();
         save(new Values(previous.playerDisplayEnabled, previous.range, nameLimit,
-            previous.speedMultiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
-    }
-
-    public static void setSpeedMultiplier(double multiplier) throws IOException {
-        if (!Double.isFinite(multiplier) || multiplier < 1.0) {
-            throw new IllegalArgumentException("Speed multiplier must be at least 1");
-        }
-        Values previous = current();
-        save(new Values(previous.playerDisplayEnabled, previous.range, previous.nameLimit,
-            multiplier, previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
+            previous.guiMoveEnabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
     public static void setGuiMoveEnabled(boolean enabled) throws IOException {
         Values previous = current();
         save(new Values(previous.playerDisplayEnabled, previous.range, previous.nameLimit,
-            previous.speedMultiplier, enabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
+            enabled, previous.autoBridgeEnabled, previous.autoBridgeKey, previous.autoHitEnabled));
     }
 
     public static boolean autoBridgeEnabled() { return current().autoBridgeEnabled; }
@@ -88,7 +75,7 @@ public final class PlayerDisplaySettings {
 
     public static void setAutoBridgeEnabled(boolean enabled) throws IOException {
         Values v = current();
-        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit, v.speedMultiplier,
+        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit,
             v.guiMoveEnabled, enabled, v.autoBridgeKey, v.autoHitEnabled));
     }
 
@@ -97,7 +84,7 @@ public final class PlayerDisplaySettings {
             throw new IllegalArgumentException("Choose a keyboard key other than P or Escape");
         }
         Values v = current();
-        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit, v.speedMultiplier,
+        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit,
             v.guiMoveEnabled, v.autoBridgeEnabled, key, v.autoHitEnabled));
     }
 
@@ -105,7 +92,7 @@ public final class PlayerDisplaySettings {
 
     public static void setAutoHitEnabled(boolean enabled) throws IOException {
         Values v = current();
-        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit, v.speedMultiplier,
+        save(new Values(v.playerDisplayEnabled, v.range, v.nameLimit,
             v.guiMoveEnabled, v.autoBridgeEnabled, v.autoBridgeKey, enabled));
     }
 
@@ -144,7 +131,6 @@ public final class PlayerDisplaySettings {
                 Boolean.parseBoolean(properties.getProperty("players.enabled", "true")),
                 readInteger(properties, "players.range", 500, 1),
                 readInteger(properties, "players.nameLimit", 10, 0),
-                readMultiplier(properties),
                 Boolean.parseBoolean(properties.getProperty("guiMove.enabled",
                     properties.getProperty("craftingMovement.enabled", "false"))),
                 Boolean.parseBoolean(properties.getProperty("autoBridge.enabled", "false")),
@@ -164,22 +150,12 @@ public final class PlayerDisplaySettings {
         }
     }
 
-    private static double readMultiplier(Properties properties) {
-        try {
-            double multiplier = Double.parseDouble(properties.getProperty("speed.multiplier", "1.5"));
-            return Double.isFinite(multiplier) && multiplier >= 1.0 ? multiplier : 1.5;
-        } catch (NumberFormatException invalid) {
-            return 1.5;
-        }
-    }
-
     private static void save(Values next) throws IOException {
         Files.createDirectories(FILE.getParent());
         Properties properties = new Properties();
         properties.setProperty("players.enabled", Boolean.toString(next.playerDisplayEnabled));
         properties.setProperty("players.range", Integer.toString(next.range));
         properties.setProperty("players.nameLimit", Integer.toString(next.nameLimit));
-        properties.setProperty("speed.multiplier", Double.toString(next.speedMultiplier));
         properties.setProperty("guiMove.enabled", Boolean.toString(next.guiMoveEnabled));
         properties.setProperty("autoBridge.enabled", Boolean.toString(next.autoBridgeEnabled));
         properties.setProperty("autoBridge.keyFormat", "sdl-scancode-v1");
@@ -198,6 +174,6 @@ public final class PlayerDisplaySettings {
     }
 
     private record Values(boolean playerDisplayEnabled, int range, int nameLimit,
-            double speedMultiplier, boolean guiMoveEnabled, boolean autoBridgeEnabled, int autoBridgeKey, boolean autoHitEnabled) {
+            boolean guiMoveEnabled, boolean autoBridgeEnabled, int autoBridgeKey, boolean autoHitEnabled) {
     }
 }
