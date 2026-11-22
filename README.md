@@ -2,7 +2,7 @@
 
 A client-side Fabric mod for Minecraft Java Edition 26.3. Press **P** in-game to open the focused module search. Type a name, click a result to toggle it, or choose a category in the sidebar. The white dot cursor and fading trail remain available for all controls.
 
-[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.11.1/downloads/faster-1.11.1-mc26.3.jar)
+[Download the current JAR](https://github.com/cfspearn81-code/MCmodmenu/raw/refs/tags/v1.11.2/downloads/faster-1.11.2-mc26.3.jar)
 
 ## Features and controls
 
@@ -56,7 +56,7 @@ Windows PowerShell
 .\gradlew.bat clean build
 ```
 
-The installable output is `build/libs/faster-1.11.1-mc26.3.jar`. The sources JAR in that directory is for development.
+The installable output is `build/libs/faster-1.11.2-mc26.3.jar`. The sources JAR in that directory is for development.
 
 Install Fabric Loader **0.20.1 or later** for Minecraft **26.3**, then put the installable JAR in the instance's `mods` folder.
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.11.2
+
+- Keep Minecraft’s terrain occlusion culling active during Free Look whenever the orbit camera is outside solid blocks. The camera can still pass through walls.
+
 ## 1.11.1
 
 - Pause Auto Bridge after a server position correction or horizontal push. Let Minecraft apply the server movement, and restart bridging after the player releases the key and presses it again on solid ground.

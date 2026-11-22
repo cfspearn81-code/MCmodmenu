@@ -1,12 +1,14 @@
-[22:40:33] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Search and Visuals toggle Free Look and the hold key control changes its binding
-[22:40:34] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Sky Tint remains reachable by scrolling Visuals
-[22:40:34] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Left Alt created a four-block third-person orbit through a solid wall
-[22:40:34] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS mouse yaw and pitch orbit independently of player yaw and pitch
-[22:40:35] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS forward input kept the player's original direction and the camera followed
-[22:40:35] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS orbit turns past 180 degrees horizontally and reaches the vertical pole
-[22:40:36] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS release restored first person and normal player mouse rotation
-[22:40:36] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS rebinding worked and release restored the selected third-person front view
-[22:40:37] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Free Cam kept priority for camera and mouse input
-[22:40:37] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Aim Lock did not change body direction while Free Look was held
-[22:40:39] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS disabled module, focus loss and open menu all kept or restored the normal view
-[22:40:39] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK ALL CHECKS COMPLETE (movement packets: 20)
+[23:25:59] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Search and Visuals toggle Free Look and the hold key control changes its binding
+[23:26:00] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Sky Tint remains reachable by scrolling Visuals
+[23:26:00] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Left Alt created a four-block third-person orbit through a solid wall
+[23:26:00] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS terrain culling stayed on behind walls and switched off only inside solid blocks
+[23:26:00] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS mouse yaw and pitch orbit independently of player yaw and pitch
+[23:26:01] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS forward input kept the player's original direction and the camera followed
+[23:26:01] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS orbit turns past 180 degrees horizontally and reaches the vertical pole
+[23:26:02] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS release restored first person and normal player mouse rotation
+[23:26:03] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS rebinding worked and release restored the selected third-person front view
+[23:26:03] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Free Cam kept priority for camera and mouse input
+[23:26:04] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS Aim Lock did not change body direction while Free Look was held
+[23:26:05] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS disabled module, focus loss and open menu all kept or restored the normal view
+[23:26:11] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK PASS enclosed orbit reduced terrain sections in the frustum from 16 to 7
+[23:26:11] [Render thread/INFO] (Minecraft) [STDOUT]: FREELOOK ALL CHECKS COMPLETE (movement packets: 17)

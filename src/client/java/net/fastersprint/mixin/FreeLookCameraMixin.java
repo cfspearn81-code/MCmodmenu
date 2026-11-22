@@ -7,6 +7,7 @@ import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Options;
 import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.world.level.Level;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,6 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Camera.class)
 abstract class FreeLookCameraMixin {
+    @Shadow private Level level;
     @Shadow protected abstract void setRotation(float yaw, float pitch);
 
     @Inject(method = "update", at = @At("HEAD"))
@@ -43,7 +45,10 @@ abstract class FreeLookCameraMixin {
     private void fastersprint$orbitRenderState(CameraRenderState state, DeltaTracker delta, CallbackInfo callback) {
         if (fastersprint$isMainCamera() && FreeLook.active()) {
             state.isFirstPerson = false;
-            state.smartCull = false;
+            // Like spectator mode, bypass terrain occlusion only while the camera is inside solid terrain.
+            if (state.smartCull && level.getBlockState(state.blockPos).isSolidRender()) {
+                state.smartCull = false;
+            }
         }
     }
 

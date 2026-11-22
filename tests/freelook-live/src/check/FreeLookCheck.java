@@ -11,12 +11,15 @@ import java.util.UUID;
 import net.fastersprint.*;
 import net.minecraft.client.Camera;
 import net.minecraft.client.CameraType;
+import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.Screenshot;
 import net.minecraft.client.input.KeyEvent;
 import net.minecraft.client.multiplayer.ServerData;
 import net.minecraft.client.multiplayer.resolver.ServerAddress;
 import net.minecraft.client.player.RemotePlayer;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
+import net.minecraft.core.BlockPos;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ServerboundMovePlayerPacket;
 import net.minecraft.world.phys.Vec3;
@@ -25,10 +28,11 @@ public final class FreeLookCheck {
     public static boolean focus = true, aimHold;
     public static int heldKey = -1;
     private static boolean connecting, configured, finished, auditMovement;
-    private static int warmup = 100, stage, movementPackets;
+    private static int warmup = 100, stage, movementPackets, sectionsWithoutCulling;
     private static final List<String> results = new ArrayList<>();
     private static Vec3 walkingStart;
     private static RemotePlayer aimTarget;
+    private static BlockPos wallCameraBlock;
 
     private static Minecraft game() {
         return Minecraft.getInstance();
@@ -36,6 +40,16 @@ public final class FreeLookCheck {
 
     private static Camera camera() {
         return game().gameRenderer.mainCamera();
+    }
+
+    private static CameraRenderState cameraState() {
+        var state = new CameraRenderState();
+        camera().extractRenderState(state, DeltaTracker.ONE);
+        return state;
+    }
+
+    private static void setBlock(BlockPos pos, String block) {
+        command("setblock " + pos.getX() + " " + pos.getY() + " " + pos.getZ() + " " + block);
     }
 
     private static void command(String text) {
@@ -117,6 +131,7 @@ public final class FreeLookCheck {
 
     private static void configure() throws Exception {
         var game = game();
+        game.smartCull = true;
         game.options.pauseOnLostFocus = false;
         game.options.setCameraType(CameraType.FIRST_PERSON);
         game.options.renderDistance().set(3);
@@ -142,7 +157,7 @@ public final class FreeLookCheck {
         FreeLookSettings.setKey(InputConstants.KEY_LALT);
         command("gamemode survival BridgeLive");
         command("execute in minecraft:overworld run tp BridgeLive -255.5 120 -255.5 0 0");
-        command("execute in minecraft:overworld run forceload add -272 -272 -240 -240");
+        command("execute in minecraft:overworld run forceload add -272 -272 -225 -209");
         command("time set 6000");
         command("weather clear");
     }
@@ -211,25 +226,37 @@ public final class FreeLookCheck {
                     checkOrbit();
                     check(game.options.getCameraType() == CameraType.FIRST_PERSON, "saved camera perspective changed");
                     check(camera().position().z < -258.5, "wall compressed camera boom");
+                    var state = cameraState();
+                    check(state.smartCull && !state.isFirstPerson, "camera in air beyond the wall lost terrain culling");
                     checkBody(0, 0);
                     pass("Left Alt created a four-block third-person orbit through a solid wall");
                     auditMovement = true;
                 }
                 case 26 -> {
                     capture("free-look-wall.png");
+                    wallCameraBlock = camera().blockPosition().immutable();
+                    setBlock(wallCameraBlock, "stone");
+                }
+                case 29 -> {
+                    check(game.level.getBlockState(camera().blockPosition()).isSolidRender(), "camera test block missing");
+                    check(!cameraState().smartCull, "camera embedded in stone did not bypass culling");
+                    checkOrbit();
+                    setBlock(wallCameraBlock, "air");
                     mouse(600, 150);
                 }
-                case 30 -> {
+                case 33 -> {
                     check(Math.abs(angle(camera().yRot() - 90)) < 1 && Math.abs(camera().xRot() - 22.5) < 1,
                         "mouse did not orbit yaw/pitch " + camera().yRot() + ", " + camera().xRot());
                     checkBody(0, 0);
                     checkOrbit();
+                    check(cameraState().smartCull, "camera did not restore terrain culling after leaving stone");
+                    pass("terrain culling stayed on behind walls and switched off only inside solid blocks");
                     pass("mouse yaw and pitch orbit independently of player yaw and pitch");
                     walkingStart = game.player.position();
                     game.options.keyUp.setDown(true);
                 }
                 case 35 -> capture("free-look-orbit.png");
-                case 44 -> {
+                case 47 -> {
                     game.options.keyUp.setDown(false);
                     var walked = game.player.position().subtract(walkingStart);
                     check(walked.z > 1 && Math.abs(walked.x) < .05, "walking follows camera rather than body " + walked);
@@ -239,7 +266,7 @@ public final class FreeLookCheck {
                     pass("forward input kept the player's original direction and the camera followed");
                     mouse(1200, -2000);
                 }
-                case 49 -> {
+                case 50 -> {
                     check(Math.abs(angle(camera().yRot() - 270)) < 1 && Math.abs(camera().xRot() + 90) < 1,
                         "orbit does not support reverse direction or pole pitch");
                     checkBody(0, 0);
@@ -251,6 +278,8 @@ public final class FreeLookCheck {
                     check(!FreeLook.active() && !camera().isDetached() && game.options.getCameraType() == CameraType.FIRST_PERSON,
                         "release did not restore first person");
                     checkBody(0, 0);
+                    var state = cameraState();
+                    check(state.smartCull && state.isFirstPerson, "release did not restore the vanilla camera state");
                     mouse(200, 0);
                 }
                 case 59 -> {
@@ -343,6 +372,37 @@ public final class FreeLookCheck {
                     pass("disabled module, focus loss and open menu all kept or restored the normal view");
                 }
                 case 129 -> {
+                    // A small air cavity surrounded by opaque sections gives the terrain graph definite occluders.
+                    command("fill -256 192 -256 -241 207 -241 stone");
+                    command("fill -272 192 -256 -257 207 -241 stone");
+                    command("fill -240 192 -256 -225 207 -241 stone");
+                    command("fill -256 192 -272 -241 207 -257 stone");
+                    command("fill -256 192 -240 -241 207 -225 stone");
+                    command("fill -256 176 -256 -241 191 -241 stone");
+                    command("fill -256 208 -256 -241 223 -241 stone");
+                    command("fill -254 197 -254 -243 204 -243 air");
+                    command("fill -272 176 -222 -225 223 -221 stone");
+                    command("tp BridgeLive -248.5 198 -248.5 0 0");
+                    heldKey = InputConstants.KEY_LALT;
+                    game.smartCull = false;
+                }
+                case 199 -> {
+                    checkOrbit();
+                    check(!game.level.getBlockState(camera().blockPosition()).isSolidRender(), "camera left the air cavity");
+                    // For an orbit in air, disabling vanilla culling reproduces the previous renderer state.
+                    check(!cameraState().smartCull, "Free Look changed the disabled vanilla culling state");
+                    sectionsWithoutCulling = game.levelRenderer.visibleSections().size();
+                    game.smartCull = true;
+                }
+                case 239 -> {
+                    check(cameraState().smartCull, "terrain culling inactive in the cavity");
+                    int culledSections = game.levelRenderer.visibleSections().size();
+                    check(culledSections > 0 && culledSections < sectionsWithoutCulling,
+                        "expected fewer sections in the frustum with culling, got " + culledSections + " versus " + sectionsWithoutCulling);
+                    pass("enclosed orbit reduced terrain sections in the frustum from " + sectionsWithoutCulling + " to " + culledSections);
+                    heldKey = -1;
+                }
+                case 244 -> {
                     finished = true;
                     FreeLookSettings.setKey(InputConstants.KEY_LALT);
                     Files.writeString(Path.of("/tmp/freelook-live/results.txt"), String.join("\n", results) + "\n");
