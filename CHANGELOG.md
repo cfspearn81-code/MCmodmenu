@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.10.0
+
+- Add Free Look to Visuals and Search. Hold Left Alt by default to orbit the player with normal mouse sensitivity and inversion while maintaining the player’s movement direction.
+- Free Look uses the regular third-person camera distance and passes through blocks. Release the hold key to return to your selected perspective. The module switch and binding are saved.
+- Free Cam takes priority. Aim Lock pauses during the orbit and resumes when the key is released.
+
 ## 1.9.4
 
 - Continue Aim Lock head tracking through walls once a target is acquired. Preserve sticky target identity, release/death handling, 32-block/forward initial selection, and initial block line of sight.

@@ -1,0 +1,11 @@
+PASS Search and Visuals toggle Free Look and the hold key control changes its binding
+PASS Sky Tint remains reachable by scrolling Visuals
+PASS Left Alt created a four-block third-person orbit through a solid wall
+PASS mouse yaw and pitch orbit independently of player yaw and pitch
+PASS forward input kept the player's original direction and the camera followed
+PASS orbit turns past 180 degrees horizontally and reaches the vertical pole
+PASS release restored first person and normal player mouse rotation
+PASS rebinding worked and release restored the selected third-person front view
+PASS Free Cam kept priority for camera and mouse input
+PASS Aim Lock did not change body direction while Free Look was held
+PASS disabled module, focus loss and open menu all kept or restored the normal view

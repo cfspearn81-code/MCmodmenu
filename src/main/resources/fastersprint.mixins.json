@@ -23,6 +23,8 @@
     "XrayChunkMixin",
     "GuiRenderStateAccessor",
     "FreeCamCameraMixin",
+    "FreeLookCameraMixin",
+    "FreeLookRenderMixin",
     "AimLockCameraMixin",
     "FreeCamMouseMixin",
     "FreeCamInteractionMixin",

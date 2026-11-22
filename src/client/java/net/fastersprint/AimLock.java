@@ -33,7 +33,7 @@ public final class AimLock {
         int key=AimLockSettings.key();
         if(actor!=self||world!=level||boundKey!=key){clear();actor=self;world=level;boundKey=key;}
         // Pause view changes without forgetting an existing lock. Key release still clears it above.
-        if(game.getCameraEntity()!=self||FreeCam.active()||game.isPaused()||!game.isWindowActive()
+        if(game.getCameraEntity()!=self||FreeCam.active()||FreeLook.active()||game.isPaused()||!game.isWindowActive()
                 ||game.gui.screen()!=null||game.gui.overlay()!=null||ClientMenu.isOpen())return;
         if(target!=null&&target.isDeadOrDying()){
             target=null;selectedTick=Integer.MIN_VALUE;

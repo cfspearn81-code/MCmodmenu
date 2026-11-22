@@ -18,14 +18,13 @@ public final class ClientMenu {
     private static final float[] TOGGLES = new float[Tool.values().length];
     private static long lastFrame;
     private static float smoothing;
-    private static boolean bindingBridgeKey;
-    private static boolean bindingFreeCamKey;
-    private static boolean bindingAimLockKey;
+    private static Tool bindingTool;
     private static boolean searchFocused;
     private static boolean searchSelected;
     private static String query = "";
     private static int searchOffset;
     private static int visualPage;
+    private static int visualOffset;
     private static int movementOffset;
     private static final int SEARCH_ROWS = 5;
     private static boolean open;
@@ -50,8 +49,7 @@ public final class ClientMenu {
         Minecraft game = Minecraft.getInstance();
         releasePointer();
         open = !open;
-        bindingBridgeKey = false;
-        bindingFreeCamKey = false; bindingAimLockKey = false;
+        bindingTool = null;
         editing = Setting.NONE;
         error = "";
         if (open) {
@@ -83,8 +81,7 @@ public final class ClientMenu {
         releasePointer();
         MenuCursor.end();
         open = false;
-        bindingBridgeKey = false;
-        bindingFreeCamKey = false; bindingAimLockKey = false;
+        bindingTool = null;
         searchFocused = false;
         editing = Setting.NONE;
         error = "";
@@ -109,16 +106,14 @@ public final class ClientMenu {
         if (game.player == null || game.gui.screen() != null || game.gui.overlay() != null) {
             return false;
         }
-        if (open && (bindingBridgeKey || bindingFreeCamKey || bindingAimLockKey)) {
+        if (open && bindingTool != null) {
             if (action == InputConstants.PRESS) {
                 if (event.isEscape()) {
-                    bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = false;
+                    bindingTool = null;
                 } else {
                     try {
-                        if (bindingFreeCamKey) FreeCamSettings.setKey(event.key());
-                        else if (bindingAimLockKey) AimLockSettings.setKey(event.key());
-                        else PlayerDisplaySettings.setAutoBridgeKey(event.key());
-                        bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = false;
+                        saveBinding(bindingTool, event.key());
+                        bindingTool = null;
                         error = "";
                     } catch (IllegalArgumentException invalid) {
                         error = "Choose a key other than P or Esc.";
@@ -196,14 +191,19 @@ public final class ClientMenu {
             return;
         }
         if (category == 0 && inside(x, y, 116, 51, WIDTH - 128, 32)) {
-            bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = false; focusSearch(); return;
+            bindingTool = null;
+            focusSearch();
+            return;
         }
         searchFocused = false;
         for (int index = 0; index < 4; index++) {
             if (inside(x, y, 10, 48 + index * 30, 92, 26)) {
-                bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = false;
+                bindingTool = null;
                 category = index;
-                if (category == 2) visualPage = 0;
+                if (category == 2) {
+                    visualPage = 0;
+                    visualOffset = 0;
+                }
                 if (category == 1) movementOffset = 0;
                 if (category == 0) focusSearch();
                 editing = Setting.NONE;
@@ -215,29 +215,27 @@ public final class ClientMenu {
             for (int page = 0; page < 5; page++) {
                 if (inside(x, y, 116 + page * 67, 51, 64, 28)) {
                     visualPage = page;
-                    bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = false;
+                    visualOffset = 0;
+                    bindingTool = null;
                     editing = Setting.NONE; error = "";
                     return;
                 }
             }
         }
         if (category == 2 && visualPage == 4 && TintControls.begin(visualPage, x, y)) {
-            editing = Setting.NONE; bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = false; return;
-        }
-        if (visible(Tool.BRIDGE) && inside(x, y, 308, toolTop(Tool.BRIDGE) + 24, 130, 20)) {
-            bindingBridgeKey = true; bindingFreeCamKey = false; bindingAimLockKey = false;
             editing = Setting.NONE;
-            error = "";
+            bindingTool = null;
             return;
         }
-        if (visible(Tool.FREECAM) && inside(x, y, 308, toolTop(Tool.FREECAM) + 24, 130, 20)) {
-            bindingFreeCamKey = true; bindingBridgeKey = false; bindingAimLockKey = false; editing = Setting.NONE; error = ""; return;
+        for (Tool tool : Tool.values()) {
+            if (tool.hasBinding() && visible(tool) && inside(x, y, 308, toolTop(tool) + 24, 130, 20)) {
+                bindingTool = tool;
+                editing = Setting.NONE;
+                error = "";
+                return;
+            }
         }
-        if (visible(Tool.AIMLOCK) && inside(x, y, 308, toolTop(Tool.AIMLOCK) + 24, 130, 20)) {
-            bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = true;
-            editing = Setting.NONE; error = ""; return;
-        }
-        bindingBridgeKey = false; bindingFreeCamKey = false; bindingAimLockKey = false;
+        bindingTool = null;
         if (category == 2 && visualPage == 2) {
             for (OreType ore : OreType.values()) {
                 int left = 116 + (ore.ordinal() % 3) * 112;
@@ -294,7 +292,7 @@ public final class ClientMenu {
     }
 
     public static boolean capturesMovement() {
-        return open && (searchFocused || bindingBridgeKey || bindingFreeCamKey || bindingAimLockKey);
+        return open && (searchFocused || bindingTool != null);
     }
 
     private static void focusSearch() {
@@ -336,6 +334,8 @@ public final class ClientMenu {
         if (amount == 0) return;
         if (category == 0) searchOffset = Math.clamp(searchOffset + (amount < 0 ? 1 : -1), 0, Math.max(0, searchResults().size() - SEARCH_ROWS));
         if (category == 1) movementOffset = Math.clamp(movementOffset + (amount < 0 ? 1 : -1), 0, 1);
+        if (category == 2 && visualPage == 0) visualOffset = amount < 0 ? 1 : 0;
+        if (bindingTool != null && !visible(bindingTool)) bindingTool = null;
     }
 
     private static void drawSearch(GuiGraphicsExtractor graphics) {
@@ -372,7 +372,7 @@ public final class ClientMenu {
             return movement && toolTop(tool) >= 47 && toolTop(tool) + 48 <= 385;
         }
         if (category == 2) return switch (visualPage) {
-            case 0 -> tool == Tool.XRAY || tool == Tool.PLAYERS || tool == Tool.BEDESP || tool == Tool.FREECAM || tool == Tool.SKYTINT;
+            case 0 -> toolTop(tool) >= 91 && toolTop(tool) + 48 <= 385;
             case 1 -> tool == Tool.PLAYERS;
             case 2 -> tool == Tool.XRAY;
             case 3 -> tool == Tool.BEDESP;
@@ -386,7 +386,16 @@ public final class ClientMenu {
         if (category == 0) return 99 + (searchResults().indexOf(tool) - searchOffset) * 56;
         if (category == 2) {
             if (visualPage != 0) return 91;
-            return switch (tool) { case XRAY -> 91; case PLAYERS -> 147; case BEDESP -> 203; case FREECAM -> 259; case SKYTINT -> 315; default -> -1; };
+            int top = switch (tool) {
+                case XRAY -> 91;
+                case PLAYERS -> 147;
+                case BEDESP -> 203;
+                case FREECAM -> 259;
+                case FREELOOK -> 315;
+                case SKYTINT -> 371;
+                default -> -1;
+            };
+            return top - visualOffset * 56;
         }
         int top = switch (tool) {
             case AIMLOCK -> 107;
@@ -420,6 +429,7 @@ public final class ClientMenu {
             case QUICKJUMP -> QuickJumpSettings.enabled();
             case WALLCLIMB -> WallClimbSettings.enabled();
             case FREECAM -> FreeCam.active();
+            case FREELOOK -> FreeLookSettings.enabled();
             case XRAY -> XraySettings.enabled();
             case SPEED -> speedEnabled;
             case GUIMOVE -> PlayerDisplaySettings.guiMoveEnabled();
@@ -439,6 +449,7 @@ public final class ClientMenu {
                 case QUICKJUMP -> QuickJumpSettings.setEnabled(!QuickJumpSettings.enabled());
                 case WALLCLIMB -> WallClimbSettings.setEnabled(!WallClimbSettings.enabled());
                 case FREECAM -> FreeCam.toggle();
+                case FREELOOK -> FreeLookSettings.setEnabled(!FreeLookSettings.enabled());
                 case XRAY -> XraySettings.setEnabled(!XraySettings.enabled());
                 case HIT -> PlayerDisplaySettings.setAutoHitEnabled(!PlayerDisplaySettings.autoHitEnabled());
                 case BRIDGE -> PlayerDisplaySettings.setAutoBridgeEnabled(!PlayerDisplaySettings.autoBridgeEnabled());
@@ -590,7 +601,9 @@ public final class ClientMenu {
         if (category == 2) {
             drawVisualTabs(graphics, mouseX, mouseY);
             if (visualPage == 0) {
-                if (error.isEmpty()) graphics.text(game.font, "Use the tabs above to change visual settings.", 127, HEIGHT - 19, MUTED);
+                if (error.isEmpty()) graphics.text(game.font, "Scroll for more visual modules", 127, HEIGHT - 19, MUTED);
+                MenuPaint.rounded(graphics, 452, 91, 2, 274, 1, 0xFF353047);
+                MenuPaint.rounded(graphics, 452, 91 + visualOffset * 46, 2, 228, 1, ACCENT);
             } else if (visualPage == 4) {
                 TintControls.render(graphics, visualPage);
             } else if (visualPage == 2) {
@@ -642,9 +655,15 @@ public final class ClientMenu {
             ? "Walk and sprint " + multiplierText() + "x"
             : tool == Tool.BRIDGE ? AutoBridge.status() : tool.description;
         graphics.text(game.font, description, 163, top + 28, MUTED);
-        if (tool == Tool.BRIDGE || tool == Tool.FREECAM || tool == Tool.AIMLOCK) {
-            boolean binding = tool == Tool.BRIDGE ? bindingBridgeKey : tool == Tool.FREECAM ? bindingFreeCamKey : bindingAimLockKey;
-            int boundKey = tool == Tool.BRIDGE ? PlayerDisplaySettings.autoBridgeKey() : tool == Tool.FREECAM ? FreeCamSettings.key() : AimLockSettings.key();
+        if (tool.hasBinding()) {
+            boolean binding = tool == bindingTool;
+            int boundKey = switch (tool) {
+                case BRIDGE -> PlayerDisplaySettings.autoBridgeKey();
+                case FREECAM -> FreeCamSettings.key();
+                case FREELOOK -> FreeLookSettings.key();
+                case AIMLOCK -> AimLockSettings.key();
+                default -> throw new IllegalArgumentException("Module has no key binding");
+            };
             MenuPaint.rounded(graphics, 308, top + 24, 130, 20, 5, binding ? 0xFF4C3A65 : 0xFF322B49);
             String key = InputConstants.Type.KEYBOARD.getOrCreate(boundKey).getDisplayName().getString();
             if (key == null) key = "Key " + boundKey;
@@ -718,6 +737,16 @@ public final class ClientMenu {
     private static String multiplierText() {
         return BigDecimal.valueOf(PlayerDisplaySettings.speedMultiplier())
             .stripTrailingZeros().toPlainString();
+    }
+
+    private static void saveBinding(Tool tool, int key) throws IOException {
+        switch (tool) {
+            case BRIDGE -> PlayerDisplaySettings.setAutoBridgeKey(key);
+            case FREECAM -> FreeCamSettings.setKey(key);
+            case FREELOOK -> FreeLookSettings.setKey(key);
+            case AIMLOCK -> AimLockSettings.setKey(key);
+            default -> throw new IllegalArgumentException("Module has no key binding");
+        }
     }
 
     private static void drawAdjustment(GuiGraphicsExtractor graphics,
@@ -800,7 +829,8 @@ public final class ClientMenu {
         QUICKFALL("QuickFall", "Fast drops from edges", 6),
         QUICKJUMP("QuickJump", "Instant normal jump peak", 7),
         SKYTINT("Sky Tint", "Choose your sky color", 4),
-        AIMLOCK("Aim Lock", "Keep the same target", 2);
+        AIMLOCK("Aim Lock", "Keep the same target", 2),
+        FREELOOK("Free Look", "Orbit your player", 2);
 
         final String title;
         final String description;
@@ -810,6 +840,10 @@ public final class ClientMenu {
             this.title = title;
             this.description = description;
             this.icon = icon;
+        }
+
+        boolean hasBinding() {
+            return this == BRIDGE || this == FREECAM || this == FREELOOK || this == AIMLOCK;
         }
     }
 
