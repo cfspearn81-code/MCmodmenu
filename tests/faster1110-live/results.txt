@@ -1,0 +1,12 @@
+PASS accepted: attempts=10, predictedBlocks=10, rollbackRemovals=0, travelZ=11.636617825164095, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS delay-accepted: attempts=6, predictedBlocks=6, rollbackRemovals=0, travelZ=7.635006100345791, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS reject: attempts=3, predictedBlocks=3, rollbackRemovals=0, travelZ=2.6329914443229114, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS reject-release: attempts=1, predictedBlocks=1, rollbackRemovals=0, travelZ=2.6329914443229114, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS rollback: attempts=3, predictedBlocks=3, rollbackRemovals=3, travelZ=2.6329914443229114, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS late-rollback: attempts=3, predictedBlocks=3, rollbackRemovals=3, travelZ=2.6329914443229114, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS ack-only-ghost: attempts=1, predictedBlocks=1, rollbackRemovals=0, travelZ=2.6329914443229114, minY=120.0, maxY=120.0, suppressedUpdates=1, ackOnlyProofs=1
+PASS delayed-block-update: attempts=3, predictedBlocks=3, rollbackRemovals=0, travelZ=4.633797306732063, minY=120.0, maxY=120.0, suppressedUpdates=6, ackOnlyProofs=3
+PASS secondary-ghost: attempts=0, predictedBlocks=9, rollbackRemovals=0, travelZ=2.647348254802594, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS secondary-ack-only-jump: attempts=0, predictedBlocks=9, rollbackRemovals=0, travelZ=2.6219372200938267, minY=120.0, maxY=121.25220334025373, suppressedUpdates=0, ackOnlyProofs=1
+PASS clean-then-rollback: attempts=7, predictedBlocks=7, rollbackRemovals=3, travelZ=6.634603169141215, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0
+PASS diagonal: attempts=14, predictedBlocks=14, rollbackRemovals=0, travelZ=6.640797815737997, minY=120.0, maxY=120.0, suppressedUpdates=0, ackOnlyProofs=0

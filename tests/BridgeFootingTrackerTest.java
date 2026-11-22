@@ -4,6 +4,7 @@ public final class BridgeFootingTrackerTest {
     public static void main(String[] args){
         var tracker=new BridgeFootingTracker();long p=42,q=99;
         check(!tracker.blocked(p,0,10),"existing terrain stays usable");
+        check(!tracker.confirmed(p,0,10),"unknown position is not proof for a pending placement");
         tracker.predicted(p);
         check(tracker.blocked(p,10000,10),"time or ACK alone cannot verify a ghost");
         tracker.prune(10000,10,key->false,key->false);
@@ -12,6 +13,7 @@ public final class BridgeFootingTrackerTest {
         check(tracker.blocked(p,10009,10),"server solid needs stability window");
         tracker.serverUpdate(p,true,10009);
         check(!tracker.blocked(p,10010,10),"duplicate solid update does not prolong settled footing");
+        check(tracker.confirmed(p,10010,10),"explicit block confirmation reached stability window");
         tracker.serverUpdate(p,false,10011);
         check(tracker.blocked(p,10020,10),"late rejection revokes trust");
         tracker.serverUpdate(p,true,10020);tracker.predicted(p);

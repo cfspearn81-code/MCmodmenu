@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.11.0
+
+- Auto Bridge finds a reachable attachment face along the player’s movement path, including diagonal steps, without turning the player’s view.
+- Require a separate server block update and prediction reconciliation for every placement. Use a twelve-tick stability check for each block to catch removals that arrived after the former one-tick check.
+- Keep the edge guard active on key release until the player is at rest on trusted ground. Clip approaching steps while preserving enough clearance for legal side-face placement.
+
 ## 1.10.1
 
 - Remove Speed and its walking and sprinting multiplier. All five remaining Movement modules fit on one page.

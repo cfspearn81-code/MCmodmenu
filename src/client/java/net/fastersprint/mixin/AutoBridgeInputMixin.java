@@ -19,6 +19,7 @@ abstract class AutoBridgeInputMixin extends ClientInput {
         Minecraft game = Minecraft.getInstance();
         if (game.player == null || game.player.input != (Object) this) return;
         if (net.fastersprint.FreeCam.active() || net.fastersprint.ClientMenu.capturesMovement()) {
+            AutoBridge.updateControls(Vec2.ZERO, false);
             keyPresses = Input.EMPTY; moveVector = Vec2.ZERO; return;
         }
         Input raw = keyPresses;
