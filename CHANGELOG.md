@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9.3
+
+- Keep the same Aim Lock target while its key is held instead of selecting a new nearest player every tick. A closer competitor cannot steal a living lock; release clears it, and target death permits a new selection.
+- Limit initial acquisition to visible players within 32 blocks and a 90-degree cone ahead. Those limits only apply to acquisition, preserving an already chosen living target if it moves beyond them.
+- Pause aiming through walls, invisibility, spectator state, menus, focus loss and Free Cam without forgetting the held target. Temporary entity removal also pauses; a replacement with the same UUID resumes that player. Disabling, binding changes, local death/spectating and world/player changes reset the lock.
+- Update Combat help and add real-client target-retention regressions. Preserve Auto Bridge's faster adaptive checks and all other modules.
+
 ## 1.9.2
 
 - Replace the repeated latency-scaled 10–40 tick Auto Bridge wait with adaptive confirmation: begin at ten ticks, then use one tick after three reconciled server-confirmed placements remain stable for twenty additional ticks. Still require separate authoritative block-state feedback and native prediction reconciliation for every block.

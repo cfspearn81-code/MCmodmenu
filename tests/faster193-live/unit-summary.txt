@@ -1,0 +1,6 @@
+JDK25 isolated javac/java run of production AimAngles and tests/AimAnglesTest:
+PASS 504 head-direction/shortest-yaw cases, vertical targets and finite coincident inputs
+Final Gradle build: BUILD SUCCESSFUL (10s)
+Final real-client fixture: BUILD SUCCESSFUL (1m 14s); AIM ALL CHECKS COMPLETE
+PASS 24 live cases; 636 aligned camera frames; 26 native look packets; at most one movement packet/tick; zero attack interactions
+Artifact version/fixture-exclusion check passes. Auto Bridge and other gameplay module classes remain byte-identical to 1.9.2.

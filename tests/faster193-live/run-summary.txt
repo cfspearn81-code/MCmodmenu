@@ -1,0 +1,25 @@
+[18:56:11] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS Search/Combat switches, letter/function hold bindings, and existing Bridge/Free Cam bindings work
+[18:56:13] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS enabled module leaves manual view alone without hold
+[18:56:14] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS acquires nearest visible head ahead within range
+[18:56:15] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS a closer competitor cannot steal a living target
+[18:56:16] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS sticky target follows crouching head height
+[18:56:17] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS invisible target pauses aim while preserving identity
+[18:56:18] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS same target resumes after visibility returns
+[18:56:19] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS occlusion pauses aim without switching to clear competitor
+[18:56:21] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS original target resumes after wall clears
+[18:56:22] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS held target stays locked when moving behind original view
+[18:56:23] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS acquisition range does not break an existing living lock
+[18:56:24] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS death ends original lock and permits a new nearby target
+[18:56:25] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS key release clears target and immediately restores manual aiming
+[18:56:27] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS new press chooses nearby player ahead over closer player behind or across-map player
+[18:56:29] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS acquisition refuses behind-view and beyond-32-block players
+[18:56:30] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS held key can acquire when an eligible player enters view
+[18:56:31] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS P menu pauses aim and preserves held target
+[18:56:33] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS Free Cam pauses body aiming and preserves held target
+[18:56:35] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS focus loss pauses aim and preserves held target
+[18:56:37] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS disabling module clears lock even while key is held
+[18:56:38] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS temporary entity removal pauses without switching identity
+[18:56:39] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS replacement entity with same UUID resumes original player lock
+[18:56:40] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS no living eligible players leaves view alone
+[18:56:40] [Render thread/INFO] (Minecraft) [STDOUT]: AIM PASS vanilla look packets match visible angles; at most one movement packet per tick; zero attack interactions; lookPackets=26, alignedCameraFrames=636
+[18:56:40] [Render thread/INFO] (Minecraft) [STDOUT]: AIM ALL CHECKS COMPLETE

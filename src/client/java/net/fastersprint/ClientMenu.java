@@ -579,8 +579,8 @@ public final class ClientMenu {
 
         if (category == 0) drawSearch(graphics);
         if (category == 3) {
-            graphics.text(game.font, "Aim Lock: hold to aim at the nearest head.", 127, 179, MUTED);
-            graphics.text(game.font, "Release its key to return to manual aiming.", 127, 197, MUTED);
+            graphics.text(game.font, "Aim Lock: hold to lock a nearby player ahead.", 127, 179, MUTED);
+            graphics.text(game.font, "Keeps target until death or key release.", 127, 197, MUTED);
         }
         if (category == 1) {
             if (error.isEmpty()) graphics.text(game.font, "Scroll for more movement tools", 127, HEIGHT - 19, MUTED);
@@ -800,7 +800,7 @@ public final class ClientMenu {
         QUICKFALL("QuickFall", "Fast drops from edges", 6),
         QUICKJUMP("QuickJump", "Instant normal jump peak", 7),
         SKYTINT("Sky Tint", "Choose your sky color", 4),
-        AIMLOCK("Aim Lock", "Nearest visible head", 2);
+        AIMLOCK("Aim Lock", "Keep the same target", 2);
 
         final String title;
         final String description;
