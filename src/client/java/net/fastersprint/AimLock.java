@@ -59,8 +59,8 @@ public final class AimLock {
                 closest=distance;target=player;
             }
         }
-        // Invisibility, spectator state or a wall pauses the chosen target instead of selecting someone else.
-        if(target==null||!candidate(target,self,level)||!visible(level,self,eye,target.getEyePosition(partialTick)))return;
+        // Once locked, follow the same head through walls. Invisibility and spectator state still pause aiming.
+        if(target==null||!candidate(target,self,level))return;
         Vec3 direction=target.getEyePosition(partialTick).subtract(eye);
         var look=AimAngles.toward(direction.x,direction.y,direction.z,self.getYRot());
         self.setYRot(look.yaw());self.setXRot(look.pitch());self.yRotO=look.yaw();self.xRotO=look.pitch();

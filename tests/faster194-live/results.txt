@@ -1,0 +1,26 @@
+PASS Search/Combat switches, letter/function hold bindings, and existing Bridge/Free Cam bindings work
+PASS enabled module leaves manual view alone without hold
+PASS acquires nearest visible head ahead within range
+PASS a closer competitor cannot steal a living target
+PASS sticky target follows crouching head height
+PASS invisible target pauses aim while preserving identity
+PASS same target resumes after visibility returns
+PASS locked head keeps tracking through solid wall even as target moves; closer visible player cannot steal lock
+PASS same locked head continues after wall clears
+PASS held target stays locked when moving behind original view
+PASS acquisition range does not break an existing living lock
+PASS death ends original lock and permits a new nearby target
+PASS key release clears target and immediately restores manual aiming
+PASS new press chooses nearby player ahead over closer player behind or across-map player
+PASS acquisition refuses behind-view and beyond-32-block players
+PASS held key can acquire when an eligible player enters view
+PASS P menu pauses aim and preserves held target
+PASS Free Cam pauses body aiming and preserves held target
+PASS focus loss pauses aim and preserves held target
+PASS disabling module clears lock even while key is held
+PASS temporary entity removal pauses without switching identity
+PASS replacement entity with same UUID resumes original player lock
+PASS initial acquisition still requires visible head
+PASS held key acquires once initial obstruction clears
+PASS no living eligible players leaves view alone
+PASS vanilla look packets match visible angles; at most one movement packet per tick; zero attack interactions; lookPackets=28, alignedCameraFrames=914

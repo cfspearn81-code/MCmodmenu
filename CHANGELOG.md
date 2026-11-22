@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.9.4
+
+- Continue Aim Lock head tracking through walls once a target is acquired. Preserve sticky target identity, release/death handling, 32-block/forward initial selection, and initial block line of sight.
+- Keep other pause conditions and all other modules unchanged. Add live regressions for moving heads behind a solid wall and visible-only initial acquisition.
+
 ## 1.9.3
 
 - Keep the same Aim Lock target while its key is held instead of selecting a new nearest player every tick. A closer competitor cannot steal a living lock; release clears it, and target death permits a new selection.

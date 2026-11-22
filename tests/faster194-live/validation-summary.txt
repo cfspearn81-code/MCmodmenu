@@ -1,0 +1,4 @@
+Gradle build: BUILD SUCCESSFUL (14s)
+Final real-client fixture: BUILD SUCCESSFUL (1m 25s); AIM ALL CHECKS COMPLETE
+PASS 26 live cases; 914 aligned camera frames; 28 native look packets; at most one movement packet/tick; zero attack interactions
+Release version is 1.9.4. Test fixtures are excluded. AimLock is the only changed gameplay class from 1.9.3; all other module bytecode is identical.
