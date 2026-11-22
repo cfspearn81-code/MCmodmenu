@@ -1,0 +1,20 @@
+[
+  {
+    "case": "accepted",
+    "movement_ticks": 180,
+    "baseline_version": "1.9.1",
+    "baseline_distance": 12.941516169912688,
+    "current_version": "1.9.2",
+    "current_distance": 23.167197212538525,
+    "distance_ratio": 1.7901455214651891
+  },
+  {
+    "case": "delay-accepted",
+    "movement_ticks": 180,
+    "baseline_version": "1.9.1",
+    "baseline_distance": 8.699984926945334,
+    "current_version": "1.9.2",
+    "current_distance": 9.92453808494541,
+    "distance_ratio": 1.140753480412067
+  }
+]

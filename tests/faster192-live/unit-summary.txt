@@ -1,0 +1,7 @@
+JDK25 isolated javac/java build using production sources and test classes:
+PASS: authoritative footing, stale/newer predictions, late rejection, cleanup and world reset
+PASS: sustained confirmations, fast release, ACK-only quarantine, late rollback, deduplication, recovery and reset
+PASS: 77 boundary/swept-angle checks
+Gradle build: BUILD SUCCESSFUL (22s)
+Real-client main run: all eleven cases complete
+Real-client supplementary run: both final cases complete; BUILD SUCCESSFUL (1m)

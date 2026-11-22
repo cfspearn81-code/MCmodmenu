@@ -23,7 +23,7 @@ public final class AutoBridge {
     private static int pendingSequence;
     private static boolean acknowledged, safetyHold;
     private static int pendingSinceTick, acknowledgedTick;
-    private static final int FOOTING_SETTLE_TICKS = 10;
+    private static final BridgeConfirmationPolicy confirmations = new BridgeConfirmationPolicy();
     private static final BridgeFootingTracker footing = new BridgeFootingTracker();
     private static BridgePlacementLimiter limiter = new BridgePlacementLimiter();
     private static String status = "Place underfoot";
@@ -38,6 +38,7 @@ public final class AutoBridge {
             actor = game.player;
             pending = null;
             footing.clear();
+            confirmations.clear();
             acknowledged = false; safetyHold = false;
             limiter = new BridgePlacementLimiter();
             status = "Place underfoot";
@@ -77,14 +78,10 @@ public final class AutoBridge {
     private static void reject(net.minecraft.client.player.LocalPlayer player) {
         pending = null; acknowledged = false; safetyHold = true;
         status = "Rejected: stop to reset";
-        if (player != null) limiter.rejected(player.tickCount);
+        if (player != null) { limiter.rejected(player.tickCount); confirmations.rejected(player.tickCount); }
     }
 
-    /** Higher measured latency gives server corrections more time to arrive before stepping out. */
-    private static int settleTicks(Minecraft game) {
-        var info = game.player.connection.getPlayerInfo(game.player.getUUID());
-        return Math.max(FOOTING_SETTLE_TICKS, Math.min(40, (info == null ? 0 : info.getLatency()) / 50 + 4));
-    }
+    private static int settleTicks(Minecraft game) { return confirmations.settleTicks(); }
 
     /** Called only for actual predicted solid changes, including manual/secondary placements. */
     public static void predictedBlock(ClientLevel level, BlockPos position) {
@@ -98,7 +95,12 @@ public final class AutoBridge {
     /** Both single-block and section packets enter this native authoritative-state method. */
     public static void serverBlock(ClientLevel level, BlockPos position, net.minecraft.world.level.block.state.BlockState state) {
         if (level != world || actor == null) return;
-        footing.serverUpdate(position.asLong(), !state.getCollisionShape(level, position).isEmpty(), actor.tickCount);
+        if (footing.serverUpdate(position.asLong(), !state.getCollisionShape(level, position).isEmpty(), actor.tickCount)) {
+            confirmations.rejected(actor.tickCount);
+            safetyHold = true;
+            // The normal pending check handles its own rejection once; older footing needs backoff too.
+            if (!position.equals(pending)) limiter.rejected(actor.tickCount);
+        }
     }
 
     public static void unload(ClientLevel level, net.minecraft.world.level.ChunkPos chunk) {
@@ -111,12 +113,13 @@ public final class AutoBridge {
         int settle = settleTicks(game);
         footing.prune(game.player.tickCount, settle,
             key -> BlockPos.of(key).equals(pending) || predicted(game.level, BlockPos.of(key)),
-            key -> { var p = BlockPos.of(key); return game.level.getBlockState(p).getCollisionShape(game.level, p).isEmpty(); });
+            key -> { var p = BlockPos.of(key); return game.level.getBlockState(p).getCollisionShape(game.level, p).isEmpty(); }, confirmations::stable);
         if (pending == null || !acknowledged) return;
         if (predicted(game.level, pending)) { acknowledged = false; status = "Waiting for server"; return; }
         if (game.level.getBlockState(pending).getCollisionShape(game.level, pending).isEmpty()) { reject(game.player); return; }
         if (game.player.tickCount - acknowledgedTick >= settle
                 && !footing.blocked(pending.asLong(), game.player.tickCount, settle)) {
+            footing.approve(pending.asLong(), game.player.tickCount);
             pending = null; acknowledged = false; safetyHold = false; status = "Place underfoot";
             limiter.accepted();
         } else status = game.player.tickCount - pendingSinceTick >= 100 ? "Unconfirmed: stopped safely" : "Checking server footing";
@@ -198,6 +201,7 @@ public final class AutoBridge {
             status = "Waiting for server";
         } else {
             limiter.rejected(player.tickCount);
+            confirmations.rejected(player.tickCount);
             status = "Placement unavailable";
         }
         if (result.consumesAction()) {

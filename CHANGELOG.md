@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9.2
+
+- Replace the repeated latency-scaled 10–40 tick Auto Bridge wait with adaptive confirmation: begin at ten ticks, then use one tick after three reconciled server-confirmed placements remain stable for twenty additional ticks. Still require separate authoritative block-state feedback and native prediction reconciliation for every block.
+- Monitor approved footing for 100 ticks instead of discarding its history as soon as it is usable. A server update revoking recent solid confirmation immediately invalidates trust, restores conservative checks, retains the safety latch and applies existing rejection backoff. Duplicate air feedback cannot multiply rejection events.
+- After failure, require 100 recovery ticks and three fresh sustained confirmations before returning to fast checks. Old observations cannot be counted again, and confidence resets on world/player changes. Preserve placement packet budgets, missing-confirmation stops and diagonal/jump edge protection.
+- Add adaptive-policy unit coverage and local real-client regressions including a server rejection after fast mode is earned. Normal local bridge progress improves from about 13 to 23 blocks in the same measured interval; this is a controlled comparison, not a public-server speed guarantee.
+
 ## 1.9.1
 
 - Require an authoritative server block-state update in addition to vanilla reconciliation before trusting new Auto Bridge footing. Acknowledgement or elapsed time alone cannot approve a visible ghost. Apply the same quarantine to manual/secondary predicted solid blocks.
