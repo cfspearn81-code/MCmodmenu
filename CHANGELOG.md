@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.11.1
+
+- Pause Auto Bridge after a server position correction or horizontal push. Let Minecraft apply the server movement, and restart bridging after the player releases the key and presses it again on solid ground.
+- Overlap the twelve-tick block stability check with the wait for clearly delayed acknowledgements. Keep the full rollback window when confirmation and acknowledgement arrive close together.
+- Pick the next placement from the current keyboard input during the same tick.
+
 ## 1.11.0
 
 - Auto Bridge finds a reachable attachment face along the player’s movement path, including diagonal steps, without turning the player’s view.

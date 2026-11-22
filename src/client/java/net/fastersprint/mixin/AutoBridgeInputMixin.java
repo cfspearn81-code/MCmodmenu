@@ -24,6 +24,12 @@ abstract class AutoBridgeInputMixin extends ClientInput {
         }
         Input raw = keyPresses;
         AutoBridge.updateControls(moveVector, raw.jump());
+        AutoBridge.place(moveVector);
+        if (AutoBridge.stoppingForServer()) {
+            keyPresses = new Input(false, false, false, false, false, raw.shift(), false);
+            moveVector = Vec2.ZERO;
+            return;
+        }
         boolean protecting = AutoBridge.isProtecting();
         boolean stop = protecting && AutoBridge.shouldStopInput(moveVector, raw.jump(), raw.sprint());
         var requested = new BridgeControls.Keys(raw.forward(), raw.backward(), raw.left(), raw.right(),

@@ -16,6 +16,7 @@
     "ClientLevelPredictionAccessor",
     "BridgePredictionAccessor",
     "AutoBridgeAcknowledgementMixin",
+    "AutoBridgeCorrectionMixin",
     "AutoBridgeInputMixin",
     "MinecraftAttackInvoker",
     "AutoBridgeBoundaryMixin",

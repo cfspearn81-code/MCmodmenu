@@ -19,11 +19,12 @@ public final class AutoBridge {
     private static net.minecraft.client.player.LocalPlayer actor;
     private static BlockPos pending;
     private static int pendingSequence;
-    private static boolean acknowledged, safetyHold;
+    private static boolean acknowledged, safetyHold, serverPaused, releasedAfterCorrection;
     private static int pendingSinceTick, acknowledgedTick;
     // A server can acknowledge a block and then remove it. Keep the full wait for every placement.
     static final int SETTLE_TICKS = 12;
-    private static Vec2 requestedMovement = Vec2.ZERO;
+    private static final int ACK_SETTLE_TICKS = 2;
+    private static final int DELAYED_ACK_TICKS = 8;
     private static int walkingLayer;
     private static final BridgeFootingTracker footing = new BridgeFootingTracker();
     private static BridgePlacementLimiter limiter = new BridgePlacementLimiter();
@@ -39,9 +40,9 @@ public final class AutoBridge {
             actor = game.player;
             pending = null;
             footing.clear();
-            requestedMovement = Vec2.ZERO;
             walkingLayer = actor == null ? 0 : (int) Math.floor(actor.getY() - .001);
             acknowledged = false; safetyHold = false;
+            serverPaused = false; releasedAfterCorrection = false;
             limiter = new BridgePlacementLimiter();
             status = "Place underfoot";
         }
@@ -56,11 +57,33 @@ public final class AutoBridge {
     }
 
     private static boolean active(Minecraft game) {
-        return eligible(game) && InputConstants.isKeyDown(PlayerDisplaySettings.autoBridgeKey());
+        return !serverPaused && eligible(game) && holdKeyDown();
+    }
+
+    private static boolean holdKeyDown() {
+        return InputConstants.isKeyDown(PlayerDisplaySettings.autoBridgeKey());
     }
 
     private static boolean protecting(Minecraft game) {
-        return eligible(game) && (active(game) || pending != null || safetyHold);
+        return !serverPaused && eligible(game) && (holdKeyDown() || pending != null || safetyHold);
+    }
+
+    /** The server has already applied its position or velocity. Stop bridge automation until the player rearms it. */
+    public static void serverMovement() {
+        var game = Minecraft.getInstance();
+        syncWorld(game);
+        if (!protecting(game)) return;
+        serverPaused = true;
+        releasedAfterCorrection = !holdKeyDown();
+        safetyHold = false;
+        status = "Server moved you: release key";
+        game.player.sendSystemMessage(net.minecraft.network.chat.Component.literal(
+            "Auto Bridge paused. Release the bridge key and return to solid ground."));
+    }
+
+    /** While the bridge key remains held after a correction, suppress continued walking input, not server velocity. */
+    public static boolean stoppingForServer() {
+        return serverPaused && eligible(Minecraft.getInstance()) && holdKeyDown();
     }
 
     private static boolean predicted(ClientLevel level, BlockPos pos) {
@@ -72,8 +95,22 @@ public final class AutoBridge {
     public static void updateControls(Vec2 requested, boolean jump) {
         var game = Minecraft.getInstance();
         syncWorld(game);
-        requestedMovement = requested;
-        if (!PlayerDisplaySettings.autoBridgeEnabled()) { safetyHold = false; return; }
+        if (!PlayerDisplaySettings.autoBridgeEnabled()) {
+            safetyHold = false;
+            serverPaused = false;
+            releasedAfterCorrection = false;
+            return;
+        }
+        if (serverPaused) {
+            if (!holdKeyDown()) {
+                releasedAfterCorrection = true;
+                return;
+            }
+            if (!releasedAfterCorrection || !eligible(game) || !game.player.onGround()
+                    || !supported(game, game.player.getBoundingBox().deflate(.25, 0, .25), .08)) return;
+            serverPaused = false;
+            releasedAfterCorrection = false;
+        }
         if (active(game)) { safetyHold = true; return; }
         if (safetyHold && pending == null && game.player != null && !jump
                 && requested.lengthSquared() < .000001F && game.player.onGround()
@@ -120,7 +157,11 @@ public final class AutoBridge {
         if (pending == null || !acknowledged) return;
         if (predicted(game.level, pending)) { acknowledged = false; status = "Waiting for server"; return; }
         if (game.level.getBlockState(pending).getCollisionShape(game.level, pending).isEmpty()) { reject(game.player); return; }
-        if (game.player.tickCount - acknowledgedTick >= SETTLE_TICKS
+        // Only overlap the waits when the solid update clearly preceded a delayed acknowledgement.
+        // When the messages arrive close together, the acknowledgement stays part of the full rollback window.
+        boolean delayedAck = footing.confirmed(pending.asLong(), acknowledgedTick, DELAYED_ACK_TICKS);
+        int acknowledgementWait = delayedAck ? ACK_SETTLE_TICKS : SETTLE_TICKS;
+        if (game.player.tickCount - acknowledgedTick >= acknowledgementWait
                 && footing.confirmed(pending.asLong(), game.player.tickCount, SETTLE_TICKS)) {
             footing.approve(pending.asLong(), game.player.tickCount);
             pending = null; acknowledged = false; status = "Place underfoot";
@@ -146,8 +187,14 @@ public final class AutoBridge {
         syncWorld(game);
         checkFooting(game);
         if (game.player != null && game.player.onGround()) walkingLayer = (int) Math.floor(game.player.getY() - .001);
+        if (!active(game)) limiter.released();
+        if (serverPaused) status = releasedAfterCorrection ? "Resume from solid ground" : "Server moved you: release key";
+    }
+
+    /** Use the current movement request before vanilla applies it this tick. */
+    public static void place(Vec2 requestedMovement) {
+        var game = Minecraft.getInstance();
         if (!active(game)) {
-            limiter.released();
             return;
         }
         safetyHold = true;
