@@ -1,0 +1,5 @@
+JDK 25; isolated javac/java build of production BridgeFootingTracker, BridgeSafety and BridgeEdgeGuard with tests/BridgeFootingTrackerTest.java and tests/BridgeEdgeGuardTest.java.
+PASS: authoritative footing, stale/newer predictions, late rejection, cleanup and world reset
+PASS: 77 boundary/swept-angle checks
+Gradle build: BUILD SUCCESSFUL (10s)
+Final real-client fixture: BUILD SUCCESSFUL (2m 33s); GHOST ALL CHECKS COMPLETE

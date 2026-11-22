@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.9.1
+
+- Require an authoritative server block-state update in addition to vanilla reconciliation before trusting new Auto Bridge footing. Acknowledgement or elapsed time alone cannot approve a visible ghost. Apply the same quarantine to manual/secondary predicted solid blocks.
+- Wait at least ten ticks after acknowledgement and server block confirmation, increasing the stability interval for measured latency up to forty ticks. Server rejection revokes confirmation; missing confirmation keeps the edge blocked without additional interaction packets. Show “Unconfirmed: stopped safely” after prolonged waiting.
+- Keep diagonal/jump swept-edge checks, release-during-movement protection, placement budgets and rejection backoff. Clear quarantine metadata after safe reconciliation, chunk unload or world/player changes.
+- Add authoritative-footing unit coverage and local client/server regressions for rejected, delayed, ACK-only ghost and late-rollback scenarios.
+
 ## 1.9.0
 
 - Add Aim Lock in Combat/Search with a saved default-off switch and configurable hold key (R by default). Aim the real player view at the nearest unobstructed player head while held and stop on release.

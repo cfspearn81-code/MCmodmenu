@@ -1,0 +1,2011 @@
+case,tick,x,y,z,status
+accepted,30,-127.5,120.0,-127.5,Place underfoot
+accepted,31,-127.5,120.0,-127.40199999663234,Aim at bridge edge
+accepted,32,-127.5,120.0,-127.25049198521084,Aim at bridge edge
+accepted,33,-127.5,120.0,-127.0697685979985,Aim at bridge edge
+accepted,34,-127.5,120.0,-126.87309361375155,Aim at bridge edge
+accepted,35,-127.5,120.0,-126.66770905651205,Aim at bridge edge
+accepted,36,-127.5,120.0,-126.45756907186627,Aim at bridge edge
+accepted,37,-127.5,120.0,-126.24483262355507,Aim at bridge edge
+accepted,38,-127.5,120.0,-126.03067850591789,Aim at bridge edge
+accepted,39,-127.5,120.0,-125.81575034073882,Aim at bridge edge
+accepted,40,-127.5,120.0,-125.60039954555278,Aim at bridge edge
+accepted,41,-127.5,120.0,-125.38481799435613,Aim at bridge edge
+accepted,42,-127.5,120.0,-125.16911045036305,Aim at bridge edge
+accepted,43,-127.5,120.0,-124.95333411429515,Aim at bridge edge
+accepted,44,-127.5,120.0,-124.83552022111768,Waiting for server
+accepted,45,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,46,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,47,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,48,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,49,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,50,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,51,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,52,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,53,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,54,-127.5,120.0,-124.80335702454438,Checking server footing
+accepted,55,-127.5,120.0,-124.70535702117672,Aim at bridge edge
+accepted,56,-127.5,120.0,-124.55384900975523,Aim at bridge edge
+accepted,57,-127.5,120.0,-124.37312562254289,Aim at bridge edge
+accepted,58,-127.5,120.0,-124.17645063829593,Aim at bridge edge
+accepted,59,-127.5,120.0,-123.97106608105643,Aim at bridge edge
+accepted,60,-127.5,120.0,-123.85892609977832,Checking server footing
+accepted,61,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,62,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,63,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,64,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,65,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,66,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,67,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,68,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,69,-127.5,120.0,-123.82831188133346,Checking server footing
+accepted,70,-127.5,120.0,-123.7303118779658,Aim at bridge edge
+accepted,71,-127.5,120.0,-123.5788038665443,Aim at bridge edge
+accepted,72,-127.5,120.0,-123.39808047933197,Aim at bridge edge
+accepted,73,-127.5,120.0,-123.20140549508501,Aim at bridge edge
+accepted,74,-127.5,120.0,-122.99602093784551,Aim at bridge edge
+accepted,75,-127.5,120.0,-122.8838809565674,Waiting for server
+accepted,76,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,77,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,78,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,79,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,80,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,81,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,82,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,83,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,84,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,85,-127.5,120.0,-122.8226525196777,Checking server footing
+accepted,86,-127.5,120.0,-122.72465251631004,Aim at bridge edge
+accepted,87,-127.5,120.0,-122.57314450488855,Aim at bridge edge
+accepted,88,-127.5,120.0,-122.39242111767621,Aim at bridge edge
+accepted,89,-127.5,120.0,-122.19574613342925,Aim at bridge edge
+accepted,90,-127.5,120.0,-121.99036157618976,Aim at bridge edge
+accepted,91,-127.5,120.0,-121.87822159491164,Checking server footing
+accepted,92,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,93,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,94,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,95,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,96,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,97,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,98,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,99,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,100,-127.5,120.0,-121.81699315802194,Checking server footing
+accepted,101,-127.5,120.0,-121.71899315465429,Aim at bridge edge
+accepted,102,-127.5,120.0,-121.56748514323279,Aim at bridge edge
+accepted,103,-127.5,120.0,-121.38676175602045,Aim at bridge edge
+accepted,104,-127.5,120.0,-121.1900867717735,Aim at bridge edge
+accepted,105,-127.5,120.0,-120.984702214534,Aim at bridge edge
+accepted,106,-127.5,120.0,-120.87256223325588,Checking server footing
+accepted,107,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,108,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,109,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,110,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,111,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,112,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,113,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,114,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,115,-127.5,120.0,-120.81133379636618,Checking server footing
+accepted,116,-127.5,120.0,-120.71333379299853,Aim at bridge edge
+accepted,117,-127.5,120.0,-120.56182578157703,Aim at bridge edge
+accepted,118,-127.5,120.0,-120.38110239436469,Aim at bridge edge
+accepted,119,-127.5,120.0,-120.18442741011773,Aim at bridge edge
+accepted,120,-127.5,120.0,-119.97904285287824,Aim at bridge edge
+accepted,121,-127.5,120.0,-119.86690287160012,Waiting for server
+accepted,122,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,123,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,124,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,125,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,126,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,127,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,128,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,129,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,130,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,131,-127.5,120.0,-119.80567443471043,Checking server footing
+accepted,132,-127.5,120.0,-119.70767443134277,Aim at bridge edge
+accepted,133,-127.5,120.0,-119.55616641992127,Aim at bridge edge
+accepted,134,-127.5,120.0,-119.37544303270893,Aim at bridge edge
+accepted,135,-127.5,120.0,-119.17876804846198,Aim at bridge edge
+accepted,136,-127.5,120.0,-118.97338349122248,Aim at bridge edge
+accepted,137,-127.5,120.0,-118.86124350994436,Checking server footing
+accepted,138,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,139,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,140,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,141,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,142,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,143,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,144,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,145,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,146,-127.5,120.0,-118.80001507305467,Checking server footing
+accepted,147,-127.5,120.0,-118.70201506968701,Aim at bridge edge
+accepted,148,-127.5,120.0,-118.55050705826551,Aim at bridge edge
+accepted,149,-127.5,120.0,-118.36978367105317,Aim at bridge edge
+accepted,150,-127.5,120.0,-118.17310868680622,Aim at bridge edge
+accepted,151,-127.5,120.0,-117.96772412956672,Aim at bridge edge
+accepted,152,-127.5,120.0,-117.8555841482886,Checking server footing
+accepted,153,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,154,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,155,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,156,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,157,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,158,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,159,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,160,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,161,-127.5,120.0,-117.82496992984375,Checking server footing
+accepted,162,-127.5,120.0,-117.72696992647609,Aim at bridge edge
+accepted,163,-127.5,120.0,-117.57546191505459,Aim at bridge edge
+accepted,164,-127.5,120.0,-117.39473852784225,Aim at bridge edge
+accepted,165,-127.5,120.0,-117.1980635435953,Aim at bridge edge
+accepted,166,-127.5,120.0,-116.9926789863558,Aim at bridge edge
+accepted,167,-127.5,120.0,-116.88053900507768,Waiting for server
+accepted,168,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,169,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,170,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,171,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,172,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,173,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,174,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,175,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,176,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,177,-127.5,120.0,-116.81931056818799,Checking server footing
+accepted,178,-127.5,120.0,-116.72131056482033,Aim at bridge edge
+accepted,179,-127.5,120.0,-116.56980255339883,Aim at bridge edge
+accepted,180,-127.5,120.0,-116.38907916618649,Aim at bridge edge
+accepted,181,-127.5,120.0,-116.19240418193954,Aim at bridge edge
+accepted,182,-127.5,120.0,-115.98701962470004,Aim at bridge edge
+accepted,183,-127.5,120.0,-115.87487964342192,Waiting for server
+accepted,184,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,185,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,186,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,187,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,188,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,189,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,190,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,191,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,192,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,193,-127.5,120.0,-115.81365120653223,Checking server footing
+accepted,194,-127.5,120.0,-115.71565120316457,Aim at bridge edge
+accepted,195,-127.5,120.0,-115.56414319174307,Aim at bridge edge
+accepted,196,-127.5,120.0,-115.38341980453073,Aim at bridge edge
+accepted,197,-127.5,120.0,-115.18674482028378,Aim at bridge edge
+accepted,198,-127.5,120.0,-114.98136026304428,Aim at bridge edge
+accepted,199,-127.5,120.0,-114.86922028176616,Checking server footing
+accepted,200,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,201,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,202,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,203,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,204,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,205,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,206,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,207,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,208,-127.5,120.0,-114.80799184487647,Checking server footing
+accepted,209,-127.5,120.0,-114.70999184150881,Aim at bridge edge
+accepted,210,-127.5,120.0,-114.55848383008731,Aim at bridge edge
+accepted,211,-127.5,120.0,-114.47576044624263,Aim at bridge edge
+accepted,212,-127.5,120.0,-114.43059347341718,Aim at bridge edge
+accepted,213,-127.5,120.0,-114.40593230339002,Aim at bridge edge
+accepted,214,-127.5,120.0,-114.3924673029912,Aim at bridge edge
+accepted,215,-127.5,120.0,-114.3851154119195,Aim at bridge edge
+accepted,216,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,217,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,218,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,219,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,220,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,221,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,222,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,223,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,224,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,225,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,226,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,227,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,228,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,229,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+accepted,230,-127.5,120.0,-114.3811012789281,Aim at bridge edge
+delay-accepted,30,-143.5,120.0,-127.5,Place underfoot
+delay-accepted,31,-143.5,120.0,-127.40199999663234,Aim at bridge edge
+delay-accepted,32,-143.5,120.0,-127.25049198521084,Aim at bridge edge
+delay-accepted,33,-143.5,120.0,-127.0697685979985,Aim at bridge edge
+delay-accepted,34,-143.5,120.0,-126.87309361375155,Aim at bridge edge
+delay-accepted,35,-143.5,120.0,-126.66770905651205,Aim at bridge edge
+delay-accepted,36,-143.5,120.0,-126.45756907186627,Aim at bridge edge
+delay-accepted,37,-143.5,120.0,-126.24483262355507,Aim at bridge edge
+delay-accepted,38,-143.5,120.0,-126.03067850591789,Aim at bridge edge
+delay-accepted,39,-143.5,120.0,-125.81575034073882,Aim at bridge edge
+delay-accepted,40,-143.5,120.0,-125.60039954555278,Aim at bridge edge
+delay-accepted,41,-143.5,120.0,-125.38481799435613,Aim at bridge edge
+delay-accepted,42,-143.5,120.0,-125.16911045036305,Aim at bridge edge
+delay-accepted,43,-143.5,120.0,-124.95333411429515,Aim at bridge edge
+delay-accepted,44,-143.5,120.0,-124.83552022111768,Waiting for server
+delay-accepted,45,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,46,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,47,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,48,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,49,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,50,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,51,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,52,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,53,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,54,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,55,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,56,-143.5,120.0,-124.80335702454438,Waiting for server
+delay-accepted,57,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,58,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,59,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,60,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,61,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,62,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,63,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,64,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,65,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,66,-143.5,120.0,-124.80335702454438,Checking server footing
+delay-accepted,67,-143.5,120.0,-124.70535702117672,Aim at bridge edge
+delay-accepted,68,-143.5,120.0,-124.55384900975523,Aim at bridge edge
+delay-accepted,69,-143.5,120.0,-124.37312562254289,Aim at bridge edge
+delay-accepted,70,-143.5,120.0,-124.17645063829593,Aim at bridge edge
+delay-accepted,71,-143.5,120.0,-123.97106608105643,Aim at bridge edge
+delay-accepted,72,-143.5,120.0,-123.85892609977832,Waiting for server
+delay-accepted,73,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,74,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,75,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,76,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,77,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,78,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,79,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,80,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,81,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,82,-143.5,120.0,-123.82831188133346,Waiting for server
+delay-accepted,83,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,84,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,85,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,86,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,87,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,88,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,89,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,90,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,91,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,92,-143.5,120.0,-123.82831188133346,Checking server footing
+delay-accepted,93,-143.5,120.0,-123.7303118779658,Aim at bridge edge
+delay-accepted,94,-143.5,120.0,-123.5788038665443,Aim at bridge edge
+delay-accepted,95,-143.5,120.0,-123.39808047933197,Aim at bridge edge
+delay-accepted,96,-143.5,120.0,-123.20140549508501,Aim at bridge edge
+delay-accepted,97,-143.5,120.0,-122.99602093784551,Aim at bridge edge
+delay-accepted,98,-143.5,120.0,-122.8838809565674,Waiting for server
+delay-accepted,99,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,100,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,101,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,102,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,103,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,104,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,105,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,106,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,107,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,108,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,109,-143.5,120.0,-122.8226525196777,Waiting for server
+delay-accepted,110,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,111,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,112,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,113,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,114,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,115,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,116,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,117,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,118,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,119,-143.5,120.0,-122.8226525196777,Checking server footing
+delay-accepted,120,-143.5,120.0,-122.72465251631004,Aim at bridge edge
+delay-accepted,121,-143.5,120.0,-122.57314450488855,Aim at bridge edge
+delay-accepted,122,-143.5,120.0,-122.39242111767621,Aim at bridge edge
+delay-accepted,123,-143.5,120.0,-122.19574613342925,Aim at bridge edge
+delay-accepted,124,-143.5,120.0,-121.99036157618976,Aim at bridge edge
+delay-accepted,125,-143.5,120.0,-121.87822159491164,Waiting for server
+delay-accepted,126,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,127,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,128,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,129,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,130,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,131,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,132,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,133,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,134,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,135,-143.5,120.0,-121.81699315802194,Waiting for server
+delay-accepted,136,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,137,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,138,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,139,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,140,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,141,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,142,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,143,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,144,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,145,-143.5,120.0,-121.81699315802194,Checking server footing
+delay-accepted,146,-143.5,120.0,-121.71899315465429,Aim at bridge edge
+delay-accepted,147,-143.5,120.0,-121.56748514323279,Aim at bridge edge
+delay-accepted,148,-143.5,120.0,-121.38676175602045,Aim at bridge edge
+delay-accepted,149,-143.5,120.0,-121.1900867717735,Aim at bridge edge
+delay-accepted,150,-143.5,120.0,-120.984702214534,Aim at bridge edge
+delay-accepted,151,-143.5,120.0,-120.87256223325588,Waiting for server
+delay-accepted,152,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,153,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,154,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,155,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,156,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,157,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,158,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,159,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,160,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,161,-143.5,120.0,-120.81133379636618,Waiting for server
+delay-accepted,162,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,163,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,164,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,165,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,166,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,167,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,168,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,169,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,170,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,171,-143.5,120.0,-120.81133379636618,Checking server footing
+delay-accepted,172,-143.5,120.0,-120.71333379299853,Aim at bridge edge
+delay-accepted,173,-143.5,120.0,-120.56182578157703,Aim at bridge edge
+delay-accepted,174,-143.5,120.0,-120.38110239436469,Aim at bridge edge
+delay-accepted,175,-143.5,120.0,-120.18442741011773,Aim at bridge edge
+delay-accepted,176,-143.5,120.0,-119.97904285287824,Aim at bridge edge
+delay-accepted,177,-143.5,120.0,-119.86690287160012,Waiting for server
+delay-accepted,178,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,179,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,180,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,181,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,182,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,183,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,184,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,185,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,186,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,187,-143.5,120.0,-119.80567443471043,Waiting for server
+delay-accepted,188,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,189,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,190,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,191,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,192,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,193,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,194,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,195,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,196,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,197,-143.5,120.0,-119.80567443471043,Checking server footing
+delay-accepted,198,-143.5,120.0,-119.70767443134277,Aim at bridge edge
+delay-accepted,199,-143.5,120.0,-119.55616641992127,Aim at bridge edge
+delay-accepted,200,-143.5,120.0,-119.37544303270893,Aim at bridge edge
+delay-accepted,201,-143.5,120.0,-119.17876804846198,Aim at bridge edge
+delay-accepted,202,-143.5,120.0,-118.97338349122248,Aim at bridge edge
+delay-accepted,203,-143.5,120.0,-118.86124350994436,Waiting for server
+delay-accepted,204,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,205,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,206,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,207,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,208,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,209,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,210,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,211,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,212,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,213,-143.5,120.0,-118.80001507305467,Waiting for server
+delay-accepted,214,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,215,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,216,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,217,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,218,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,219,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,220,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,221,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,222,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,223,-143.5,120.0,-118.80001507305467,Checking server footing
+delay-accepted,224,-143.5,120.0,-118.80001507305467,Place underfoot
+delay-accepted,225,-143.5,120.0,-118.80001507305467,Place underfoot
+delay-accepted,226,-143.5,120.0,-118.80001507305467,Place underfoot
+delay-accepted,227,-143.5,120.0,-118.80001507305467,Place underfoot
+delay-accepted,228,-143.5,120.0,-118.80001507305467,Place underfoot
+delay-accepted,229,-143.5,120.0,-118.80001507305467,Place underfoot
+delay-accepted,230,-143.5,120.0,-118.80001507305467,Place underfoot
+reject,30,-159.5,120.0,-127.5,Place underfoot
+reject,31,-159.5,120.0,-127.40199999663234,Aim at bridge edge
+reject,32,-159.5,120.0,-127.25049198521084,Aim at bridge edge
+reject,33,-159.5,120.0,-127.0697685979985,Aim at bridge edge
+reject,34,-159.5,120.0,-126.87309361375155,Aim at bridge edge
+reject,35,-159.5,120.0,-126.66770905651205,Aim at bridge edge
+reject,36,-159.5,120.0,-126.45756907186627,Aim at bridge edge
+reject,37,-159.5,120.0,-126.24483262355507,Aim at bridge edge
+reject,38,-159.5,120.0,-126.03067850591789,Aim at bridge edge
+reject,39,-159.5,120.0,-125.81575034073882,Aim at bridge edge
+reject,40,-159.5,120.0,-125.60039954555278,Aim at bridge edge
+reject,41,-159.5,120.0,-125.38481799435613,Aim at bridge edge
+reject,42,-159.5,120.0,-125.16911045036305,Aim at bridge edge
+reject,43,-159.5,120.0,-124.95333411429515,Aim at bridge edge
+reject,44,-159.5,120.0,-124.83552022111768,Waiting for server
+reject,45,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,46,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,47,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,48,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,49,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,50,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,51,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,52,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,53,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,54,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,55,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,56,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,57,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,58,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,59,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,60,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,61,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,62,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,63,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,64,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,65,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,66,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,67,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,68,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,69,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,70,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,71,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,72,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,73,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,74,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,75,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,76,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,77,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,78,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,79,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,80,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,81,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,82,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,83,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,84,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,85,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,86,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,87,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,88,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,89,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,90,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,91,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,92,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,93,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,94,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,95,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,96,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,97,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,98,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,99,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,100,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,101,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,102,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,103,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,104,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,105,-159.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject,106,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,107,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,108,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,109,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,110,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,111,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,112,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,113,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,114,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,115,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,116,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,117,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,118,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,119,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,120,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,121,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,122,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,123,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,124,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,125,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,126,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,127,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,128,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,129,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,130,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,131,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,132,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,133,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,134,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,135,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,136,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,137,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,138,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,139,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,140,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,141,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,142,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,143,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,144,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,145,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,146,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,147,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,148,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,149,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,150,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,151,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,152,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,153,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,154,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,155,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,156,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,157,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,158,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,159,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,160,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,161,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,162,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,163,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,164,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,165,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,166,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,167,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,168,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,169,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,170,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,171,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,172,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,173,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,174,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,175,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,176,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,177,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,178,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,179,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,180,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,181,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,182,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,183,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,184,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,185,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,186,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,187,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,188,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,189,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,190,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,191,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,192,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,193,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,194,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,195,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,196,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,197,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,198,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,199,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,200,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,201,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,202,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,203,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,204,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,205,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,206,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,207,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,208,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,209,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,210,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,211,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,212,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,213,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,214,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,215,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,216,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,217,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,218,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,219,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,220,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,221,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,222,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,223,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,224,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,225,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,226,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,227,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,228,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,229,-159.5,120.0,-124.80335702454438,Release key to retry
+reject,230,-159.5,120.0,-124.80335702454438,Release key to retry
+reject-release,30,-175.5,120.0,-127.5,Place underfoot
+reject-release,31,-175.5,120.0,-127.40199999663234,Aim at bridge edge
+reject-release,32,-175.5,120.0,-127.25049198521084,Aim at bridge edge
+reject-release,33,-175.5,120.0,-127.0697685979985,Aim at bridge edge
+reject-release,34,-175.5,120.0,-126.87309361375155,Aim at bridge edge
+reject-release,35,-175.5,120.0,-126.66770905651205,Aim at bridge edge
+reject-release,36,-175.5,120.0,-126.45756907186627,Aim at bridge edge
+reject-release,37,-175.5,120.0,-126.24483262355507,Aim at bridge edge
+reject-release,38,-175.5,120.0,-126.03067850591789,Aim at bridge edge
+reject-release,39,-175.5,120.0,-125.81575034073882,Aim at bridge edge
+reject-release,40,-175.5,120.0,-125.60039954555278,Aim at bridge edge
+reject-release,41,-175.5,120.0,-125.38481799435613,Aim at bridge edge
+reject-release,42,-175.5,120.0,-125.16911045036305,Aim at bridge edge
+reject-release,43,-175.5,120.0,-124.95333411429515,Aim at bridge edge
+reject-release,44,-175.5,120.0,-124.83552022111768,Waiting for server
+reject-release,45,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,46,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,47,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,48,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,49,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,50,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,51,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,52,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,53,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,54,-175.5,120.0,-124.80335702454438,Waiting for server
+reject-release,55,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,56,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,57,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,58,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,59,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,60,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,61,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,62,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,63,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,64,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,65,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,66,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,67,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,68,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,69,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,70,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,71,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,72,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,73,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,74,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,75,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,76,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,77,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,78,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,79,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,80,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,81,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,82,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,83,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,84,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,85,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,86,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,87,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,88,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,89,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,90,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,91,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,92,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,93,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,94,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,95,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,96,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,97,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,98,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,99,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,100,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,101,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,102,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,103,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,104,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,105,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,106,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,107,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,108,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,109,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,110,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,111,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,112,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,113,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,114,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,115,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,116,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,117,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,118,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,119,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,120,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,121,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,122,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,123,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,124,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,125,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,126,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,127,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,128,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,129,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,130,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,131,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,132,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,133,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,134,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,135,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,136,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,137,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,138,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,139,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,140,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,141,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,142,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,143,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,144,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,145,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,146,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,147,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,148,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,149,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,150,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,151,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,152,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,153,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,154,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,155,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,156,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,157,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,158,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,159,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,160,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,161,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,162,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,163,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,164,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,165,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,166,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,167,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,168,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,169,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,170,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,171,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,172,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,173,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,174,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,175,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,176,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,177,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,178,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,179,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,180,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,181,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,182,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,183,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,184,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,185,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,186,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,187,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,188,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,189,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,190,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,191,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,192,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,193,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,194,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,195,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,196,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,197,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,198,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,199,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,200,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,201,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,202,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,203,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,204,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,205,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,206,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,207,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,208,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,209,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,210,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,211,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,212,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,213,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,214,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,215,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,216,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,217,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,218,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,219,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,220,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,221,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,222,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,223,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,224,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,225,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,226,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,227,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,228,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,229,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+reject-release,230,-175.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,30,-191.5,120.0,-127.5,Place underfoot
+rollback,31,-191.5,120.0,-127.40199999663234,Aim at bridge edge
+rollback,32,-191.5,120.0,-127.25049198521084,Aim at bridge edge
+rollback,33,-191.5,120.0,-127.0697685979985,Aim at bridge edge
+rollback,34,-191.5,120.0,-126.87309361375155,Aim at bridge edge
+rollback,35,-191.5,120.0,-126.66770905651205,Aim at bridge edge
+rollback,36,-191.5,120.0,-126.45756907186627,Aim at bridge edge
+rollback,37,-191.5,120.0,-126.24483262355507,Aim at bridge edge
+rollback,38,-191.5,120.0,-126.03067850591789,Aim at bridge edge
+rollback,39,-191.5,120.0,-125.81575034073882,Aim at bridge edge
+rollback,40,-191.5,120.0,-125.60039954555278,Aim at bridge edge
+rollback,41,-191.5,120.0,-125.38481799435613,Aim at bridge edge
+rollback,42,-191.5,120.0,-125.16911045036305,Aim at bridge edge
+rollback,43,-191.5,120.0,-124.95333411429515,Aim at bridge edge
+rollback,44,-191.5,120.0,-124.83552022111768,Waiting for server
+rollback,45,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,46,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,47,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,48,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,49,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,50,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,51,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,52,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,53,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,54,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,55,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,56,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,57,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,58,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,59,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,60,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,61,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,62,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,63,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,64,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,65,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,66,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,67,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,68,-191.5,120.0,-124.80335702454438,Waiting for server
+rollback,69,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,70,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,71,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,72,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,73,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,74,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,75,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,76,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,77,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,78,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,79,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,80,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,81,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,82,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,83,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,84,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,85,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,86,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,87,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,88,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,89,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,90,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,91,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,92,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,93,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,94,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,95,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,96,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,97,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,98,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,99,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,100,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,101,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,102,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,103,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,104,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,105,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,106,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,107,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,108,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,109,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,110,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,111,-191.5,120.0,-124.80335702454438,Rejected: stop to reset
+rollback,112,-191.5,120.0,-124.80335702454438,Waiting for server
+rollback,113,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,114,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,115,-191.5,120.0,-124.80335702454438,Checking server footing
+rollback,116,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,117,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,118,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,119,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,120,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,121,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,122,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,123,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,124,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,125,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,126,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,127,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,128,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,129,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,130,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,131,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,132,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,133,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,134,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,135,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,136,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,137,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,138,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,139,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,140,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,141,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,142,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,143,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,144,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,145,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,146,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,147,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,148,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,149,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,150,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,151,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,152,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,153,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,154,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,155,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,156,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,157,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,158,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,159,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,160,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,161,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,162,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,163,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,164,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,165,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,166,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,167,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,168,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,169,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,170,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,171,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,172,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,173,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,174,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,175,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,176,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,177,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,178,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,179,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,180,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,181,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,182,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,183,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,184,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,185,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,186,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,187,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,188,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,189,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,190,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,191,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,192,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,193,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,194,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,195,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,196,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,197,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,198,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,199,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,200,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,201,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,202,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,203,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,204,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,205,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,206,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,207,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,208,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,209,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,210,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,211,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,212,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,213,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,214,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,215,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,216,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,217,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,218,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,219,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,220,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,221,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,222,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,223,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,224,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,225,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,226,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,227,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,228,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,229,-191.5,120.0,-124.80335702454438,Release key to retry
+rollback,230,-191.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,30,-207.5,120.0,-127.5,Place underfoot
+late-rollback,31,-207.5,120.0,-127.40199999663234,Aim at bridge edge
+late-rollback,32,-207.5,120.0,-127.25049198521084,Aim at bridge edge
+late-rollback,33,-207.5,120.0,-127.0697685979985,Aim at bridge edge
+late-rollback,34,-207.5,120.0,-126.87309361375155,Aim at bridge edge
+late-rollback,35,-207.5,120.0,-126.66770905651205,Aim at bridge edge
+late-rollback,36,-207.5,120.0,-126.45756907186627,Aim at bridge edge
+late-rollback,37,-207.5,120.0,-126.24483262355507,Aim at bridge edge
+late-rollback,38,-207.5,120.0,-126.03067850591789,Aim at bridge edge
+late-rollback,39,-207.5,120.0,-125.81575034073882,Aim at bridge edge
+late-rollback,40,-207.5,120.0,-125.60039954555278,Aim at bridge edge
+late-rollback,41,-207.5,120.0,-125.38481799435613,Aim at bridge edge
+late-rollback,42,-207.5,120.0,-125.16911045036305,Aim at bridge edge
+late-rollback,43,-207.5,120.0,-124.95333411429515,Aim at bridge edge
+late-rollback,44,-207.5,120.0,-124.83552022111768,Waiting for server
+late-rollback,45,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,46,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,47,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,48,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,49,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,50,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,51,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,52,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,53,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,54,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,55,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,56,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,57,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,58,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,59,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,60,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,61,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,62,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,63,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,64,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,65,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,66,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,67,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,68,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,69,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,70,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,71,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,72,-207.5,120.0,-124.80335702454438,Waiting for server
+late-rollback,73,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,74,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,75,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,76,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,77,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,78,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,79,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,80,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,81,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,82,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,83,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,84,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,85,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,86,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,87,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,88,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,89,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,90,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,91,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,92,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,93,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,94,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,95,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,96,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,97,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,98,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,99,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,100,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,101,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,102,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,103,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,104,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,105,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,106,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,107,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,108,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,109,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,110,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,111,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,112,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,113,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,114,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,115,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,116,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,117,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,118,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,119,-207.5,120.0,-124.80335702454438,Rejected: stop to reset
+late-rollback,120,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,121,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,122,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,123,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,124,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,125,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,126,-207.5,120.0,-124.80335702454438,Checking server footing
+late-rollback,127,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,128,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,129,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,130,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,131,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,132,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,133,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,134,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,135,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,136,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,137,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,138,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,139,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,140,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,141,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,142,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,143,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,144,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,145,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,146,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,147,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,148,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,149,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,150,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,151,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,152,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,153,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,154,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,155,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,156,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,157,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,158,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,159,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,160,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,161,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,162,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,163,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,164,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,165,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,166,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,167,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,168,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,169,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,170,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,171,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,172,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,173,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,174,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,175,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,176,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,177,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,178,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,179,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,180,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,181,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,182,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,183,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,184,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,185,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,186,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,187,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,188,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,189,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,190,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,191,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,192,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,193,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,194,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,195,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,196,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,197,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,198,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,199,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,200,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,201,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,202,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,203,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,204,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,205,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,206,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,207,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,208,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,209,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,210,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,211,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,212,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,213,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,214,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,215,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,216,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,217,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,218,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,219,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,220,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,221,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,222,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,223,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,224,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,225,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,226,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,227,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,228,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,229,-207.5,120.0,-124.80335702454438,Release key to retry
+late-rollback,230,-207.5,120.0,-124.80335702454438,Release key to retry
+ack-only-ghost,30,-223.5,120.0,-127.5,Place underfoot
+ack-only-ghost,31,-223.5,120.0,-127.40199999663234,Aim at bridge edge
+ack-only-ghost,32,-223.5,120.0,-127.25049198521084,Aim at bridge edge
+ack-only-ghost,33,-223.5,120.0,-127.0697685979985,Aim at bridge edge
+ack-only-ghost,34,-223.5,120.0,-126.87309361375155,Aim at bridge edge
+ack-only-ghost,35,-223.5,120.0,-126.66770905651205,Aim at bridge edge
+ack-only-ghost,36,-223.5,120.0,-126.45756907186627,Aim at bridge edge
+ack-only-ghost,37,-223.5,120.0,-126.24483262355507,Aim at bridge edge
+ack-only-ghost,38,-223.5,120.0,-126.03067850591789,Aim at bridge edge
+ack-only-ghost,39,-223.5,120.0,-125.81575034073882,Aim at bridge edge
+ack-only-ghost,40,-223.5,120.0,-125.60039954555278,Aim at bridge edge
+ack-only-ghost,41,-223.5,120.0,-125.38481799435613,Aim at bridge edge
+ack-only-ghost,42,-223.5,120.0,-125.16911045036305,Aim at bridge edge
+ack-only-ghost,43,-223.5,120.0,-124.95333411429515,Aim at bridge edge
+ack-only-ghost,44,-223.5,120.0,-124.83552022111768,Waiting for server
+ack-only-ghost,45,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,46,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,47,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,48,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,49,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,50,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,51,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,52,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,53,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,54,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,55,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,56,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,57,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,58,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,59,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,60,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,61,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,62,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,63,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,64,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,65,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,66,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,67,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,68,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,69,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,70,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,71,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,72,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,73,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,74,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,75,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,76,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,77,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,78,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,79,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,80,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,81,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,82,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,83,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,84,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,85,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,86,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,87,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,88,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,89,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,90,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,91,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,92,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,93,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,94,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,95,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,96,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,97,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,98,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,99,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,100,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,101,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,102,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,103,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,104,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,105,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,106,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,107,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,108,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,109,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,110,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,111,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,112,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,113,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,114,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,115,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,116,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,117,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,118,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,119,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,120,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,121,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,122,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,123,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,124,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,125,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,126,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,127,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,128,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,129,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,130,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,131,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,132,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,133,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,134,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,135,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,136,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,137,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,138,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,139,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,140,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,141,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,142,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,143,-223.5,120.0,-124.80335702454438,Checking server footing
+ack-only-ghost,144,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,145,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,146,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,147,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,148,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,149,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,150,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,151,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,152,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,153,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,154,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,155,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,156,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,157,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,158,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,159,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,160,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,161,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,162,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,163,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,164,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,165,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,166,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,167,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,168,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,169,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,170,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,171,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,172,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,173,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,174,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,175,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,176,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,177,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,178,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,179,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,180,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,181,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,182,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,183,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,184,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,185,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,186,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,187,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,188,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,189,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,190,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,191,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,192,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,193,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,194,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,195,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,196,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,197,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,198,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,199,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,200,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,201,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,202,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,203,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,204,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,205,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,206,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,207,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,208,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,209,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,210,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,211,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,212,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,213,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,214,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,215,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,216,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,217,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,218,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,219,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,220,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,221,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,222,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,223,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,224,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,225,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,226,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,227,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,228,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,229,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+ack-only-ghost,230,-223.5,120.0,-124.80335702454438,Unconfirmed: stopped safely
+delayed-block-update,30,-239.5,120.0,-127.5,Place underfoot
+delayed-block-update,31,-239.5,120.0,-127.40199999663234,Aim at bridge edge
+delayed-block-update,32,-239.5,120.0,-127.25049198521084,Aim at bridge edge
+delayed-block-update,33,-239.5,120.0,-127.0697685979985,Aim at bridge edge
+delayed-block-update,34,-239.5,120.0,-126.87309361375155,Aim at bridge edge
+delayed-block-update,35,-239.5,120.0,-126.66770905651205,Aim at bridge edge
+delayed-block-update,36,-239.5,120.0,-126.45756907186627,Aim at bridge edge
+delayed-block-update,37,-239.5,120.0,-126.24483262355507,Aim at bridge edge
+delayed-block-update,38,-239.5,120.0,-126.03067850591789,Aim at bridge edge
+delayed-block-update,39,-239.5,120.0,-125.81575034073882,Aim at bridge edge
+delayed-block-update,40,-239.5,120.0,-125.60039954555278,Aim at bridge edge
+delayed-block-update,41,-239.5,120.0,-125.38481799435613,Aim at bridge edge
+delayed-block-update,42,-239.5,120.0,-125.16911045036305,Aim at bridge edge
+delayed-block-update,43,-239.5,120.0,-124.95333411429515,Aim at bridge edge
+delayed-block-update,44,-239.5,120.0,-124.83552022111768,Checking server footing
+delayed-block-update,45,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,46,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,47,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,48,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,49,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,50,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,51,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,52,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,53,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,54,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,55,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,56,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,57,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,58,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,59,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,60,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,61,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,62,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,63,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,64,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,65,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,66,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,67,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,68,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,69,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,70,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,71,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,72,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,73,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,74,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,75,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,76,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,77,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,78,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,79,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,80,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,81,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,82,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,83,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,84,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,85,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,86,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,87,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,88,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,89,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,90,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,91,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,92,-239.5,120.0,-124.80335702454438,Checking server footing
+delayed-block-update,93,-239.5,120.0,-124.70535702117672,Aim at bridge edge
+delayed-block-update,94,-239.5,120.0,-124.55384900975523,Aim at bridge edge
+delayed-block-update,95,-239.5,120.0,-124.37312562254289,Aim at bridge edge
+delayed-block-update,96,-239.5,120.0,-124.17645063829593,Aim at bridge edge
+delayed-block-update,97,-239.5,120.0,-123.97106608105643,Aim at bridge edge
+delayed-block-update,98,-239.5,120.0,-123.85892609977832,Checking server footing
+delayed-block-update,99,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,100,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,101,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,102,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,103,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,104,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,105,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,106,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,107,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,108,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,109,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,110,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,111,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,112,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,113,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,114,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,115,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,116,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,117,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,118,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,119,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,120,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,121,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,122,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,123,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,124,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,125,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,126,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,127,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,128,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,129,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,130,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,131,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,132,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,133,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,134,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,135,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,136,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,137,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,138,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,139,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,140,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,141,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,142,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,143,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,144,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,145,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,146,-239.5,120.0,-123.82831188133346,Checking server footing
+delayed-block-update,147,-239.5,120.0,-123.7303118779658,Aim at bridge edge
+delayed-block-update,148,-239.5,120.0,-123.5788038665443,Aim at bridge edge
+delayed-block-update,149,-239.5,120.0,-123.39808047933197,Aim at bridge edge
+delayed-block-update,150,-239.5,120.0,-123.20140549508501,Aim at bridge edge
+delayed-block-update,151,-239.5,120.0,-122.99602093784551,Aim at bridge edge
+delayed-block-update,152,-239.5,120.0,-122.8838809565674,Checking server footing
+delayed-block-update,153,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,154,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,155,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,156,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,157,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,158,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,159,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,160,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,161,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,162,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,163,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,164,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,165,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,166,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,167,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,168,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,169,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,170,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,171,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,172,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,173,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,174,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,175,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,176,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,177,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,178,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,179,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,180,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,181,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,182,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,183,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,184,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,185,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,186,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,187,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,188,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,189,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,190,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,191,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,192,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,193,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,194,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,195,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,196,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,197,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,198,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,199,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,200,-239.5,120.0,-122.8226525196777,Checking server footing
+delayed-block-update,201,-239.5,120.0,-122.72465251631004,Aim at bridge edge
+delayed-block-update,202,-239.5,120.0,-122.57314450488855,Aim at bridge edge
+delayed-block-update,203,-239.5,120.0,-122.39242111767621,Aim at bridge edge
+delayed-block-update,204,-239.5,120.0,-122.19574613342925,Aim at bridge edge
+delayed-block-update,205,-239.5,120.0,-121.99036157618976,Aim at bridge edge
+delayed-block-update,206,-239.5,120.0,-121.87822159491164,Checking server footing
+delayed-block-update,207,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,208,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,209,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,210,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,211,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,212,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,213,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,214,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,215,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,216,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,217,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,218,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,219,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,220,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,221,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,222,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,223,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,224,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,225,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,226,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,227,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,228,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,229,-239.5,120.0,-121.81699315802194,Checking server footing
+delayed-block-update,230,-239.5,120.0,-121.81699315802194,Checking server footing
+secondary-ghost,30,-255.5,120.0,-127.5,Place underfoot
+secondary-ghost,31,-255.4292893279983,120.0,-127.4292893279983,Select blocks
+secondary-ghost,32,-255.31997062459925,120.0,-127.31997062459925,Select blocks
+secondary-ghost,33,-255.18957193360876,120.0,-127.18957193360875,Select blocks
+secondary-ghost,34,-255.04766356805644,120.0,-127.04766356805644,Select blocks
+secondary-ghost,35,-254.89947091946343,120.0,-126.89947091946344,Select blocks
+secondary-ghost,36,-254.74784705193167,120.0,-126.74784705193169,Select blocks
+secondary-ghost,37,-254.59434973864174,120.0,-126.59434973864177,Select blocks
+secondary-ghost,38,-254.43982952384903,120.0,-126.43982952384907,Select blocks
+secondary-ghost,39,-254.28475080477094,120.0,-126.284750804771,Select blocks
+secondary-ghost,40,-254.12936714231762,120.0,-126.12936714231768,Select blocks
+secondary-ghost,41,-253.97381698076208,120.0,-125.97381698076214,Select blocks
+secondary-ghost,42,-253.81817591068616,120.0,-125.81817591068622,Select blocks
+secondary-ghost,43,-253.66248520455235,120.0,-125.66248520455241,Select blocks
+secondary-ghost,44,-253.5067673971278,120.0,-125.50676739712785,Select blocks
+secondary-ghost,45,-253.35103479239675,120.0,-125.35103479239682,Select blocks
+secondary-ghost,46,-253.19529410833545,120.0,-125.19529410833552,Select blocks
+secondary-ghost,47,-253.0395490129593,120.0,-125.03954901295937,Select blocks
+secondary-ghost,48,-252.88380150900497,120.0,-124.88380150900504,Select blocks
+secondary-ghost,49,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,50,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,51,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,52,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,53,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,54,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,55,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,56,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,57,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,58,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,59,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,60,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,61,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,62,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,63,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,64,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,65,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,66,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,67,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,68,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,69,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,70,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,71,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,72,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,73,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,74,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,75,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,76,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,77,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,78,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,79,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,80,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,81,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,82,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,83,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,84,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,85,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,86,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,87,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,88,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,89,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,90,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,91,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,92,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,93,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,94,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,95,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,96,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,97,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,98,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,99,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,100,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,101,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,102,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,103,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,104,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,105,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,106,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,107,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,108,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,109,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,110,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,111,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,112,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,113,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,114,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,115,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,116,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,117,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,118,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,119,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,120,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,121,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,122,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,123,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,124,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,125,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,126,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,127,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,128,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,129,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,130,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,131,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,132,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,133,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,134,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,135,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,136,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,137,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,138,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,139,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,140,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,141,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,142,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,143,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,144,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,145,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,146,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,147,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,148,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,149,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,150,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,151,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,152,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,153,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,154,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,155,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,156,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,157,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,158,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,159,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,160,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,161,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,162,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,163,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,164,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,165,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,166,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,167,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,168,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,169,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,170,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,171,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,172,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,173,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,174,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,175,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,176,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,177,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,178,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,179,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,180,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,181,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,182,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,183,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,184,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,185,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,186,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,187,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,188,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,189,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,190,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,191,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,192,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,193,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,194,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,195,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,196,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,197,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,198,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,199,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,200,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,201,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,202,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,203,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,204,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,205,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,206,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,207,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,208,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,209,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,210,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,211,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,212,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,213,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,214,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,215,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,216,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,217,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,218,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,219,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,220,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,221,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,222,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,223,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,224,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,225,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,226,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,227,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,228,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,229,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ghost,230,-252.82710941098065,120.0,-124.82710941098073,Select blocks
+secondary-ack-only-jump,30,-271.5,120.0,-127.5,Place underfoot
+secondary-ack-only-jump,31,-271.4292893279983,120.41999998688698,-127.4292893279983,Select blocks
+secondary-ack-only-jump,32,-271.3765391627274,120.7531999805212,-127.37653916272745,Select blocks
+secondary-ack-only-jump,33,-271.314394377074,121.00133597911214,-127.31439437707404,Select blocks
+secondary-ack-only-jump,34,-271.2437004866261,121.16610926093821,-127.24370048662611,Select blocks
+secondary-ack-only-jump,35,-271.16522691059095,121.24918707874468,-127.16522691059097,Select blocks
+secondary-ack-only-jump,36,-271.0796738204674,121.25220334025373,-127.07967382046745,Select blocks
+secondary-ack-only-jump,37,-270.98767837233777,121.17675927506424,-126.98767837233781,Select blocks
+secondary-ack-only-jump,38,-270.8898203782536,121.02442408821369,-126.88982037825366,Select blocks
+secondary-ack-only-jump,39,-270.7866274671971,120.79673560066871,-126.78662746719715,Select blocks
+secondary-ack-only-jump,40,-270.6785797815558,120.49520087700593,-126.67857978155588,Select blocks
+secondary-ack-only-jump,41,-270.56611425091506,120.1212968405392,-126.56611425091516,Select blocks
+secondary-ack-only-jump,42,-270.449628481209,120.0,-126.44962848120907,Select blocks
+secondary-ack-only-jump,43,-270.2729157557198,120.41999998688698,-126.27291575571988,Select blocks
+secondary-ack-only-jump,44,-270.16228846252216,120.7531999805212,-126.16228846252227,Select blocks
+secondary-ack-only-jump,45,-270.0474754889375,121.00133597911214,-126.04747548893762,Select blocks
+secondary-ack-only-jump,46,-269.92885354609086,121.16610926093821,-125.92885354609099,Select blocks
+secondary-ack-only-jump,47,-269.80676544111594,121.24918707874468,-125.80676544111607,Select blocks
+secondary-ack-only-jump,48,-269.6815231285134,121.25220334025373,-125.6815231285135,Select blocks
+secondary-ack-only-jump,49,-269.55341048688695,121.17675927506424,-125.55341048688706,Select blocks
+secondary-ack-only-jump,50,-269.42268584577346,121.02442408821369,-125.4226858457736,Select blocks
+secondary-ack-only-jump,51,-269.2895842850583,120.79673560066871,-125.28958428505845,Select blocks
+secondary-ack-only-jump,52,-269.1543197274433,120.49520087700593,-125.15431972744344,Select blocks
+secondary-ack-only-jump,53,-269.0170868425927,120.1212968405392,-125.01708684259282,Select blocks
+secondary-ack-only-jump,54,-268.87806277990603,120.0,-124.87806277990617,Select blocks
+secondary-ack-only-jump,55,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,56,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,57,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,58,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,59,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,60,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,61,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,62,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,63,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,64,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,65,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,66,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,67,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,68,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,69,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,70,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,71,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,72,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,73,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,74,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,75,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,76,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,77,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,78,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,79,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,80,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,81,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,82,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,83,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,84,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,85,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,86,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,87,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,88,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,89,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,90,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,91,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,92,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,93,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,94,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,95,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,96,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,97,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,98,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,99,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,100,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,101,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,102,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,103,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,104,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,105,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,106,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,107,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,108,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,109,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,110,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,111,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,112,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,113,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,114,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,115,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,116,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,117,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,118,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,119,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,120,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,121,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,122,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,123,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,124,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,125,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,126,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,127,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,128,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,129,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,130,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,131,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,132,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,133,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,134,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,135,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,136,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,137,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,138,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,139,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,140,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,141,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,142,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,143,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,144,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,145,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,146,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,147,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,148,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,149,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,150,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,151,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,152,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,153,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,154,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,155,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,156,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,157,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,158,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,159,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,160,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,161,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,162,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,163,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,164,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,165,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,166,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,167,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,168,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,169,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,170,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,171,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,172,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,173,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,174,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,175,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,176,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,177,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,178,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,179,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,180,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,181,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,182,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,183,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,184,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,185,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,186,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,187,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,188,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,189,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,190,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,191,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,192,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,193,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,194,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,195,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,196,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,197,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,198,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,199,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,200,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,201,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,202,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,203,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,204,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,205,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,206,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,207,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,208,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,209,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,210,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,211,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,212,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,213,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,214,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,215,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,216,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,217,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,218,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,219,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,220,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,221,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,222,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,223,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,224,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,225,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,226,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,227,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,228,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,229,-268.8148068295606,120.0,-124.81480682956072,Select blocks
+secondary-ack-only-jump,230,-268.8148068295606,120.0,-124.81480682956072,Select blocks
