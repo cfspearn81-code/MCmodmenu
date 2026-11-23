@@ -3,7 +3,7 @@
   "id": "fastersprint",
   "version": "${version}",
   "name": "Faster",
-  "description": "P opens the searchable module menu. Free Look with a configurable hold key and Free Cam with a configurable toggle key. Aim Lock with a configurable hold key. Original v1.3.5 Auto Bridge. Sky Tint color controls. BedEsp, QuickFall and QuickJump. Wall Climb with ladder physics, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
+  "description": "P opens the searchable module menu. Free Look with a configurable hold key and Free Cam with a configurable toggle key. Aim Lock with a configurable hold key. v1.3.5 Auto Bridge placements with a movement edge guard. Sky Tint color controls. BedEsp, QuickFall and QuickJump. Wall Climb with ladder physics, GuiMove, player ESP and color-coded Xray ore outlines with range and ore filters.",
   "environment": "client",
   "mixins": [
     "fastersprint.mixins.json"

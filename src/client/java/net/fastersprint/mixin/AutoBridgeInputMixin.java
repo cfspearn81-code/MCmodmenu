@@ -26,6 +26,12 @@ abstract class AutoBridgeInputMixin extends ClientInput {
             return;
         }
         Input raw = keyPresses;
+        AutoBridge.updateControls(moveVector, raw.jump());
+        if (AutoBridge.stoppingForServer()) {
+            keyPresses = new Input(false, false, false, false, false, raw.shift(), false);
+            moveVector = Vec2.ZERO;
+            return;
+        }
         boolean protecting = AutoBridge.isProtecting();
         boolean stop = protecting && AutoBridge.shouldStopInput(moveVector, raw.jump(), raw.sprint());
         var requested = new BridgeControls.Keys(raw.forward(), raw.backward(), raw.left(), raw.right(),
@@ -35,6 +41,5 @@ abstract class AutoBridgeInputMixin extends ClientInput {
             guarded.jump(), guarded.sneak(), guarded.sprint());
         if (stop) moveVector = Vec2.ZERO;
         // LocalPlayer consumes these same controls for physics and vanilla ServerboundPlayerInputPacket.
-        // No custom movement/rotation packets and no post-physics velocity or position changes.
     }
 }

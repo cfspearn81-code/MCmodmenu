@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.11.4
+
+- Check the resolved player movement step for solid footing, including diagonal steps and momentum after releasing the bridge key. Ignore blocks that still have pending client predictions.
+- Pause Auto Bridge when the server moves or knocks back the player. Release the bridge key and hold it again on solid ground to resume.
+
 ## 1.11.3
 
 - Restore Auto Bridge from v1.3.5, including crosshair-based placement, the original pre-movement input guard, and one pending placement until vanilla acknowledges it. Auto Bridge yields to Free Cam and Wall Climb.
