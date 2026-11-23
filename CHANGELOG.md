@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.11.3
+
+- Restore Auto Bridge from v1.3.5, including crosshair-based placement, the original pre-movement input guard, and one pending placement until vanilla acknowledges it. Auto Bridge yields to Free Cam and Wall Climb.
+
 ## 1.11.2
 
 - Keep Minecraft’s terrain occlusion culling active during Free Look whenever the orbit camera is outside solid blocks. The camera can still pass through walls.

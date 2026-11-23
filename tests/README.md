@@ -6,7 +6,9 @@ The Fabric prelaunch check validates that the Minecraft attack invoker applies a
 
 CursorTrailTest exercises nine fade/reset/bounds cases without Minecraft dependencies. tests/menu-visual contains the disposable real-client screenshot/focus test fixture and validation notes.
 
-The ui.2 edge fix intentionally changes AutoBridge and adds BridgeEdgeGuard plus its player-movement mixin. Earlier byte-identical bridge checks apply to ui.1; ui.2 preserves targeting, timing, GUI, ESP and Auto Hit, while changing the safety checks. BridgeEdgeGuardTest covers 72 swept angles plus retreat, gap, confirmed-path and pending-footing checks.
+The ui.2 edge fix added BridgeEdgeGuard and its player-movement mixin. The sweep and footing tracker unit tests for that later implementation are available at tag `v1.11.2`. Faster 1.11.3 uses the original v1.3.5 input guard and acknowledgement checks.
+
+A local Minecraft 26.3 client and server verified crosshair-only targeting, 22 accepted placements, a ten-tick acknowledgement delay, reconciliation of a rejected predicted block, and Free Cam taking priority. The original input guard allowed momentum to carry the player off the platform during the horizontal-aim, delayed-acknowledgement, and rejected-placement runs.
 
 ui.3 adds GuiMoveSettingsTest for legacy configuration migration and explicit-new-setting precedence. The live movement/screens/tracer fixture and its validation limits are documented in tests/guimove-live/README.md. Production bridge, Auto Hit, cursor, paint and nametag-color resolver classes were verified byte-identical to ui.2.
 

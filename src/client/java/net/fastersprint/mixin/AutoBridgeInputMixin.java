@@ -2,6 +2,8 @@ package net.fastersprint.mixin;
 
 import net.fastersprint.AutoBridge;
 import net.fastersprint.BridgeControls;
+import net.fastersprint.ClientMenu;
+import net.fastersprint.FreeCam;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.ClientInput;
 import net.minecraft.client.player.KeyboardInput;
@@ -18,18 +20,12 @@ abstract class AutoBridgeInputMixin extends ClientInput {
     private void fastersprint$protectBridgeControls(CallbackInfo callback) {
         Minecraft game = Minecraft.getInstance();
         if (game.player == null || game.player.input != (Object) this) return;
-        if (net.fastersprint.FreeCam.active() || net.fastersprint.ClientMenu.capturesMovement()) {
-            AutoBridge.updateControls(Vec2.ZERO, false);
-            keyPresses = Input.EMPTY; moveVector = Vec2.ZERO; return;
-        }
-        Input raw = keyPresses;
-        AutoBridge.updateControls(moveVector, raw.jump());
-        AutoBridge.place(moveVector);
-        if (AutoBridge.stoppingForServer()) {
-            keyPresses = new Input(false, false, false, false, false, raw.shift(), false);
+        if (FreeCam.active() || ClientMenu.capturesMovement()) {
+            keyPresses = Input.EMPTY;
             moveVector = Vec2.ZERO;
             return;
         }
+        Input raw = keyPresses;
         boolean protecting = AutoBridge.isProtecting();
         boolean stop = protecting && AutoBridge.shouldStopInput(moveVector, raw.jump(), raw.sprint());
         var requested = new BridgeControls.Keys(raw.forward(), raw.backward(), raw.left(), raw.right(),
